@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dev@dev-box · software engineering student</title>
+<meta name="description" content="Endalkachew Yaregal — SWE student. Full-stack, backend-leaning. SaaS, payments, SMS, AI integrations. Vercel, Render, Docker.">
+<meta name="theme-color" content="#0b0a09">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230b0a09'/><circle cx='16' cy='16' r='4' fill='%23c9a66b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ instrument of thought ============ */
+:root{
+  --bg:#0b0a09;
+  --surface:#121110;
+  --surface2:#181614;
+  --ink:#ebe6df;
+  --sub:#9a938a;
+  --faint:#6a645c;
+  --hair:rgba(235,230,223,.08);
+  --hair2:rgba(235,230,223,.045);
+  --fill:rgba(235,230,223,.035);
+  --fill2:rgba(235,230,223,.06);
+  --accent:#c9a66b;
+  --accent-soft:rgba(201,166,107,.12);
+  --accent-dim:rgba(201,166,107,.35);
+  --err:#d46a5c;
+  --amber:#c9a66b;
+  --ok:#8faf7a;
+  --sans:'Hanken Grotesk',-apple-system,system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.25,.8,.25,1);
+  --r:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--bg); color:var(--ink);
+  font:15.5px/1.55 var(--sans);
+  display:grid; grid-template-rows:auto minmax(0,1fr) auto;
+  height:100vh; height:100dvh; overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+  /* quiet paper grain */
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(201,166,107,.04), transparent 55%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+::selection{background:var(--accent);color:#1a1612}
+:focus-visible{outline:1.5px solid var(--accent-dim);outline-offset:3px}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(235,230,223,.1);border:2px solid var(--bg);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:rgba(235,230,223,.2)}
+button{font:inherit;color:inherit;cursor:pointer}
+code,pre,kbd{font-family:var(--mono)}
+
+/* ============ app chrome ============ */
+#sb{
+  display:flex;align-items:center;gap:4px;height:48px;
+  padding:0 clamp(14px,2.5vw,22px);
+  background:var(--surface);
+  border-bottom:1px solid var(--hair);
+  z-index:20; user-select:none;
+}
+.brand{
+  display:flex;align-items:center;gap:10px;
+  background:none;border:0;padding:7px 10px;border-radius:var(--r);
+}
+.brand:hover{background:var(--fill)}
+.brand-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--accent);flex:none;
+  box-shadow:0 0 0 3px var(--accent-soft);
+}
+.brand-name{font-size:13px;font-weight:600;letter-spacing:.01em;color:var(--ink)}
+#sb-path{font:11.5px var(--mono);color:var(--faint);margin-left:4px;letter-spacing:.02em}
+.sb-nav{display:flex;align-items:center;gap:1px;margin-left:12px;flex:1;overflow-x:auto;scrollbar-width:none}
+.sb-nav::-webkit-scrollbar{display:none}
+.sb-win{
+  background:none;border:0;color:var(--faint);
+  font-size:13px;font-weight:500;padding:7px 12px;border-radius:8px;
+  white-space:nowrap;transition:color .15s,background .15s;letter-spacing:.01em;
+}
+.sb-win:hover{color:var(--ink);background:var(--fill)}
+.sb-win.active{color:var(--ink);background:var(--fill2)}
+.sb-right{display:flex;align-items:center;gap:16px;font:11.5px var(--mono);color:var(--faint);white-space:nowrap;letter-spacing:.02em}
+#sb-clock{color:var(--sub);font-variant-numeric:tabular-nums}
+
+/* ============ content ============ */
+#view{overflow-y:auto;min-height:0;position:relative}
+#page{
+  max-width:920px;margin:0 auto;
+  padding:clamp(40px,8vh,96px) clamp(20px,5vw,48px) 120px;
+  transition:opacity .28s var(--ease),transform .28s var(--ease);
+}
+#page.out{opacity:0;transform:translateY(10px)}
+.kicker{
+  font:11.5px var(--mono);color:var(--faint);
+  margin-bottom:20px;letter-spacing:.04em;text-transform:lowercase;
+}
+.kicker .t-user{color:var(--accent)}
+.kicker .k-dim{color:var(--faint)}
+.display{
+  font-weight:500;font-size:clamp(40px,6.2vw,78px);
+  line-height:1.05;letter-spacing:-.03em;color:var(--ink);
+}
+.hcaret{
+  display:inline-block;width:3px;height:.78em;border-radius:1px;
+  background:var(--accent);margin-left:.12em;transform:translateY(.05em);
+  animation:blink 1.2s steps(1) infinite;
+}
+@keyframes blink{50%{opacity:0}}
+.display-2{
+  font-weight:500;font-size:clamp(28px,3.8vw,44px);
+  line-height:1.08;letter-spacing:-.025em;margin:4px 0 36px;max-width:16ch;
+  color:var(--ink);
+}
+.lede{
+  font-size:clamp(15px,1.4vw,17.5px);line-height:1.6;
+  color:var(--sub);max-width:38ch;margin-top:24px;font-weight:400;
+}
+
+/* ============ buttons ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:13.5px;font-weight:550;letter-spacing:.01em;
+  padding:11px 22px;border-radius:8px;border:0;
+  transition:background .15s,color .15s,border-color .15s,transform .1s;
+}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--ink);color:#0b0a09}
+.btn-primary:hover{background:#fff}
+.btn-ghost{
+  background:transparent;color:var(--sub);
+  border:1px solid var(--hair);font:500 12.5px var(--mono);
+}
+.btn-ghost:hover{color:var(--ink);border-color:rgba(235,230,223,.16);background:var(--fill)}
+.btn-small{padding:9px 16px;font:500 12px var(--mono)}
+
+/* ============ hero ============ */
+.hero{
+  display:flex;flex-direction:column;justify-content:center;
+  min-height:clamp(380px,calc(100dvh - 220px),720px);
+  max-width:42rem;
+}
+.hero-name{
+  font:12.5px var(--mono);color:var(--accent);letter-spacing:.04em;
+  margin-bottom:14px;font-weight:500;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.hero-meta{font:11.5px var(--mono);color:var(--faint);margin-top:28px;line-height:1.8;letter-spacing:.03em}
+.hero-meta b{color:var(--accent);font-weight:400;padding:0 8px}
+.scan{
+  margin-top:40px;padding-top:28px;border-top:1px solid var(--hair);
+  max-width:36rem;
+}
+.scan-h{font:11px var(--mono);color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.scan-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.scan-list li{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 16px;
+  align-items:baseline;font-size:14px;
+}
+.scan-list button{
+  background:none;border:0;padding:0;text-align:left;
+  color:var(--ink);font-weight:550;letter-spacing:-.01em;
+  border-bottom:1px solid transparent;transition:color .15s,border-color .15s;
+}
+.scan-list button:hover{color:var(--accent);border-bottom-color:var(--accent-dim)}
+.scan-out{font:12px var(--mono);color:var(--sub);text-align:right;max-width:28ch}
+.p-out{
+  font:12.5px var(--mono);color:var(--accent);margin:10px 8px 0;
+  letter-spacing:.01em;line-height:1.5;
+}
+.p-links{display:flex;flex-wrap:wrap;gap:10px;margin:0 8px 18px;padding-top:4px}
+.p-links a{
+  font:12px var(--mono);color:var(--sub);text-decoration:none;
+  border:1px solid var(--hair);padding:6px 12px;border-radius:6px;
+  background:var(--surface);transition:color .12s,border-color .12s;
+}
+.p-links a:hover{color:var(--accent);border-color:var(--accent-dim)}
+
+/* ============ about ============ */
+.about-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,1fr);gap:clamp(32px,5vw,64px)}
+.prose p{font-size:15.5px;line-height:1.7;color:var(--sub);margin-bottom:1.25em;max-width:48ch}
+.prose p strong{color:var(--ink);font-weight:600}
+.prose p:last-child{margin-bottom:0}
+.facts-h,.pr-h,.toml-h{font:11px var(--mono);color:var(--faint);margin:0 0 12px 4px;font-weight:400;letter-spacing:.06em;text-transform:uppercase}
+.facts{
+  border:1px solid var(--hair);border-radius:var(--r);
+  background:var(--surface);overflow:hidden;
+}
+.fact{
+  display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  padding:12px 16px;border-bottom:1px solid var(--hair2);font-size:14px;
+}
+.fact:last-child{border-bottom:0}
+.fact dt{color:var(--sub)}
+.fact dd{font:12.5px var(--mono);color:var(--ink);text-align:right;letter-spacing:.01em}
+.fact-hot dd{color:var(--accent);font-weight:500}
+
+/* ============ projects ============ */
+.proj-list{border-top:1px solid var(--hair)}
+.proj{border-bottom:1px solid var(--hair)}
+.proj-row{
+  width:100%;display:grid;
+  grid-template-columns:2.8ch minmax(0,auto) 1fr max-content 18px;
+  gap:8px 20px;align-items:center;padding:20px 8px;
+  background:none;border:0;text-align:left;border-radius:8px;
+  transition:background .15s;
+}
+.proj-row:hover{background:var(--fill)}
+.p-idx{font:11.5px var(--mono);color:var(--faint);transition:color .15s;letter-spacing:.02em}
+.proj-row:hover .p-idx{color:var(--accent)}
+.p-name{font-size:clamp(18px,2.2vw,23px);font-weight:550;letter-spacing:-.015em;transition:color .15s}
+.proj-row:hover .p-name{color:var(--accent)}
+.p-blurb{font-size:13.5px;color:var(--sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.p-year{font:11.5px var(--mono);color:var(--faint);letter-spacing:.02em}
+.p-caret{display:flex;align-items:center;justify-content:center;color:var(--faint);transition:transform .4s var(--ease),color .15s}
+.proj.open .p-caret{transform:rotate(180deg);color:var(--accent)}
+.proj-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.proj.open .proj-body{grid-template-rows:1fr}
+.proj-inner{overflow:hidden;min-height:0}
+.p-desc{font-size:14.5px;line-height:1.65;color:var(--sub);max-width:52ch;padding:4px 8px 0}
+.p-status{display:flex;align-items:center;gap:8px;font:11.5px var(--mono);color:var(--faint);margin:16px 0 4px;padding:0 8px;letter-spacing:.03em}
+.st-dot{width:6px;height:6px;border-radius:50%;flex:none}
+.st-live{background:var(--ok)} .st-stable{background:var(--accent)} .st-archived{background:var(--faint)}
+.p-high{list-style:none;margin:12px 0 18px;padding:0 8px}
+.p-high li{font-size:13.5px;color:var(--sub);padding:4px 0 4px 16px;position:relative}
+.p-high li::before{content:'·';position:absolute;left:2px;color:var(--accent);font-family:var(--mono)}
+.p-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px;padding:0 8px}
+.tag{
+  font:11px var(--mono);color:var(--sub);border:1px solid var(--hair);
+  background:var(--surface);padding:4px 10px;border-radius:6px;letter-spacing:.02em;
+}
+.git{
+  font:11.5px/1.75 var(--mono);color:var(--sub);
+  background:var(--surface2);border:1px solid var(--hair2);border-radius:var(--r);
+  padding:12px 14px;overflow-x:auto;margin:0 8px 28px;white-space:pre;
+}
+.g-h{color:var(--accent);opacity:.9} .g-p{color:var(--accent)}
+.list-hint{font:12px var(--mono);color:var(--faint);margin-top:24px;letter-spacing:.02em}
+.inline-cmd{
+  background:none;border:0;border-bottom:1px dashed var(--accent-dim);
+  color:var(--accent);padding:0 1px;font:inherit;cursor:pointer;
+}
+.inline-cmd:hover{color:#d4b87e}
+
+/* ============ stack ============ */
+.toml{
+  font:13px/1.9 var(--mono);
+  background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);
+  padding:24px 28px;overflow-x:auto;white-space:pre;
+  width:max-content;max-width:100%;min-width:min(100%,480px);
+}
+.tk-sec{color:var(--ink);font-weight:600}
+.tk-k{color:var(--sub)} .tk-v{color:#c8c2b8} .tk-o{color:var(--faint)}
+.tk-c{color:var(--faint);font-style:italic}
+.principles{list-style:none;max-width:520px;margin-top:14px;border-top:1px solid var(--hair)}
+.principles li{
+  font-size:15px;color:var(--sub);padding:14px 2px 14px 22px;
+  border-bottom:1px solid var(--hair2);position:relative;
+}
+.principles li::before{content:'—';position:absolute;left:0;color:var(--accent);font-family:var(--mono);font-size:13px}
+
+/* ============ contact ============ */
+.mail-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:36px 0 12px}
+.mail-row code{
+  font:500 14px var(--mono);background:var(--surface);border:1px solid var(--hair);
+  padding:13px 18px;border-radius:var(--r);color:var(--ink);letter-spacing:.01em;
+}
+.links{list-style:none;max-width:560px;border-top:1px solid var(--hair);margin-top:12px}
+.links a{
+  display:flex;align-items:center;gap:16px;padding:14px 6px;
+  border-bottom:1px solid var(--hair2);color:var(--ink);text-decoration:none;
+  font-size:14.5px;transition:background .12s;border-radius:8px;
+}
+.links a:hover{background:var(--fill)}
+.l-k{color:var(--sub);font-size:13.5px}
+.l-v{margin-left:auto;font:12.5px var(--mono);color:var(--sub);letter-spacing:.01em}
+.l-v i{font-style:normal;color:var(--faint);margin-left:6px;transition:transform .18s var(--ease),color .18s;display:inline-flex}
+.links a:hover .l-v i{transform:translateX(3px);color:var(--accent)}
+.hint{font:12.5px var(--mono);color:var(--sub);margin-top:28px;letter-spacing:.02em}
+.colophon{
+  margin-top:72px;padding-top:20px;border-top:1px solid var(--hair2);
+  font:11.5px var(--mono);color:var(--faint);text-align:center;letter-spacing:.04em;
+}
+
+/* ============ terminal sheet ============ */
+#dock{
+  background:var(--surface2);border-top:1px solid var(--hair);
+  border-radius:14px 14px 0 0;display:flex;flex-direction:column;flex:none;
+  position:relative;z-index:15;
+  box-shadow:0 -16px 48px rgba(0,0,0,.45);
+}
+#dock-head{
+  height:40px;flex:none;display:flex;align-items:center;gap:10px;padding:0 14px;
+  border-bottom:1px solid var(--hair2);font:11px var(--mono);color:var(--faint);
+  cursor:ns-resize;user-select:none;touch-action:none;
+  background:var(--surface);border-radius:14px 14px 0 0;letter-spacing:.03em;
+}
+.tty-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none;
+  animation:pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse{50%{opacity:.35}}
+.tty-label{color:var(--sub)}
+.tty-hint{margin-left:auto;white-space:nowrap}
+.tty-hint b{color:var(--accent);font-weight:500}
+#dock-toggle{background:none;border:0;color:var(--faint);cursor:pointer;padding:5px;margin-left:6px;display:flex;transition:color .12s}
+#dock-toggle:hover{color:var(--ink)}
+#dock.collapsed #dock-body{display:none}
+#dock-body{flex:1;min-height:0;overflow-y:auto;padding:12px 16px 14px;font:12.5px/1.6 var(--mono);position:relative}
+#kbd{position:absolute;left:0;bottom:0;width:2px;height:2px;opacity:0;border:0;background:none;color:transparent;pointer-events:none;font-size:16px}
+.t-line{white-space:pre-wrap;word-break:break-word;color:var(--ink);padding:1px 0}
+.t-dim{color:var(--faint)} .t-faint{color:var(--faint)}
+.t-acc{color:var(--accent)} .t-err{color:var(--err)} .t-ok{color:var(--ok)}
+.t-user{color:var(--accent);font-weight:500} .t-path{color:var(--ink)} .t-cmd{color:var(--ink)}
+.t-pre{font:inherit;margin:2px 0 4px;white-space:pre-wrap}
+.help-row .t-acc{display:inline-block;min-width:14em}
+#t-inline{white-space:pre-wrap}
+#t-cur{
+  display:inline-block;width:6px;height:1em;border-radius:1px;
+  background:var(--accent);vertical-align:text-bottom;margin-left:1px;
+  animation:blink 1.1s steps(1) infinite;
+}
+.fetch{display:flex;flex-wrap:wrap;gap:10px 28px;padding:6px 0 10px}
+.fetch-art{font:11.5px/1.35 var(--mono);color:var(--accent);white-space:pre}
+.fetch-info{font:12px/1.65 var(--mono)}
+.fi-head{color:var(--accent);font-weight:600}
+.fi-sep{color:var(--faint)}
+.fi-k{display:inline-block;min-width:8em;color:var(--faint)}
+.fi-hot{color:var(--accent)}
+
+/* ============ crt ============ */
+#crt{position:fixed;inset:0;pointer-events:none;z-index:99;opacity:0;transition:opacity .4s;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+body.crt #crt{opacity:1}
+
+/* ============ responsive ============ */
+@media (max-width:999px){
+  .hero{min-height:clamp(360px,calc(100dvh - 220px),640px)}
+}
+@media (max-width:880px){ .about-grid{grid-template-columns:1fr} .sb-right #sb-up{display:none} }
+@media (max-width:760px){
+  .p-blurb{display:none}
+  .proj-row{grid-template-columns:2.8ch minmax(0,auto) 1fr max-content 16px}
+  .tty-hint{display:none}
+  #sb-path{display:none}
+  .toml{padding:18px 16px}
+  .scan-list li{grid-template-columns:1fr;gap:4px}
+  .scan-out{text-align:left;max-width:none}
+}
+@media (max-width:560px){ .sb-win{padding:7px 9px;font-size:12.5px} .brand-name{font-size:12.5px} }
+@media (prefers-reduced-motion:reduce){
+  .hcaret,#t-cur,.tty-dot{animation:none}
+  #page,.proj-body,.p-caret{transition:none}
+}
+</style>
+</head>
+<body>
+<div id="crt" aria-hidden="true"></div>
+<!-- frosted menu bar: brand = home, items type real commands -->
+<header id="sb">
+  <button class="brand" id="sb-brand" title="cd ~">
+    <span class="brand-dot" aria-hidden="true"></span>
+    <span class="brand-name">dev@dev-box</span><span id="sb-path">~</span>
+  </button>
+  <nav class="sb-nav" id="sb-nav" aria-label="sections"></nav>
+  <div class="sb-right"><span id="sb-up">up 0s</span><span id="sb-clock">--:--:--</span></div>
+</header>
+<!-- the pager: everything you cat renders here -->
+<main id="view"><div id="page"></div></main>
+<!-- terminal sheet: drag header to resize, click to collapse -->
+<section id="dock">
+  <div id="dock-head" title="drag to resize · click to collapse">
+    <span class="tty-dot" aria-hidden="true"></span>
+    <span class="tty-label">visitor@dev-box — tty1</span>
+    <span class="tty-hint">tab completes · ↑ history · try <b>help</b></span>
+    <button id="dock-toggle" aria-label="collapse terminal">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <div id="dock-body" aria-live="polite">
+    <div id="t-out" role="log"></div>
+    <div id="t-inline"><span id="t-prompt"></span><span id="t-typed"></span><span id="t-cur" aria-hidden="true"></span></div>
+    <input id="kbd" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="terminal input">
+  </div>
+</section>
+<noscript>
+  <div style="position:fixed;inset:0;background:#0b0a09;color:#ebe6df;font:14px 'Hanken Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px">
+    This portfolio is a live terminal — it needs JavaScript.<br>Until then: hello@handcoded.dev
+  </div>
+</noscript>
+<script>
+/* =====================================================================
+   CONFIG — personalize here (email + links appear in ~/contact.md)
+===================================================================== */
+const CONFIG = {
+  /* Replace these with your real links before sharing */
+  email: 'hello@handcoded.dev',
+  github: 'https://github.com/your-handle',
+  githubLabel: 'github.com/your-handle',
+  linkedin: 'https://linkedin.com/in/your-handle',
+  linkedinLabel: 'linkedin.com/in/your-handle',
+};
+/* ============ data ============ */
+const PROJECTS = [
+  /* Set url / repo to real links when ready — empty string hides the button */
+  { slug:'ledgerflow', name:'Ledgerflow', year:'2024', status:'live',
+    blurb:'multi-tenant invoicing SaaS',
+    outcome:'Billing + payments for small businesses — webhooks, isolation, no double-charge',
+    desc:'Multi-tenant invoicing SaaS: retainers, overages, partial payments, dunning. Payment gateway webhooks are idempotent; tenant isolation at the DB layer. Client state with Zustand and TanStack Query.',
+    stack:['next.js','typescript','zustand','tanstack query','postgres','drizzle','payments','vercel'],
+    url:'', repo:'',
+    highlights:[
+      'payment gateway + idempotent webhooks',
+      'row-level tenant isolation'],
+    gitlog:[
+      'a3f91c2  fix: race in invoice numbering under load',
+      '1c88e0e  feat: RLS policies from day one'] },
+  { slug:'relay', name:'Relay', year:'2024', status:'live',
+    blurb:'realtime ops room',
+    outcome:'Live incident room — chat, presence, SMS alerts, AI summaries',
+    desc:'Realtime chat, presence, and shared pins for live incidents. WebSocket fan-out with offline catch-up; SMS alerts and AI-assisted summaries in the ops flow. Deployed with a typed server/client boundary.',
+    stack:['tanstack start','node','mongodb','websockets','sms','ai','render'],
+    url:'', repo:'',
+    highlights:[
+      'sub-100ms fan-out under load',
+      'SMS + AI in the incident loop'],
+    gitlog:[
+      'e12b7a0  perf: fan-out 340ms → 88ms',
+      '5c19fd3  feat: catch-up sync protocol v2'] },
+  { slug:'ferry', name:'Ferry', year:'2023', status:'stable',
+    blurb:'safe legacy → postgres',
+    outcome:'Zero-downtime ETL — dry-run, checksums, resumable batches',
+    desc:'Python ETL CLI for moving old databases into Postgres without downtime. Dry-run diffs, per-batch checksums, resumable runs — backend and data work end to end.',
+    stack:['python','postgres','docker','ci/cd'],
+    url:'', repo:'',
+    highlights:[
+      'dry-run before you commit',
+      'resumable — kill, restart, continue'],
+    gitlog:[
+      'f70a1e6  feat: resume from last committed batch',
+      'b44d219  fix: timezone drift on legacy timestamps'] },
+  { slug:'papertrail', name:'Papertrail', year:'2023', status:'archived',
+    blurb:'php monolith → typescript',
+    outcome:'Route-by-route cutover — zero downtime, zero lost sessions',
+    desc:'Ten-year PHP monolith migrated route-by-route to TypeScript services behind feature flags. Customers never saw a maintenance window.',
+    stack:['php','typescript','node','ci/cd'],
+    url:'', repo:'',
+    highlights:[
+      'strangler-fig migration, no big-bang',
+      'zero downtime, zero lost sessions'],
+    gitlog:[
+      'c31f8a2  chore: delete 11k lines of retired PHP',
+      '0d774e3  feat: flag-driven proxy, route 1 of 84'] },
+  { slug:'homelab', name:'Homelab', year:'2019 —', status:'live',
+    blurb:'prod-like ops practice',
+    outcome:'Deploy + recover practice — Docker, Vercel, Render, restore drills',
+    desc:'Self-hosted stacks on Fedora plus cloud deploys on Vercel and Render. Docker, nginx, timed restore drills, CI/CD — core DevOps practiced on real apps.',
+    stack:['fedora','docker','nginx','vercel','render','ci/cd'],
+    url:'', repo:'',
+    highlights:[
+      'restore drills, timed and documented',
+      'one command from clean metal to full stack'],
+    gitlog:[
+      'd19a3e1  ops: restore drill — 4m12s, documented',
+      '88c0d55  feat: deploys on merge, reverts on red'] },
+];
+const TOML = `# ~/.config/stack.toml — tools used on shipped projects
+[language]
+core    = "typescript"
+scripts = "python"
+legacy  = "php"
+[frontend]
+frameworks = ["next.js", "tanstack start"]
+state      = ["zustand", "tanstack query"]
+styling    = "tailwind"
+[backend]
+runtime    = "node"
+apis       = ["rest", "websockets"]
+[data]
+relational = "postgres"
+documents  = "mongodb"
+orms       = ["prisma", "drizzle"]
+[integrations]
+payments   = true
+sms        = true
+ai         = true
+[deploy]
+platforms  = ["vercel", "render"]
+containers = "docker"
+[ops]
+pipelines  = "ci/cd"
+core       = "devops fundamentals"
+[practice]
+builds     = "saas & real-world apps"
+strength   = "backend-leaning full-stack"
+ai         = "assist, not replace"`;
+const TUX = [
+"        .--.",
+"       |o_o |",
+"       |:_/ |",
+"      //   \\ \\",
+"     (|     | )",
+"    /'\\_   _/`\\",
+"    \\___)=(___/",
+].join('\n');
+const README = [
+"# dev — software engineering student",
+"builds systems end to end · one file · no framework",
+"look around: ls · cat · projects · neofetch · whoami",
+].join('\n');
+const VIMRC = [
+"set nocompatible",
+"set relativenumber",
+"set noswapfile",
+'" plugins: 0 · muscle memory: all of it',
+].join('\n');
+const BASH_HISTORY = [
+"git commit -s -m \"fix: what the agent couldn't finish\"",
+"sudo dnf upgrade --refresh",
+":qa!",
+].join('\n');
+const AI_DOC = [
+"ai — how I use it",
+"",
+"  tools draft and research.",
+"  I design, verify, and own the result.",
+"",
+"  when something breaks, I debug it myself.",
+"",
+"try: whoami · stack",
+].join('\n');
+/* ============ dom refs ============ */
+const $  = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const out = $('#t-out'), kbd = $('#kbd'), tTyped = $('#t-typed'),
+      tPrompt = $('#t-prompt'), view = $('#view'), dock = $('#dock'),
+      dockBody = $('#dock-body'), dockHead = $('#dock-head'),
+      toggleBtn = $('#dock-toggle'), navEl = $('#sb-nav'),
+      sbPath = $('#sb-path'), clockEl = $('#sb-clock'), upEl = $('#sb-up');
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+/* ============ terminal core ============ */
+let cwd = '~', hist = [], histIdx = 0, busy = false, typing = null, typingCmd = '';
+const promptHTML = () =>
+  `<span class="t-user">visitor@dev-box</span><span class="t-dim">:</span><span class="t-path">${cwd}</span><span class="t-dim">$ </span>`;
+function tprint(html = '', cls = '') {
+  const d = document.createElement('div');
+  d.className = 't-line ' + cls;
+  d.innerHTML = html;
+  out.appendChild(d);
+  dockBody.scrollTop = dockBody.scrollHeight;
+  return d;
+}
+function tprintPre(text, cls = '') { return tprint(`<pre class="t-pre ${cls}">${esc(text)}</pre>`); }
+function renderPrompt() { tPrompt.innerHTML = promptHTML(); }
+function renderInput()  { tTyped.textContent = kbd.value; }
+function clearTerm()    { out.innerHTML = ''; }
+function submit() {
+  if (busy) return;
+  const raw = kbd.value;
+  tprint(promptHTML() + `<span class="t-cmd">${esc(raw)}</span>`);
+  if (raw.trim()) { hist.push(raw); histIdx = hist.length; }
+  kbd.value = ''; renderInput();
+  exec(raw.trim());
+}
+function typeCommand(cmd) {
+  finishTyping();
+  expandDock();
+  kbd.value = ''; renderInput();
+  typingCmd = cmd; busy = true;
+  if (REDUCED) { busy = false; kbd.value = cmd; renderInput(); submit(); return; }
+  let i = 0;
+  typing = setInterval(() => {
+    i++; kbd.value = typingCmd.slice(0, i); renderInput();
+    if (i >= typingCmd.length) {
+      clearInterval(typing); typing = null;
+      setTimeout(() => { busy = false; submit(); }, 110);
+    }
+  }, 13);
+}
+function finishTyping() {
+  if (!typing) return;
+  clearInterval(typing); typing = null; busy = false;
+  kbd.value = typingCmd; renderInput(); submit();
+}
+function runCommand(cmd) { typeCommand(cmd); }
+kbd.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !typing && !busy) { submit(); return; }
+  if (e.key === 'Tab')        { e.preventDefault(); complete(); return; }
+  if (e.key === 'ArrowUp')    { e.preventDefault(); if (histIdx > 0) { histIdx--; kbd.value = hist[histIdx] || ''; renderInput(); } return; }
+  if (e.key === 'ArrowDown')  { e.preventDefault(); if (histIdx < hist.length) { histIdx++; kbd.value = hist[histIdx] || ''; renderInput(); } return; }
+  if (e.key === 'l' && e.ctrlKey) { e.preventDefault(); clearTerm(); return; }
+  if (e.key === 'c' && e.ctrlKey) {
+    e.preventDefault();
+    tprint(promptHTML() + `<span class="t-cmd">${esc(kbd.value)}</span><span class="t-dim">^C</span>`);
+    kbd.value = ''; renderInput();
+  }
+});
+kbd.addEventListener('input', renderInput);
+const ALL_CMDS = ['help','ls','cat','cd','open','whoami','neofetch','projects','about','stack','skills','contact','history','echo','date','uptime','pwd','clear','crt','exit','ping','sudo','vim','rm','ai'];
+function complete() {
+  const v = kbd.value, parts = v.split(/\s+/);
+  let pool, idx;
+  if (parts.length === 1) { pool = ALL_CMDS; idx = 0; }
+  else {
+    pool = parts[0] === 'open' ? PROJECTS.map(p => p.slug)
+         : ['about.md','contact.md','welcome.md','readme.md','.vimrc','.bash_history','.config/','stack.toml','projects/','-a'];
+    idx = parts.length - 1;
+  }
+  const prefix = parts[idx] || '';
+  const hits = pool.filter(x => x.startsWith(prefix));
+  if (hits.length === 1) { parts[idx] = hits[0]; kbd.value = parts.join(' ') + ' '; }
+  else if (hits.length > 1) {
+    tprint(promptHTML() + `<span class="t-cmd">${esc(v)}</span>`);
+    tprint(hits.join('   '), 't-dim');
+  }
+  renderInput();
+}
+/* ============ sections / routing ============ */
+const SECTIONS = [
+  { id:'home',     label:'home',     cmd:'cat welcome.md' },
+  { id:'about',    label:'about',    cmd:'cat about.md' },
+  { id:'projects', label:'projects', cmd:'ls projects/' },
+  { id:'stack',    label:'stack',    cmd:'cat stack.toml' },
+  { id:'contact',  label:'contact',  cmd:'cat contact.md' },
+];
+const CWD_OF = { home:'~', about:'~/about', projects:'~/projects', stack:'~/.config', contact:'~/contact' };
+let currentId = null, navBtns = [];
+function buildNav() {
+  SECTIONS.forEach(s => {
+    const b = document.createElement('button');
+    b.className = 'sb-win';
+    b.textContent = s.label;
+    b.addEventListener('click', () => runCommand(s.cmd));
+    navEl.appendChild(b);
+  });
+  navBtns = $$('.sb-win');
+}
+function syncChrome(id) {
+  cwd = CWD_OF[id]; sbPath.textContent = cwd; renderPrompt();
+  navBtns.forEach((b, i) => b.classList.toggle('active', SECTIONS[i].id === id));
+}
+function renderSection(id, cb) {
+  if (currentId !== id) {
+    currentId = id;
+    const page = $('#page');
+    page.classList.add('out');
+    setTimeout(() => {
+      page.innerHTML = RENDER[id]();
+      page.classList.remove('out');
+      afterRender(id);
+      view.scrollTop = 0;
+      if (cb) cb();
+    }, 170);
+  } else if (cb) cb();
+  syncChrome(id);
+}
+function go(id, note) {
+  renderSection(id);
+  if (note) tprint(note, 't-dim');
+}
+/* ============ command implementations ============ */
+function notFound(cmd) {
+  tprint(`bash: ${esc(cmd)}: command not found`, 't-err');
+  const sug = ALL_CMDS.find(c => cmd.length > 1 && c.startsWith(cmd.slice(0, Math.min(3, cmd.length))));
+  if (sug && sug !== cmd) tprint(`did you mean '${sug}'?`, 't-dim');
+}
+function printHelp() {
+  [
+    ['help', 'this list'],
+    ['ls · cat · cd', 'move around'],
+    ['open <project>', 'expand a project'],
+    ['whoami', 'background & focus'],
+    ['neofetch', 'skills snapshot'],
+    ['projects', 'what I have built'],
+    ['stack · skills', 'tools I use'],
+    ['contact', 'reach out'],
+    ['clear', 'wipe screen (ctrl+l)'],
+  ].forEach(([c, d]) => tprint(`<span class="t-acc">${esc(c)}</span><span class="t-dim">${esc(d)}</span>`));
+  tprint(`also try: ai · ping · vim`, 't-dim');
+}
+function lsCmd(args) {
+  const all = args.some(a => /^-(a|la|al)$/.test(a));
+  const target = args.find(a => !a.startsWith('-'));
+  if (target) {
+    const t = target.replace(/\/+$/, '');
+    if (t === 'projects') {
+      tprint(PROJECTS.map(p => `<span class="t-acc">${p.slug}/</span>`).join('  '));
+      go('projects', '→ ~/projects/ rendered above ↑');
+      return;
+    }
+    if (t === '.config') { tprint('<span class="t-acc">stack.toml</span>'); return; }
+    if (t !== '~' && t !== '.') { tprint(`ls: ${esc(target)}: No such file or directory`, 't-err'); return; }
+  }
+  let items = ['<span class="t-acc">projects/</span>', 'welcome.md', 'about.md', 'readme.md', 'contact.md'];
+  if (all) items = ['.', '..', '<span class="t-acc">.config/</span>', '<span class="t-faint">.vimrc</span>', '<span class="t-faint">.bash_history</span>', ...items];
+  tprint(items.join('  '));
+}
+function catCmd(args) {
+  if (!args.length) { tprint('cat: missing operand — try: cat about.md', 't-err'); return; }
+  const f = args[0].replace(/\/+$/, '');
+  const parts = f.split('/');
+  if (f === 'projects') { go('projects', '→ ~/projects/ rendered above ↑'); return; }
+  if (parts[0] === 'projects' && parts[1]) { openProject(parts[1]); return; }
+  if (f === 'welcome.md') { go('home', '→ rendered in the pager above ↑'); return; }
+  if (f === 'about.md')   { go('about', '→ rendered in the pager above ↑'); return; }
+  if (f === 'contact.md') { go('contact', '→ rendered in the pager above ↑'); return; }
+  if (f === 'stack.toml' || f === '.config/stack.toml' || f === 'stack') { go('stack', '→ ~/.config/stack.toml ↑'); return; }
+  if (f === 'readme.md')      { tprintPre(README); return; }
+  if (f === '.vimrc')         { tprintPre(VIMRC); return; }
+  if (f === '.bash_history')  { tprintPre(BASH_HISTORY); return; }
+  tprint(`cat: ${esc(args[0])}: No such file or directory`, 't-err');
+}
+const CDS = { '~':'home','':'home','home':'home','welcome':'home','welcome.md':'home','about':'about','about.md':'about',
+  'projects':'projects','stack':'stack','.config':'stack','stack.toml':'stack','contact':'contact','contact.md':'contact','..':'home','/':'home' };
+function cdCmd(args) {
+  if (!args.length) { go('home'); return; }
+  const t = args[0];
+  if (CDS[t] !== undefined) go(CDS[t], `→ ${CWD_OF[CDS[t]]}`);
+  else tprint(`cd: ${esc(t)}: No such file or directory`, 't-err');
+}
+function openCmd(args) {
+  if (!args.length) { tprint(`open: missing operand — try: open ${PROJECTS[0].slug}`, 't-err'); return; }
+  openProject(args[0].replace(/\/+$/, ''));
+}
+function openProject(slug) {
+  const p = PROJECTS.find(x => x.slug === slug);
+  if (!p) { tprint(`open: ${esc(slug)}: no such project — try: ${PROJECTS.map(x => x.slug).join(', ')}`, 't-err'); return; }
+  const expand = () => {
+    const el = document.querySelector(`.proj[data-slug="${slug}"]`);
+    if (!el) return;
+    closeOthers(el);
+    el.classList.add('open');
+    el.querySelector('.proj-row').setAttribute('aria-expanded', 'true');
+    el.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' });
+  };
+  tprint(`opening ~/projects/${esc(slug)}/ ↑`, 't-dim');
+  if (currentId !== 'projects') renderSection('projects', expand); else expand();
+}
+function whoami() {
+  tprintPre([
+    'Endalkachew Yaregal',
+    'software engineering student',
+    'full-stack builder · backend-leaning',
+    '',
+    'frontend    next · tanstack · zustand · tailwind',
+    'backend     node · rest · websockets · services',
+    'data        postgres · mongo · prisma · drizzle',
+    'services    payments · sms · ai integrations',
+    'deploy      vercel · render · docker · ci/cd',
+    '',
+    'ships real SaaS and production apps',
+    'try: projects · stack · neofetch',
+  ].join('\n'));
+}
+function neofetch() {
+  tprint(`<div class="fetch"><pre class="fetch-art">${esc(TUX)}</pre><div class="fetch-info">
+    <div class="fi-head">Endalkachew@dev-box</div>
+    <div class="fi-sep">──────────────────</div>
+    <div class="fi"><span class="fi-k">role</span>SWE student · backend-leaning full-stack</div>
+    <div class="fi"><span class="fi-k">os</span>Fedora Linux</div>
+    <div class="fi"><span class="fi-k">languages</span>TypeScript · Python · SQL · PHP</div>
+    <div class="fi"><span class="fi-k">frontend</span>Next · TanStack · Zustand · Query · Tailwind</div>
+    <div class="fi"><span class="fi-k">backend</span>Node · REST · WebSockets · services</div>
+    <div class="fi"><span class="fi-k">data</span>Postgres · Mongo · Drizzle · Prisma</div>
+    <div class="fi"><span class="fi-k">services</span>payments · SMS · AI APIs</div>
+    <div class="fi"><span class="fi-k">deploy</span>Vercel · Render · Docker · CI/CD</div>
+    <div class="fi fi-hot"><span class="fi-k">ships</span>SaaS & real-world production apps</div>
+  </div></div>`);
+}
+function pingCmd() {
+  tprint('PING contact: 56 data bytes');
+  [12.4, 11.9, 13.1].forEach((t, i) => tprint(`64 bytes from inbox: icmp_seq=${i} ttl=64 time=${t} ms`, 't-dim'));
+  tprint('--- 3 packets transmitted, 3 received, 0.0% packet loss ---', 't-dim');
+  tprint('replies usually within a day', 't-acc');
+}
+function sudoCmd(args) {
+  if (args[0] === 'hire-me' || args[0] === 'hireme') {
+    tprint('no elevated privileges needed.', 't-dim');
+    tprint('the work is above — open a project, or cat contact.md', 't-dim');
+  } else {
+    tprint('[sudo] password for visitor: ••••••••', 't-dim');
+    tprint('visitor is not in the sudoers file. this incident will be reported.', 't-err');
+  }
+}
+function rmCmd(args) {
+  const a = args.join(' ');
+  if (a.includes('-rf') && (a.includes('/') || a.includes('*'))) {
+    tprint('rm: operation declined — I build things, I don’t delete them.', 't-err');
+    tprint('(also: bold of you)', 't-dim');
+  } else tprint('rm: cannot remove: Read-only file system', 't-err');
+}
+function uptimeCmd() {
+  const s = Math.floor((Date.now() - T0) / 1000);
+  const str = s < 60 ? s + 's' : Math.floor(s / 60) + 'm ' + (s % 60) + 's';
+  tprint(` up ${str}, 1 user, load average: 0.31, 0.09, coffee`, 't-dim');
+}
+function toggleCrt() {
+  const on = document.body.classList.toggle('crt');
+  tprint(on ? 'crt overlay: on — phosphor nostalgia engaged' : 'crt overlay: off', 't-dim');
+}
+function exec(line) {
+  if (!line) return;
+  const parts = line.split(/\s+/);
+  const cmd = parts[0].toLowerCase(), args = parts.slice(1);
+  switch (cmd) {
+    case 'help': printHelp(); break;
+    case 'ls': lsCmd(args); break;
+    case 'cat': catCmd(args); break;
+    case 'cd': cdCmd(args); break;
+    case 'open': openCmd(args); break;
+    case 'pwd': tprint(cwd, 't-dim'); break;
+    case 'whoami': whoami(); break;
+    case 'neofetch': neofetch(); break;
+    case 'clear': clearTerm(); break;
+    case 'history':
+      tprintPre(hist.map((h, i) => String(i + 1).padStart(4) + '  ' + h).join('\n') || '(empty)');
+      break;
+    case 'echo': tprint(esc(args.join(' ')) || ' '); break;
+    case 'date': tprint(new Date().toString(), 't-dim'); break;
+    case 'uptime': uptimeCmd(); break;
+    case 'crt': toggleCrt(); break;
+    case 'exit': case 'logout':
+      tprint('logout — nice try. the tab closes when you decide.', 't-dim'); break;
+    case 'ping': pingCmd(); break;
+    case 'sudo': sudoCmd(args); break;
+    case 'vim': case 'nvim': case 'vi':
+      tprint('vim: not installed here — but the muscle memory is permanent.');
+      tprint('(this interface has no modes. you’re welcome.)', 't-dim');
+      break;
+    case 'rm': rmCmd(args); break;
+    case 'tmux': tprint('you’re already inside it — see the menu bar up top. ↑', 't-dim'); break;
+    case 'ai': case 'chatgpt': case 'copilot': case 'claude': case 'gemini': case 'llm':
+      tprintPre(AI_DOC); break;
+    case 'projects': go('projects', '→ ~/projects'); break;
+    case 'about':    go('about', '→ ~/about.md'); break;
+    case 'stack': case 'skills': go('stack', '→ ~/.config/stack.toml'); break;
+    case 'contact':  go('contact', '→ ~/contact.md'); break;
+    case 'home': case 'welcome': go('home', '→ ~/welcome.md'); break;
+    default: notFound(cmd);
+  }
+}
+/* ============ page renderers ============ */
+const CHEV_DOWN = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const CHEV_RIGHT = '<svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M4.5 2.5L8 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+function rHome() {
+  const picks = PROJECTS.slice(0, 3).map(p => `
+    <li>
+      <button type="button" data-cmd="open ${p.slug}">${p.name}</button>
+      <span class="scan-out">${p.outcome}</span>
+    </li>`).join('');
+  return `
+  <header class="hero">
+    <p class="hero-name">Endalkachew Yaregal</p>
+    <p class="kicker"><span class="t-user">visitor@dev-box</span><span class="k-dim">:~$</span> cat welcome.md</p>
+    <h1 class="display">I build systems<br>end to end.<span class="hcaret" aria-hidden="true"></span></h1>
+    <p class="lede">Software engineering student. Full-stack, strongest on backend — services, data, payments, SMS, AI APIs, and deploys for real SaaS and production apps.</p>
+    <div class="hero-actions">
+      <button class="btn btn-primary" data-cmd="ls projects/">See the work</button>
+      <button class="btn btn-ghost" data-cmd="cat contact.md">Contact</button>
+    </div>
+    <p class="hero-meta">typescript · node · postgres · vercel · render</p>
+    <div class="scan">
+      <p class="scan-h">Selected work — click to expand</p>
+      <ul class="scan-list">${picks}</ul>
+    </div>
+  </header>`;
+}
+function rAbout() {
+  return `
+  <section class="sec">
+    <p class="kicker">~/about.md</p>
+    <h2 class="display-2">What I can take on.</h2>
+    <div class="about-grid">
+      <div class="prose">
+        <p><strong>Endalkachew Yaregal</strong> — software engineering student. I ship full-stack product work: multi-tenant SaaS, payment and SMS integrations, realtime services, data migrations, and deploys on Vercel, Render, and Docker.</p>
+        <p>Comfortable across the stack; I prefer owning the backend path — APIs, schemas, webhooks, and the pieces that must stay correct under load. Frontend is solid (Next, TanStack Query, Zustand) when the product needs it.</p>
+      </div>
+      <aside>
+        <h3 class="facts-h">// at a glance</h3>
+        <dl class="facts">
+          <div class="fact"><dt>name</dt><dd>Endalkachew Yaregal</dd></div>
+          <div class="fact"><dt>status</dt><dd>SWE student</dd></div>
+          <div class="fact"><dt>languages</dt><dd>ts · py · sql · php</dd></div>
+          <div class="fact"><dt>frontend</dt><dd>next · tanstack · zustand · query</dd></div>
+          <div class="fact"><dt>backend</dt><dd>node · rest · websockets</dd></div>
+          <div class="fact"><dt>data</dt><dd>postgres · mongo · drizzle · prisma</dd></div>
+          <div class="fact"><dt>services</dt><dd>payments · sms · ai</dd></div>
+          <div class="fact"><dt>deploy</dt><dd>vercel · render · docker</dd></div>
+          <div class="fact fact-hot"><dt>lean</dt><dd>backend · SaaS systems</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>`;
+}
+function statusLabel(p) {
+  return { live:'live', stable:'stable', archived:'archived' }[p.status];
+}
+function projLinks(p) {
+  const bits = [];
+  if (p.url) bits.push(`<a href="${p.url}" target="_blank" rel="noopener">live demo</a>`);
+  if (p.repo) bits.push(`<a href="${p.repo}" target="_blank" rel="noopener">source</a>`);
+  return bits.length ? `<div class="p-links">${bits.join('')}</div>` : '';
+}
+function rProjects() {
+  const rows = PROJECTS.map((p, i) => `
+  <article class="proj" data-slug="${p.slug}">
+    <button class="proj-row" aria-expanded="false">
+      <span class="p-idx">${String(i + 1).padStart(2, '0')}</span>
+      <span class="p-name">${p.name}</span>
+      <span class="p-blurb">${p.outcome || p.blurb}</span>
+      <span class="p-year">${p.year}</span>
+      <span class="p-caret" aria-hidden="true">${CHEV_DOWN}</span>
+    </button>
+    <div class="proj-body"><div class="proj-inner">
+      <p class="p-out">${p.outcome || ''}</p>
+      <p class="p-desc">${p.desc}</p>
+      <p class="p-status"><span class="st-dot st-${p.status}"></span>${statusLabel(p)}</p>
+      <ul class="p-high">${p.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
+      <div class="p-tags">${p.stack.map(s => `<span class="tag">${s}</span>`).join('')}</div>
+      ${projLinks(p)}
+      <pre class="git"><span class="g-p">$</span> git log --oneline --author=me
+ ${p.gitlog.map(g => { const [h, ...r] = g.split('  '); return `<span class="g-h">${h}</span>  ${r.join('  ').trim()}`; }).join('\n')}</pre>
+    </div></div>
+  </article>`).join('');
+  return `
+  <section class="sec">
+    <p class="kicker">~/projects — ${PROJECTS.length} systems · outcomes first</p>
+    <h2 class="display-2">Shipped systems.</h2>
+    <div class="proj-list">${rows}</div>
+    <p class="list-hint">Add live / repo URLs in CONFIG projects when public — or open from the terminal: <button class="inline-cmd" data-cmd="open relay">open relay</button></p>
+  </section>`;
+}
+function rStack() {
+  return `
+  <section class="sec">
+    <p class="kicker">~/.config/stack.toml</p>
+    <h2 class="display-2">Tools I use to ship.</h2>
+    <pre class="toml" id="toml-pre"></pre>
+    <h3 class="pr-h">// how I work</h3>
+    <ul class="principles">
+      <li>full-stack capable — strongest on backend and data</li>
+      <li>integrate payments, SMS, and AI where the product needs them</li>
+      <li>ship on Vercel, Render, and Docker with basic DevOps practice</li>
+      <li>if I cannot explain it, I do not ship it</li>
+    </ul>
+  </section>`;
+}
+function rContact() {
+  return `
+  <section class="sec">
+    <p class="kicker">~/contact.md</p>
+    <h2 class="display-2">Reach out.</h2>
+    <p class="lede">Recruiters, founders, or anyone reviewing the work — email is the fastest path. I read messages and reply.</p>
+    <div class="mail-row">
+      <code id="mail">${CONFIG.email}</code>
+      <button class="btn btn-ghost btn-small" id="copy-mail">copy</button>
+      <a class="btn btn-primary" href="mailto:${CONFIG.email}" style="text-decoration:none">Email me</a>
+    </div>
+    <ul class="links">
+      <li><a href="${CONFIG.github}" target="_blank" rel="noopener"><span class="l-k">github</span><span class="l-v">${CONFIG.githubLabel} <i>${CHEV_RIGHT}</i></span></a></li>
+      <li><a href="${CONFIG.linkedin}" target="_blank" rel="noopener"><span class="l-k">linkedin</span><span class="l-v">${CONFIG.linkedinLabel} <i>${CHEV_RIGHT}</i></span></a></li>
+      <li><a href="mailto:${CONFIG.email}"><span class="l-k">email</span><span class="l-v">${CONFIG.email} <i>${CHEV_RIGHT}</i></span></a></li>
+    </ul>
+    <footer class="colophon">one file · zero frameworks · zero build steps</footer>
+  </section>`;
+}
+const RENDER = { home:rHome, about:rAbout, projects:rProjects, stack:rStack, contact:rContact };
+function afterRender(id) {
+  if (id === 'stack') highlightToml();
+}
+/* ============ toml syntax highlight ============ */
+function highlightToml() {
+  const pre = document.getElementById('toml-pre'); if (!pre) return;
+  pre.innerHTML = TOML.split('\n').map(line => {
+    let c = '';
+    const ci = line.indexOf('#');
+    if (ci > -1) { c = line.slice(ci); line = line.slice(0, ci); }
+    let html;
+    const sec = line.match(/^(\s*)\[([^\]]+)\]\s*$/);
+    if (sec) html = `${sec[1]}<span class="tk-sec">[${esc(sec[2])}]</span>`;
+    else {
+      const kv = line.match(/^(\s*)([A-Za-z_]+)(\s*=\s*)(.*)$/);
+      html = kv
+        ? `${kv[1]}<span class="tk-k">${kv[2]}</span><span class="tk-o">${kv[3]}</span><span class="tk-v">${esc(kv[4])}</span>`
+        : esc(line);
+    }
+    if (c) html += `<span class="tk-c">${esc(c)}</span>`;
+    return html;
+  }).join('\n');
+}
+/* ============ page interactions (delegated) ============ */
+function closeOthers(el) {
+  $$('.proj.open').forEach(p => {
+    if (p !== el) { p.classList.remove('open'); p.querySelector('.proj-row').setAttribute('aria-expanded', 'false'); }
+  });
+}
+async function copyMail() {
+  expandDock();
+  const mail = $('#mail').textContent;
+  try {
+    await navigator.clipboard.writeText(mail);
+    tprint(`<span class="t-acc">$</span> echo ${esc(mail)} | xclip -selection clipboard`);
+    tprint('copied to clipboard ✓', 't-ok');
+  } catch (e) {
+    tprint('clipboard blocked by the browser — the address is right there ↑', 't-dim');
+  }
+}
+ $('#page').addEventListener('click', e => {
+  const cmdBtn = e.target.closest('[data-cmd]');
+  if (cmdBtn) { runCommand(cmdBtn.dataset.cmd); return; }
+  if (e.target.closest('#copy-mail')) { copyMail(); return; }
+  const row = e.target.closest('.proj-row');
+  if (row) {
+    const art = row.closest('.proj');
+    if (art.classList.contains('open')) {
+      art.classList.remove('open'); row.setAttribute('aria-expanded', 'false');
+    } else { closeOthers(art); art.classList.add('open'); row.setAttribute('aria-expanded', 'true'); }
+  }
+});
+/* ============ sheet: collapse + drag-resize ============ */
+let termH = innerWidth < 720 ? Math.round(innerHeight * 0.4) : 212;
+let collapsed = false;
+function applyH() { dock.style.height = collapsed ? '46px' : termH + 'px'; }
+function setCollapsed(c) { collapsed = c; dock.classList.toggle('collapsed', c); applyH(); }
+function expandDock() { if (collapsed) setCollapsed(false); }
+applyH();
+dockHead.addEventListener('pointerdown', e => {
+  if (e.target.closest('button')) return;
+  const startY = e.clientY, startH = collapsed ? 46 : termH;
+  let moved = false;
+  const mv = ev => {
+    if (Math.abs(startY - ev.clientY) > 3) moved = true;
+    if (moved) {
+      collapsed = false; dock.classList.remove('collapsed');
+      termH = Math.max(130, Math.min(Math.round(innerHeight * 0.75), startH + (startY - ev.clientY)));
+      applyH();
+    }
+  };
+  const up = () => {
+    window.removeEventListener('pointermove', mv);
+    window.removeEventListener('pointerup', up);
+    if (!moved) setCollapsed(!collapsed);
+  };
+  window.addEventListener('pointermove', mv);
+  window.addEventListener('pointerup', up);
+});
+toggleBtn.addEventListener('click', e => { e.stopPropagation(); setCollapsed(!collapsed); });
+/* click anywhere in the terminal focuses the prompt */
+dockBody.addEventListener('click', () => {
+  if (!window.getSelection().toString()) kbd.focus();
+});
+/* typing anywhere on the page falls through to the terminal */
+document.addEventListener('keydown', e => {
+  if (e.target === document.body && e.key.length === 1 && e.key !== ' ' && !e.ctrlKey && !e.metaKey && !e.altKey) kbd.focus();
+});
+/* ============ clock + uptime ============ */
+const T0 = Date.now();
+function tick() {
+  clockEl.textContent = new Date().toLocaleTimeString('en-GB', { hour12: false });
+  const s = Math.floor((Date.now() - T0) / 1000);
+  upEl.textContent = 'up ' + (s < 60 ? s + 's' : Math.floor(s / 60) + 'm ' + (s % 60) + 's');
+}
+tick(); setInterval(tick, 1000);
+/* ============ boot ============ */
+let bootTimer = null;
+function skipBoot() {
+  if (bootTimer) { clearTimeout(bootTimer); bootTimer = null; typeCommand('cat welcome.md'); }
+  else if (typing) finishTyping();
+}
+window.addEventListener('keydown', skipBoot, true);
+window.addEventListener('pointerdown', skipBoot, true);
+buildNav();
+ $('#sb-brand').addEventListener('click', () => runCommand('cd ~'));
+renderPrompt();
+tprint('Linux dev-box 6.9.4-handcrafted x86_64 · tty1');
+tprint(`last login: ${new Date().toDateString()} — from your browser`, 't-dim');
+tprint('');
+bootTimer = setTimeout(() => { bootTimer = null; typeCommand('cat welcome.md'); }, 420);
+setTimeout(() => tprint(`type 'help' for commands · or just click the menu above`, 't-dim'), 2800);
+if (matchMedia('(min-width: 900px)').matches) setTimeout(() => kbd.focus(), 400);
+</script>
+</body>
+</html>

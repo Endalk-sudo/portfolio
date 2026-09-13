@@ -477,6 +477,17 @@ const FALLBACK_PROJECTS = [
     gitlog:[
       'd19a3e1  ops: restore drill — 4m12s, documented',
       '88c0d55  feat: deploys on merge, reverts on red'] },
+  { slug:'portfolio', name:'Portfolio', year:'2026', status:'live',
+    blurb:'this site — terminal as portfolio',
+    outcome:'Recruiter-readable in 10s, terminal-native throughout',
+    desc:'This site: a terminal-themed portfolio with zero frameworks and zero build steps. Menu bar, pager, and draggable tty sheet; all content in one config.js with fail-soft validation.',
+    stack:['javascript','html','css','cloudflare'],
+    url:'', repo:'',
+    highlights:[
+      'one config file drives every section',
+      'works on file:// and any static host'],
+    gitlog:[
+      '72a959b  chore: portfolio.html → index.html + config.js'] },
 ];
 const FALLBACK_TOML = `# ~/.config/stack.toml — tools used on shipped projects
 [language]

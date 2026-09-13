@@ -26,7 +26,7 @@ Save + refresh.
 ## Deploy
 
 Upload `index.html` + `config.js` together to any static host
-(Vercel, Render, GitHub Pages). No build step.
+(Vercel, Render, Cloudflare, GitHub Pages). No build step.
 
 ## Files
 

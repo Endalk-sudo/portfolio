@@ -126,15 +126,18 @@ core    = "typescript"
 scripts = "python"
 legacy  = "php"
 [frontend]
-frameworks = ["next.js", "tanstack start"]
+frameworks = ["next.js", "tanstack start", "react"]
 state      = ["zustand", "tanstack query"]
 styling    = "tailwind"
+tooling    = "vite"
 [backend]
 runtime    = "node"
 apis       = ["rest", "websockets"]
+jobs       = ["cron", "job queues", "workers"]
 [data]
 relational = "postgres"
 documents  = "mongodb"
+cache_queues = "redis"
 orms       = ["prisma", "drizzle"]
 [integrations]
 payments   = true
@@ -142,7 +145,7 @@ email      = true
 sms        = true
 ai         = true
 [deploy]
-platforms  = ["vercel", "render"]
+platforms  = ["vercel", "render", "cloudflare"]
 containers = "docker"
 [ops]
 pipelines  = "ci/cd"

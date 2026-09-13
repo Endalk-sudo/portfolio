@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Endalkachew Yaregal — dev@dev-box · software engineering student</title>
-<meta name="description" content="Endalkachew Yaregal — SWE student. Full-stack, backend-leaning. SaaS, payments, SMS, AI integrations. Vercel, Render, Docker.">
+<meta name="description" content="Endalkachew Yaregal — SWE student. Full-stack, backend-leaning. SaaS, payments, SMS, email, AI integrations. React, Vite, Redis, queues, workers. Vercel, Render, Cloudflare, Docker.">
 <meta name="author" content="Endalkachew Yaregal">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Endalkachew Yaregal — software engineering student">
-<meta property="og:description" content="Full-stack, backend-leaning. SaaS, payments, SMS, AI integrations. Vercel, Render, Docker.">
+<meta property="og:description" content="Full-stack, backend-leaning. SaaS, payments, SMS, email, AI integrations. React, Vite, Redis, queues, workers. Vercel, Render, Cloudflare, Docker.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Endalkachew Yaregal — software engineering student">
-<meta name="twitter:description" content="Full-stack, backend-leaning. SaaS, payments, SMS, AI integrations.">
+<meta name="twitter:description" content="Full-stack, backend-leaning. SaaS, payments, SMS, email, AI integrations.">
 <meta name="theme-color" content="#0b0a09">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Endalkachew Yaregal","jobTitle":"Software Engineering Student","knowsAbout":["TypeScript","Node.js","Postgres","Next.js","SaaS","Payments","SMS","AI integrations","Vercel","Render","Docker"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Endalkachew Yaregal","jobTitle":"Software Engineering Student","knowsAbout":["TypeScript","React","Vite","Node.js","Postgres","Redis","Next.js","SaaS","Payments","SMS","Email","AI integrations","Job queues","Workers","Vercel","Render","Cloudflare","Docker"]}</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230b0a09'/><circle cx='16' cy='16' r='4' fill='%23c9a66b'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -409,10 +409,10 @@ body.crt #crt{opacity:1}
 ===================================================================== */
 const FALLBACK_CONFIG = {
   email: 'endalkachewyaregal747@gmail.com',
-  github: 'https://github.com/your-handle',
-  githubLabel: 'github.com/your-handle',
-  linkedin: 'https://linkedin.com/in/your-handle',
-  linkedinLabel: 'linkedin.com/in/your-handle',
+  github: 'https://github.com/Endalk-sudo',
+  githubLabel: 'github.com/Endalk-sudo',
+  linkedin: 'https://www.linkedin.com/in/endalk-y-035323258/',
+  linkedinLabel: 'linkedin.com/in/endalk-y',
 };
 /* ============ data (fallback if config.js missing) ============ */
 const FALLBACK_PROJECTS = [
@@ -484,22 +484,26 @@ core    = "typescript"
 scripts = "python"
 legacy  = "php"
 [frontend]
-frameworks = ["next.js", "tanstack start"]
+frameworks = ["next.js", "tanstack start", "react"]
 state      = ["zustand", "tanstack query"]
 styling    = "tailwind"
+tooling    = "vite"
 [backend]
 runtime    = "node"
 apis       = ["rest", "websockets"]
+jobs       = ["cron", "job queues", "workers"]
 [data]
 relational = "postgres"
 documents  = "mongodb"
+cache_queues = "redis"
 orms       = ["prisma", "drizzle"]
 [integrations]
 payments   = true
+email      = true
 sms        = true
 ai         = true
 [deploy]
-platforms  = ["vercel", "render"]
+platforms  = ["vercel", "render", "cloudflare"]
 containers = "docker"
 [ops]
 pipelines  = "ci/cd"
@@ -781,11 +785,11 @@ function whoami() {
     'software engineering student',
     'full-stack builder · backend-leaning',
     '',
-    'frontend    next · tanstack · zustand · tailwind',
-    'backend     node · rest · websockets · services',
-    'data        postgres · mongo · prisma · drizzle',
-    'services    payments · sms · ai integrations',
-    'deploy      vercel · render · docker · ci/cd',
+    'frontend    next · react · vite · tanstack · zustand · tailwind',
+    'backend     node · rest · websockets · cron · queues · workers',
+    'data        postgres · mongo · redis · prisma · drizzle',
+    'services    payments · sms · email · ai integrations',
+    'deploy      vercel · render · cloudflare · docker · ci/cd',
     '',
     'ships real SaaS and production apps',
     'try: projects · stack · neofetch',
@@ -798,11 +802,11 @@ function neofetch() {
     <div class="fi"><span class="fi-k">role</span>SWE student · backend-leaning full-stack</div>
     <div class="fi"><span class="fi-k">os</span>Fedora Linux</div>
     <div class="fi"><span class="fi-k">languages</span>TypeScript · Python · SQL · PHP</div>
-    <div class="fi"><span class="fi-k">frontend</span>Next · TanStack · Zustand · Query · Tailwind</div>
-    <div class="fi"><span class="fi-k">backend</span>Node · REST · WebSockets · services</div>
-    <div class="fi"><span class="fi-k">data</span>Postgres · Mongo · Drizzle · Prisma</div>
-    <div class="fi"><span class="fi-k">services</span>payments · SMS · AI APIs</div>
-    <div class="fi"><span class="fi-k">deploy</span>Vercel · Render · Docker · CI/CD</div>
+    <div class="fi"><span class="fi-k">frontend</span>Next · React · Vite · TanStack · Zustand · Query · Tailwind</div>
+    <div class="fi"><span class="fi-k">backend</span>Node · REST · WebSockets · cron · queues · workers</div>
+    <div class="fi"><span class="fi-k">data</span>Postgres · Mongo · Redis · Drizzle · Prisma</div>
+    <div class="fi"><span class="fi-k">services</span>payments · SMS · email · AI APIs</div>
+    <div class="fi"><span class="fi-k">deploy</span>Vercel · Render · Cloudflare · Docker · CI/CD</div>
     <div class="fi fi-hot"><span class="fi-k">ships</span>SaaS & real-world production apps</div>
   </div></div>`);
 }
@@ -892,12 +896,12 @@ function rHome() {
     <p class="hero-name">Endalkachew Yaregal</p>
     <p class="kicker"><span class="t-user">visitor@dev-box</span><span class="k-dim">:~$</span> cat welcome.md</p>
     <h1 class="display">I build systems<br>end to end.<span class="hcaret" aria-hidden="true"></span></h1>
-    <p class="lede">Software engineering student. Full-stack, strongest on backend — services, data, payments, SMS, AI APIs, and deploys for real SaaS and production apps.</p>
+    <p class="lede">Software engineering student. Full-stack, strongest on backend — services, data, payments, SMS, email, AI APIs, caching and background jobs for real SaaS and production apps.</p>
     <div class="hero-actions">
       <button class="btn btn-primary" data-cmd="ls projects/">See the work</button>
       <button class="btn btn-ghost" data-cmd="cat contact.md">Contact</button>
     </div>
-    <p class="hero-meta">typescript · node · postgres · vercel · render</p>
+    <p class="hero-meta">typescript · react · node · postgres · redis · vercel · render · cloudflare</p>
     <div class="scan">
       <p class="scan-h">Selected work — click to expand</p>
       <ul class="scan-list">${picks}</ul>
@@ -911,8 +915,8 @@ function rAbout() {
     <h2 class="display-2">What I can take on.</h2>
     <div class="about-grid">
       <div class="prose">
-        <p><strong>Endalkachew Yaregal</strong> — software engineering student. I ship full-stack product work: multi-tenant SaaS, payment and SMS integrations, realtime services, data migrations, and deploys on Vercel, Render, and Docker.</p>
-        <p>Comfortable across the stack; I prefer owning the backend path — APIs, schemas, webhooks, and the pieces that must stay correct under load. Frontend is solid (Next, TanStack Query, Zustand) when the product needs it.</p>
+        <p><strong>Endalkachew Yaregal</strong> — software engineering student. I ship full-stack product work: multi-tenant SaaS, payment, SMS and email integrations, realtime services, Redis caching, cron jobs, queues and workers, data migrations, and deploys on Vercel, Render, Cloudflare, and Docker.</p>
+        <p>Comfortable across the stack; I prefer owning the backend path — APIs, schemas, webhooks, and the pieces that must stay correct under load. Frontend is solid (React, Next, Vite, TanStack Query, Zustand) when the product needs it.</p>
       </div>
       <aside>
         <h3 class="facts-h">// at a glance</h3>
@@ -920,11 +924,11 @@ function rAbout() {
           <div class="fact"><dt>name</dt><dd>Endalkachew Yaregal</dd></div>
           <div class="fact"><dt>status</dt><dd>SWE student</dd></div>
           <div class="fact"><dt>languages</dt><dd>ts · py · sql · php</dd></div>
-          <div class="fact"><dt>frontend</dt><dd>next · tanstack · zustand · query</dd></div>
-          <div class="fact"><dt>backend</dt><dd>node · rest · websockets</dd></div>
-          <div class="fact"><dt>data</dt><dd>postgres · mongo · drizzle · prisma</dd></div>
-          <div class="fact"><dt>services</dt><dd>payments · sms · ai</dd></div>
-          <div class="fact"><dt>deploy</dt><dd>vercel · render · docker</dd></div>
+          <div class="fact"><dt>frontend</dt><dd>react · next · vite · tanstack · zustand</dd></div>
+          <div class="fact"><dt>backend</dt><dd>node · rest · websockets · cron · queues</dd></div>
+          <div class="fact"><dt>data</dt><dd>postgres · mongo · redis · drizzle · prisma</dd></div>
+          <div class="fact"><dt>services</dt><dd>payments · sms · email · ai</dd></div>
+          <div class="fact"><dt>deploy</dt><dd>vercel · render · cloudflare · docker</dd></div>
           <div class="fact fact-hot"><dt>lean</dt><dd>backend · SaaS systems</dd></div>
         </dl>
       </aside>
@@ -978,8 +982,9 @@ function rStack() {
     <h3 class="pr-h">// how I work</h3>
     <ul class="principles">
       <li>full-stack capable — strongest on backend and data</li>
-      <li>integrate payments, SMS, and AI where the product needs them</li>
-      <li>ship on Vercel, Render, and Docker with basic DevOps practice</li>
+      <li>integrate payments, SMS, email, and AI where the product needs them</li>
+      <li>redis caching, cron jobs, queues and workers for background work</li>
+      <li>ship on Vercel, Render, Cloudflare, and Docker with basic DevOps practice</li>
       <li>if I cannot explain it, I do not ship it</li>
     </ul>
   </section>`;

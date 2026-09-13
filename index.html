@@ -3,9 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>dev@dev-box · software engineering student</title>
+<title>Endalkachew Yaregal — dev@dev-box · software engineering student</title>
 <meta name="description" content="Endalkachew Yaregal — SWE student. Full-stack, backend-leaning. SaaS, payments, SMS, AI integrations. Vercel, Render, Docker.">
+<meta name="author" content="Endalkachew Yaregal">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Endalkachew Yaregal — software engineering student">
+<meta property="og:description" content="Full-stack, backend-leaning. SaaS, payments, SMS, AI integrations. Vercel, Render, Docker.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Endalkachew Yaregal — software engineering student">
+<meta name="twitter:description" content="Full-stack, backend-leaning. SaaS, payments, SMS, AI integrations.">
 <meta name="theme-color" content="#0b0a09">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Endalkachew Yaregal","jobTitle":"Software Engineering Student","knowsAbout":["TypeScript","Node.js","Postgres","Next.js","SaaS","Payments","SMS","AI integrations","Vercel","Render","Docker"]}</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230b0a09'/><circle cx='16' cy='16' r='4' fill='%23c9a66b'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -390,23 +398,24 @@ body.crt #crt{opacity:1}
 </section>
 <noscript>
   <div style="position:fixed;inset:0;background:#0b0a09;color:#ebe6df;font:14px 'Hanken Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px">
-    This portfolio is a live terminal — it needs JavaScript.<br>Until then: hello@handcoded.dev
+    This portfolio is a live terminal — it needs JavaScript.<br>Until then: endalkachewyaregal747@gmail.com
   </div>
 </noscript>
+<script src="./config.js"></script>
 <script>
 /* =====================================================================
-   CONFIG — personalize here (email + links appear in ~/contact.md)
+   CONTENT — edit ./config.js (window.SITE). Do not edit below.
+   Fallbacks keep the page working if config.js is missing.
 ===================================================================== */
-const CONFIG = {
-  /* Replace these with your real links before sharing */
-  email: 'hello@handcoded.dev',
+const FALLBACK_CONFIG = {
+  email: 'endalkachewyaregal747@gmail.com',
   github: 'https://github.com/your-handle',
   githubLabel: 'github.com/your-handle',
   linkedin: 'https://linkedin.com/in/your-handle',
   linkedinLabel: 'linkedin.com/in/your-handle',
 };
-/* ============ data ============ */
-const PROJECTS = [
+/* ============ data (fallback if config.js missing) ============ */
+const FALLBACK_PROJECTS = [
   /* Set url / repo to real links when ready — empty string hides the button */
   { slug:'ledgerflow', name:'Ledgerflow', year:'2024', status:'live',
     blurb:'multi-tenant invoicing SaaS',
@@ -469,7 +478,7 @@ const PROJECTS = [
       'd19a3e1  ops: restore drill — 4m12s, documented',
       '88c0d55  feat: deploys on merge, reverts on red'] },
 ];
-const TOML = `# ~/.config/stack.toml — tools used on shipped projects
+const FALLBACK_TOML = `# ~/.config/stack.toml — tools used on shipped projects
 [language]
 core    = "typescript"
 scripts = "python"
@@ -499,6 +508,30 @@ core       = "devops fundamentals"
 builds     = "saas & real-world apps"
 strength   = "backend-leaning full-stack"
 ai         = "assist, not replace"`;
+/* ---- config loader: window.SITE from ./config.js overrides fallbacks ---- */
+const __SITE = (typeof window !== 'undefined' && window.SITE) || {};
+const CONFIG = Object.assign({}, FALLBACK_CONFIG, __SITE.profile || {});
+const PROJECTS = (Array.isArray(__SITE.projects) && __SITE.projects.length) ? __SITE.projects : FALLBACK_PROJECTS;
+const TOML = (typeof __SITE.stackToml === 'string' && __SITE.stackToml.trim()) ? __SITE.stackToml : FALLBACK_TOML;
+/* Fail-soft validation: collect warnings, show in terminal after boot. */
+const __CONFIG_WARNINGS = [];
+(function validateSite() {
+  if (!__SITE || !__SITE.projects) {
+    if (!__SITE || Object.keys(__SITE).length === 0) __CONFIG_WARNINGS.push('config.js not loaded — using built-in fallback content');
+    return;
+  }
+  const seen = new Set(), validStatus = new Set(['live', 'stable', 'archived']);
+  (__SITE.projects || []).forEach((p, i) => {
+    const where = `projects[${i}]${p && p.slug ? ` (${p.slug})` : ''}`;
+    if (!p || typeof p !== 'object') { __CONFIG_WARNINGS.push(`${where}: not an object — skipped`); return; }
+    if (!p.slug || !/^[a-z0-9-]+$/.test(p.slug)) __CONFIG_WARNINGS.push(`${where}: slug must be lowercase a-z/0-9/-`);
+    else if (seen.has(p.slug)) __CONFIG_WARNINGS.push(`${where}: duplicate slug "${p.slug}"`);
+    else seen.add(p.slug);
+    if (!p.name) __CONFIG_WARNINGS.push(`${where}: missing name`);
+    if (p.status && !validStatus.has(p.status)) __CONFIG_WARNINGS.push(`${where}: status "${p.status}" should be live|stable|archived`);
+    if (!Array.isArray(p.stack)) __CONFIG_WARNINGS.push(`${where}: stack should be an array`);
+  });
+})();
 const TUX = [
 "        .--.",
 "       |o_o |",
@@ -967,7 +1000,7 @@ function rContact() {
       <li><a href="${CONFIG.linkedin}" target="_blank" rel="noopener"><span class="l-k">linkedin</span><span class="l-v">${CONFIG.linkedinLabel} <i>${CHEV_RIGHT}</i></span></a></li>
       <li><a href="mailto:${CONFIG.email}"><span class="l-k">email</span><span class="l-v">${CONFIG.email} <i>${CHEV_RIGHT}</i></span></a></li>
     </ul>
-    <footer class="colophon">one file · zero frameworks · zero build steps</footer>
+    <footer class="colophon">config.js · zero frameworks · zero build steps</footer>
   </section>`;
 }
 const RENDER = { home:rHome, about:rAbout, projects:rProjects, stack:rStack, contact:rContact };
@@ -1081,6 +1114,7 @@ renderPrompt();
 tprint('Linux dev-box 6.9.4-handcrafted x86_64 · tty1');
 tprint(`last login: ${new Date().toDateString()} — from your browser`, 't-dim');
 tprint('');
+if (__CONFIG_WARNINGS.length) __CONFIG_WARNINGS.forEach(w => tprint('config: ' + w, 't-dim'));
 bootTimer = setTimeout(() => { bootTimer = null; typeCommand('cat welcome.md'); }, 420);
 setTimeout(() => tprint(`type 'help' for commands · or just click the menu above`, 't-dim'), 2800);
 if (matchMedia('(min-width: 900px)').matches) setTimeout(() => kbd.focus(), 400);

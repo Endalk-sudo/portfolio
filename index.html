@@ -788,6 +788,9 @@ function openProject(slug) {
     el.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' });
   };
   tprint(`opening ~/projects/${esc(slug)}/ ↑`, 't-dim');
+  if (p.url) tprint(`live: ${esc(p.url)}`, 't-dim');
+  if (p.repo) tprint(`source: ${esc(p.repo)}`, 't-dim');
+  if (!p.url && !p.repo && p.sourceNote) tprint(esc(p.sourceNote), 't-dim');
   if (currentId !== 'projects') renderSection('projects', expand); else expand();
 }
 function whoami() {
@@ -953,7 +956,9 @@ function projLinks(p) {
   const bits = [];
   if (p.url) bits.push(`<a href="${p.url}" target="_blank" rel="noopener">live demo</a>`);
   if (p.repo) bits.push(`<a href="${p.repo}" target="_blank" rel="noopener">source</a>`);
-  return bits.length ? `<div class="p-links">${bits.join('')}</div>` : '';
+  if (!bits.length && !p.sourceNote) return '';
+  const note = (!bits.length && p.sourceNote) ? `<span class="tag">${esc(p.sourceNote)}</span>` : '';
+  return `<div class="p-links">${bits.join('')}${note}</div>`;
 }
 function rProjects() {
   const rows = PROJECTS.map((p, i) => `

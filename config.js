@@ -2,13 +2,15 @@
    SITE CONFIG — edit this file to update the portfolio.
    No HTML/CSS/JS changes needed. Just save + refresh.
 
-   HOW TO ADD A PROJECT:
-   1. Copy one { ... } block inside `projects: [...]`
-   2. Paste it at the TOP of the list (newest first)
-   3. Change slug (unique, lowercase, no spaces), name, year, desc, etc.
-   4. Leave url/repo as "" to hide that button.
-   5. Save + refresh. Terminal commands (`open <slug>`, `ls projects/`)
-      pick it up automatically.
+    HOW TO ADD A PROJECT:
+    1. Copy one { ... } block inside `projects: [...]`
+    2. Paste it at the TOP of the list (newest first)
+    3. Change slug (unique, lowercase, no spaces), name, year, desc, etc.
+    4. LINKS: set `url` to the live demo, `repo` to the source code.
+       Leave either as "" to hide that button. If the work is private,
+       leave both "" and set `sourceNote` (e.g. 'private — ask me').
+    5. Save + refresh. Terminal commands (`open <slug>`, `ls projects/`)
+       pick it up automatically. `open <slug>` also prints the links.
 
    HOW TO EDIT LINKS / INFO:
    - Edit `profile` below. Labels are what the contact page shows.
@@ -115,8 +117,8 @@ window.SITE = {
             outcome: 'Recruiter-readable in 10s, terminal-native throughout',
             desc: 'This site: a terminal-themed portfolio with zero frameworks and zero build steps. Menu bar, pager, and draggable tty sheet; all content in one config.js with fail-soft validation.',
             stack: ['javascript', 'html', 'css', 'cloudflare'],
-            url: '',
-            repo: '',
+            url: 'https://portfolio.endalkachewyaregal747.workers.dev/',
+            repo: 'https://github.com/Endalk-sudo/portfolio',
             highlights: ['one config file drives every section', 'works on file:// and any static host'],
             gitlog: ['72a959b  chore: portfolio.html → index.html + config.js'],
         },
@@ -126,7 +128,8 @@ window.SITE = {
       outcome:'Outcome first — what it does for users',
       desc:'Longer description for the expanded view.',
       stack:['typescript','node','postgres'],
-      url:'', repo:'',
+      url:'https://my-app.example.com', repo:'https://github.com/me/my-app',
+      sourceNote:'', // or e.g. 'private — ask me' when url+repo are ""
       highlights:['highlight one', 'highlight two'],
       gitlog:['abc1234  feat: initial ship'] },
     status must be one of: live | stable | archived

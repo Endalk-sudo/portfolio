@@ -419,7 +419,6 @@ orms       = ["prisma"]
 [integrations]
 payments   = true
 email      = true
-sms        = true
 ai         = true
 [deploy]
 platforms  = ["vercel", "render", "cloudflare"]

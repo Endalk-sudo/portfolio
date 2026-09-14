@@ -60,7 +60,7 @@ window.SITE = {
             ],
             url: '',
             repo: 'https://github.com/Endalk-sudo/Feedwise',
-            sourceNote: '',
+            sourceNote: 'Open source — available on GitHub',
             highlights: [
                 'Monorepo structure (client/server/shared) with Zod schema contracts as single source of truth',
                 'Gemini 3.5 Flash AI analysis: sentiment, category, urgency, satisfaction (1–5), fixable-problem detection, retention-risk signals',
@@ -111,7 +111,7 @@ window.SITE = {
             ],
             url: '',
             repo: 'https://github.com/Endalk-sudo/full-time-capsule',
-            sourceNote: 'Public repository',
+            sourceNote: 'Open source — available on GitHub',
             highlights: [
                 'Microservices architecture with Docker Compose orchestration',
                 'JWT-based authentication with bcrypt password hashing',
@@ -157,7 +157,7 @@ window.SITE = {
             ],
             url: 'https://a-kiyon.vercel.app',
             repo: 'https://github.com/Endalk-sudo/a-kiyon',
-            sourceNote: '',
+            sourceNote: 'private — ask me',
             highlights: [
                 'Member management with photo uploads (WebP via sharp)',
                 'Subscription & renewal tracking with Ethiopian calendar dates',
@@ -236,7 +236,7 @@ window.SITE = {
                 'offlineaudiocontext',
             ],
             url: '', // No public deployment visible in repo
-            repo: 'https://github.com/Endalk-sudo/auto_caption_generator',
+            repo: 'https://github.com/Endalk-sudo/caption-forge',
             sourceNote: 'private — ask me', // Private repository
             highlights: [
                 'Client-side audio extraction to 16 kHz mono WAV — only audio sent to API, video never leaves device',
@@ -283,7 +283,7 @@ window.SITE = {
             ],
             url: 'https://atirara.vercel.app/',
             repo: 'https://github.com/Dere-tesfa/UEE',
-            sourceNote: '', // Public repository
+            sourceNote: 'private — ask me',
             highlights: [
                 '7 question types with type-specific UX (SVG matching lines, progress tracking)',
                 'Manual TeleBirr payment verification with auto-approve toggle and transaction validation',
@@ -345,7 +345,7 @@ window.SITE = {
             stack: ['typescript', 'nextjs', 'node', 'postgres', 'prisma', 'tailwind', 'vercel', 'neon'],
             url: 'https://key-forge-zeta.vercel.app/',
             repo: 'https://github.com/Endalk-sudo/KeyForge',
-            sourceNote: '',
+            sourceNote: 'private — ask me',
             highlights: [
                 'Ed25519-signed licenses with offline verify + zero-dep Node reference',
                 'Atomic seat enforcement + DB-backed 5/min rate limiting',
@@ -368,6 +368,7 @@ window.SITE = {
             stack: ['javascript', 'html', 'css', 'cloudflare'],
             url: 'https://portfolio.endalkachewyaregal747.workers.dev/',
             repo: 'https://github.com/Endalk-sudo/portfolio',
+            sourceNote: 'Open source — available on GitHub',
             highlights: ['one config file drives every section', 'works on file:// and any static host'],
             gitlog: ['72a959b  chore: portfolio.html → index.html + config.js'],
         },

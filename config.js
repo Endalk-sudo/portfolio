@@ -40,30 +40,30 @@ window.SITE = {
             desc: 'Full-stack SaaS platform combining QR-code-based feedback collection with real-time AI analysis (sentiment, category, urgency, fixable problems, retention risk). Features include professional analytics dashboards, Stripe subscriptions (Basic/Pro tiers), team management with role-based access, intelligent admin chat for querying feedback, email alerts, and S3 logo storage. Designed for enterprise reliability with BullMQ job queues, Redis caching, PostgreSQL persistence, and Docker-based deployment.',
             stack: [
                 'typescript',
-                'react-19',
-                'vite-7',
-                'node.js',
-                'express-5',
-                'postgresql-16',
-                'prisma-orm',
+                'react',
+                'vite',
+                'node',
+                'express',
+                'postgres',
+                'prisma',
                 'better-auth',
-                'gemini-3.5',
+                'gemini',
                 'stripe',
                 'bullmq',
                 'redis',
                 's3',
-                'tailwind-4',
+                'tailwind',
                 'tanstack-router',
-                'tanstack-query-v5',
+                'tanstack-query',
                 'zustand',
-                'zod-v4',
+                'zod',
             ],
             url: '',
             repo: 'https://github.com/Endalk-sudo/Feedwise',
             sourceNote: 'Open source — available on GitHub',
             highlights: [
                 'Monorepo structure (client/server/shared) with Zod schema contracts as single source of truth',
-                'Gemini 3.5 Flash AI analysis: sentiment, category, urgency, satisfaction (1–5), fixable-problem detection, retention-risk signals',
+                'Gemini Flash AI analysis: sentiment, category, urgency, satisfaction (1–5), fixable-problem detection, retention-risk signals',
                 'Real-time QR code generation and regeneration with S3 upload',
                 'Stripe SaaS billing with Basic/Pro tiers, webhook sync, billing portal',
                 'BullMQ job queue for insight generation (2AM daily for Pro orgs), batch analysis, urgency alerts, and 7AM digest emails',
@@ -96,18 +96,18 @@ window.SITE = {
             stack: [
                 'typescript',
                 'react',
-                'nodejs',
+                'node',
                 'express',
-                'postgresql',
+                'postgres',
                 'redis',
                 'docker',
                 'prisma',
                 'bullmq',
                 'nginx',
                 's3',
-                'tailwindcss',
+                'tailwind',
                 'zustand',
-                'react-query',
+                'tanstack-query',
             ],
             url: '',
             repo: 'https://github.com/Endalk-sudo/full-time-capsule',
@@ -148,8 +148,8 @@ window.SITE = {
                 'firestore',
                 'zustand',
                 'zod',
-                'tailwindcss',
-                'shadcn/ui',
+                'tailwind',
+                'shadcn',
                 'recharts',
                 'sharp',
                 'backblaze-b2',
@@ -157,7 +157,7 @@ window.SITE = {
             ],
             url: 'https://a-kiyon.vercel.app',
             repo: 'https://github.com/Endalk-sudo/a-kiyon',
-            sourceNote: 'private — ask me',
+            sourceNote: '',
             highlights: [
                 'Member management with photo uploads (WebP via sharp)',
                 'Subscription & renewal tracking with Ethiopian calendar dates',
@@ -177,22 +177,22 @@ window.SITE = {
             name: 'Amharic Auto-Caption Generator',
             year: '2026',
             status: 'stable',
-            blurb: 'Telegram bot generating .srt subtitle files for Amharic-English (Hablish) speech from audio',
+            blurb: 'Telegram bot generating .srt subtitle files for Amharic-English (Amharlish) speech from audio',
             outcome:
                 'Enables Amharic speakers to quickly generate accurate bilingual subtitles from audio files via Telegram, with a freemium model supporting 5 free trials and premium subscriptions',
-            desc: 'A lightweight, production-ready Telegram bot that transcribes mixed Amharic-English speech into standard .srt subtitle files. Uses Google Gemini 3.5 Flash for AI transcription, PostgreSQL (via Supabase) for a DB-backed job queue with atomic processing, and a dual-worker architecture with auto-retry logic. Deployed on Railway with 500MB RAM constraint. Supports two caption styles (short/long) and integrates Ethiopian CBE bank payment verification for premium upgrades (600 ETB/month).',
+            desc: 'A lightweight, production-ready Telegram bot that transcribes mixed Amharic-English speech into standard .srt subtitle files. Uses Google Gemini Flash for AI transcription, PostgreSQL (via Supabase) for a DB-backed job queue with atomic processing, and a dual-worker architecture with auto-retry logic. Deployed on Railway with 500MB RAM constraint. Supports two caption styles (short/long) and integrates Ethiopian CBE bank payment verification for premium upgrades (600 ETB/month).',
             stack: [
                 'python',
-                'telegram-aiogram',
-                'google-genai',
-                'supabase-postgresql',
+                'telegram-bot',
+                'gemini',
+                'supabase',
                 'pydantic',
                 'httpx',
                 'railway',
-                'verify.leul.et-payment-api',
+                'cbe-pay',
             ],
             url: '',
-            repo: 'https://github.com/Endalk-sudo/sub-gen-tg',
+            repo: '',
             sourceNote: 'private — ask me',
             highlights: [
                 'DB-backed job queue with atomic claim via SKIP LOCKED (2 concurrent workers)',
@@ -222,21 +222,21 @@ window.SITE = {
                 'Users upload videos and receive high-quality auto-generated captions with full editing control and multiple export formats — all processed locally in the browser for privacy',
             desc: 'A complete browser-native video captioning studio. Upload videos (MP4/WebM/MOV/AVI), extract audio locally at 16 kHz mono WAV, send only the compact audio to Gemini for Amharic-focused transcription, edit timing on an interactive wavesurfer.js timeline, style captions from 6+ presets (CapCut Classic, TikTok Bold, YouTube Box, Neon, Pink, Minimal Dark), preview live with CSS overlay, and burn subtitles with hardware-accelerated WebCodecs. Export burned MP4, SRT, or ASS files. Auto-saves to localStorage.',
             stack: [
-                'next.js-16',
-                'react-19',
+                'next.js',
+                'react',
                 'typescript',
-                'tailwindcss-v4',
-                'google-gemini-api',
-                'wavesurfer.js-v7',
+                'tailwind',
+                'gemini',
+                'wavesurfer.js',
                 'webcodecs',
                 'mp4-muxer',
                 'mp4box',
                 'zustand',
-                'web-audio-api',
+                'web-audio',
                 'offlineaudiocontext',
             ],
             url: '', // No public deployment visible in repo
-            repo: 'https://github.com/Endalk-sudo/caption-forge',
+            repo: '',
             sourceNote: 'private — ask me', // Private repository
             highlights: [
                 'Client-side audio extraction to 16 kHz mono WAV — only audio sent to API, video never leaves device',
@@ -250,7 +250,7 @@ window.SITE = {
             ],
             gitlog: [
                 '8b62e17  add caption length parameter',
-                '7341084  improve somtings',
+                '7341084  improve details',
                 '4f9aebb  Update model fallback order in README',
                 '375e0ed  export pipeline fix',
                 'e03bc10  fix burning process animation and ui',
@@ -265,25 +265,25 @@ window.SITE = {
             blurb: 'Mobile-first exam prep platform for Ethiopian university students with interactive questions, AI tutoring, and TeleBirr payment integration',
             outcome:
                 'Students access past exam papers with instant feedback, detailed explanations, and personalized AI tutoring — transforming static PDFs into interactive learning experiences',
-            desc: 'A comprehensive exam preparation platform built for Ethiopian universities. Features 7 multi-type question formats (MCQ, True/False, Matching, Fill Blank, Short Answer, Essay), interactive practice modes with visual feedback, admin CMS for exam management, secure payment verification via TeleBirr, progress tracking, dark mode, and offline support roadmap. Deployed with Docker/Vercel.',
+            desc: "A collaborative exam preparation platform built with a friend (I'm a contributor on their repo) for Ethiopian universities. Features 7 multi-type question formats (MCQ, True/False, Matching, Fill Blank, Short Answer, Essay), interactive practice modes with visual feedback, admin CMS for exam management, secure payment verification via TeleBirr, progress tracking, dark mode, and offline support roadmap. Deployed with Docker/Vercel.",
             stack: [
                 'typescript',
-                'react-router-v7',
+                'react-router',
                 'react-hook-form',
-                'tailwindcss-v4',
-                'postgresql',
+                'tailwind',
+                'postgres',
                 'prisma',
                 'zustand',
-                'react-query',
-                'google-gemini-api',
-                'aws-s3',
+                'tanstack-query',
+                'gemini',
+                's3',
                 'node',
                 'bcrypt',
                 'zod',
             ],
             url: 'https://atirara.vercel.app/',
-            repo: 'https://github.com/Dere-tesfa/UEE',
-            sourceNote: 'private — ask me',
+            repo: '',
+            sourceNote: "collaborative — built with a friend, I'm a contributor",
             highlights: [
                 '7 question types with type-specific UX (SVG matching lines, progress tracking)',
                 'Manual TeleBirr payment verification with auto-approve toggle and transaction validation',
@@ -302,7 +302,6 @@ window.SITE = {
                 '7a9671  fix hard coded json import override field',
             ],
         },
-        ,
         {
             slug: 'teacher-evaluation',
             name: 'Teacher Evaluation System',
@@ -342,9 +341,9 @@ window.SITE = {
             blurb: 'Node-locked licensing server with Ed25519 tokens + admin portal',
             outcome: 'Ship piracy-resistant desktop software with online activation and offline verification',
             desc: 'KeyForge validates product keys, binds hardware fingerprints, and issues Ed25519-signed license tokens. Includes verify API, air-gapped .lic generation, device revocation, token inspector, audit trail, and Vercel + Postgres serverless deploy.',
-            stack: ['typescript', 'nextjs', 'node', 'postgres', 'prisma', 'tailwind', 'vercel', 'neon'],
+            stack: ['typescript', 'next.js', 'node', 'postgres', 'prisma', 'tailwind', 'vercel', 'neon'],
             url: 'https://key-forge-zeta.vercel.app/',
-            repo: 'https://github.com/Endalk-sudo/KeyForge',
+            repo: '',
             sourceNote: 'private — ask me',
             highlights: [
                 'Ed25519-signed licenses with offline verify + zero-dep Node reference',
@@ -356,7 +355,6 @@ window.SITE = {
                 '3a38695  feat: add /api/v1/verify revocation check + integration test suite',
             ],
         },
-        ,
         {
             slug: 'portfolio',
             name: 'Portfolio',
@@ -393,7 +391,7 @@ core    = "typescript"
 scripts = "python"
 legacy  = "php"
 [frontend]
-frameworks = ["next.js", "tanstack start", "react"]
+frameworks = ["next.js", "react", "react-router"]
 state      = ["zustand", "tanstack query"]
 styling    = "tailwind"
 tooling    = "vite"
@@ -403,9 +401,9 @@ apis       = ["rest", "websockets"]
 jobs       = ["cron", "job queues", "workers"]
 [data]
 relational = "postgres"
-documents  = "mongodb"
+documents  = "firestore"
 cache_queues = "redis"
-orms       = ["prisma", "drizzle"]
+orms       = ["prisma"]
 [integrations]
 payments   = true
 email      = true

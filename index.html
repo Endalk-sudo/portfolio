@@ -801,7 +801,7 @@ function whoami() {
     '',
     'frontend    next · react · vite · tanstack · zustand · tailwind',
     'backend     node · rest · websockets · cron · queues · workers',
-    'data        postgres · mongo · redis · prisma · drizzle',
+    'data        postgres · firestore · supabase · redis · prisma',
     'services    payments · sms · email · ai integrations',
     'deploy      vercel · render · cloudflare · docker · ci/cd',
     '',
@@ -818,7 +818,7 @@ function neofetch() {
     <div class="fi"><span class="fi-k">languages</span>TypeScript · Python · SQL · PHP</div>
     <div class="fi"><span class="fi-k">frontend</span>Next · React · Vite · TanStack · Zustand · Query · Tailwind</div>
     <div class="fi"><span class="fi-k">backend</span>Node · REST · WebSockets · cron · queues · workers</div>
-    <div class="fi"><span class="fi-k">data</span>Postgres · Mongo · Redis · Drizzle · Prisma</div>
+     <div class="fi"><span class="fi-k">data</span>Postgres · Firestore · Supabase · Redis · Prisma</div>
     <div class="fi"><span class="fi-k">services</span>payments · SMS · email · AI APIs</div>
     <div class="fi"><span class="fi-k">deploy</span>Vercel · Render · Cloudflare · Docker · CI/CD</div>
     <div class="fi fi-hot"><span class="fi-k">ships</span>SaaS & real-world production apps</div>
@@ -957,7 +957,7 @@ function projLinks(p) {
   if (p.url) bits.push(`<a href="${p.url}" target="_blank" rel="noopener">live demo</a>`);
   if (p.repo) bits.push(`<a href="${p.repo}" target="_blank" rel="noopener">source</a>`);
   if (!bits.length && !p.sourceNote) return '';
-  const note = (!bits.length && p.sourceNote) ? `<span class="tag">${esc(p.sourceNote)}</span>` : '';
+  const note = p.sourceNote ? `<span class="tag">${esc(p.sourceNote)}</span>` : '';
   return `<div class="p-links">${bits.join('')}${note}</div>`;
 }
 function rProjects() {
@@ -978,7 +978,7 @@ function rProjects() {
       <div class="p-tags">${p.stack.map(s => `<span class="tag">${s}</span>`).join('')}</div>
       ${projLinks(p)}
       <pre class="git"><span class="g-p">$</span> git log --oneline --author=me
- ${p.gitlog.map(g => { const [h, ...r] = g.split('  '); return `<span class="g-h">${h}</span>  ${r.join('  ').trim()}`; }).join('\n')}</pre>
+  ${p.gitlog.map(g => { const m = String(g).match(/^([0-9a-f]{7,40})\s{2,}(.*)$/i); return m ? `<span class="g-h">${m[1]}</span>  ${esc(m[2].trim())}` : esc(String(g).trim()); }).join('\n')}</pre>
     </div></div>
   </article>`).join('');
   return `

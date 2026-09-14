@@ -23,8 +23,8 @@ window.SITE = {
         email: 'endalkachewyaregal747@gmail.com',
         github: 'https://github.com/Endalk-sudo',
         githubLabel: 'github.com/Endalk-sudo',
-        linkedin: 'https://www.linkedin.com/in/endalk-y-035323258/',
-        linkedinLabel: 'linkedin.com/in/endalk-y',
+        linkedin: 'www.linkedin.com/in/endalkachew-yaregal-swe',
+        linkedinLabel: 'linkedin.com/in/endalkachew-yaregal-swe',
     },
 
     /* Set url / repo to real links when ready — empty string hides the button */

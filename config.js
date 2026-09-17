@@ -25,6 +25,10 @@ window.SITE = {
         githubLabel: 'github.com/Endalk-sudo',
         linkedin: 'www.linkedin.com/in/endalkachew-yaregal-swe',
         linkedinLabel: 'linkedin.com/in/endalkachew-yaregal-swe',
+        /* CV download: PDF lives next to index.html (upload it on deploy).
+           Rename here if your file is named differently. */
+        cv: './Endalkachew_Yaregal_CV.pdf',
+        cvLabel: 'Endalkachew_Yaregal_CV.pdf',
     },
 
     /* Set url / repo to real links when ready — empty string hides the button */
@@ -401,7 +405,6 @@ window.SITE = {
 [language]
 core    = "typescript"
 scripts = "python"
-legacy  = "php"
 [frontend]
 frameworks = ["next.js", "react", "react-router"]
 state      = ["zustand", "tanstack query"]
@@ -415,7 +418,7 @@ jobs       = ["cron", "job queues", "workers"]
 relational = "postgres"
 documents  = "firestore"
 cache_queues = "redis"
-orms       = ["prisma"]
+orms       = ["prisma","drizzle"]
 [integrations]
 payments   = true
 email      = true

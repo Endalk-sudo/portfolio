@@ -413,6 +413,8 @@ const FALLBACK_CONFIG = {
   githubLabel: 'github.com/Endalk-sudo',
   linkedin: 'https://www.linkedin.com/in/endalk-y-035323258/',
   linkedinLabel: 'linkedin.com/in/endalk-y',
+  cv: './Endalkachew_Yaregal_CV.pdf',
+  cvLabel: 'Endalkachew_Yaregal_CV.pdf',
 };
 /* ============ data (fallback if config.js missing) ============ */
 const FALLBACK_PROJECTS = [
@@ -591,6 +593,34 @@ const out = $('#t-out'), kbd = $('#kbd'), tTyped = $('#t-typed'),
       sbPath = $('#sb-path'), clockEl = $('#sb-clock'), upEl = $('#sb-up');
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+/* ============ CV (same-origin PDF next to index.html, opens in new tab) ============ */
+function cvHref() { return (typeof CONFIG !== 'undefined' && CONFIG.cv) || './Endalkachew_Yaregal_CV.pdf'; }
+function cvLabel() { return (typeof CONFIG !== 'undefined' && CONFIG.cvLabel) || 'Endalkachew_Yaregal_CV.pdf'; }
+function downloadCvCmd() {
+  const href = cvHref(), label = cvLabel();
+  const openTab = () => {
+    const win = window.open(href, '_blank', 'noopener');
+    if (!win) {
+      /* Popup blocker: print a clickable link so the user can open it manually. */
+      const d = tprint('', 't-dim');
+      d.innerHTML = `popup blocked — <a href="${esc(href)}" target="_blank" rel="noopener" style="color:var(--accent)">open ~/${esc(label)} here</a>`;
+      return;
+    }
+    tprint(`opened ~/${esc(label)} in a new tab — use the viewer's ⤓ button to save it`, 't-dim');
+  };
+  tprint('opening ~/' + esc(label) + ' …', 't-dim');
+  /* Fail-soft: warn when the PDF is missing instead of opening a dead tab.
+     (file:// has no HEAD support, so just open there.) */
+  if (location.protocol.startsWith('http')) {
+    fetch(href, { method: 'HEAD' }).then(
+      r => {
+        if (r.ok) openTab();
+        else tprint('cv pdf not found — add it next to index.html', 't-err');
+      },
+      () => openTab()
+    );
+  } else openTab();
+}
 /* ============ terminal core ============ */
 let cwd = '~', hist = [], histIdx = 0, busy = false, typing = null, typingCmd = '';
 const promptHTML = () =>
@@ -649,14 +679,14 @@ kbd.addEventListener('keydown', e => {
   }
 });
 kbd.addEventListener('input', renderInput);
-const ALL_CMDS = ['help','ls','cat','cd','open','whoami','neofetch','projects','about','stack','skills','contact','history','echo','date','uptime','pwd','clear','crt','exit','ping','sudo','vim','rm','ai'];
+const ALL_CMDS = ['help','ls','cat','cd','open','whoami','neofetch','projects','about','stack','skills','contact','cv','history','echo','date','uptime','pwd','clear','crt','exit','ping','sudo','vim','rm','ai'];
 function complete() {
   const v = kbd.value, parts = v.split(/\s+/);
   let pool, idx;
   if (parts.length === 1) { pool = ALL_CMDS; idx = 0; }
   else {
-    pool = parts[0] === 'open' ? PROJECTS.map(p => p.slug)
-         : ['about.md','contact.md','welcome.md','readme.md','.vimrc','.bash_history','.config/','stack.toml','projects/','-a'];
+    pool = parts[0] === 'open' ? [...PROJECTS.map(p => p.slug), 'cv']
+         : ['about.md','contact.md','welcome.md','readme.md','cv.pdf','.vimrc','.bash_history','.config/','stack.toml','projects/','-a'];
     idx = parts.length - 1;
   }
   const prefix = parts[idx] || '';
@@ -727,6 +757,7 @@ function printHelp() {
     ['projects', 'what I have built'],
     ['stack · skills', 'tools I use'],
     ['contact', 'reach out'],
+    ['cv', 'view my CV (pdf, new tab)'],
     ['clear', 'wipe screen (ctrl+l)'],
   ].forEach(([c, d]) => tprint(`<span class="t-acc">${esc(c)}</span><span class="t-dim">${esc(d)}</span>`));
   tprint(`also try: ai · ping · vim`, 't-dim');
@@ -744,7 +775,7 @@ function lsCmd(args) {
     if (t === '.config') { tprint('<span class="t-acc">stack.toml</span>'); return; }
     if (t !== '~' && t !== '.') { tprint(`ls: ${esc(target)}: No such file or directory`, 't-err'); return; }
   }
-  let items = ['<span class="t-acc">projects/</span>', 'welcome.md', 'about.md', 'readme.md', 'contact.md'];
+  let items = ['<span class="t-acc">projects/</span>', 'welcome.md', 'about.md', 'readme.md', 'contact.md', 'cv.pdf'];
   if (all) items = ['.', '..', '<span class="t-acc">.config/</span>', '<span class="t-faint">.vimrc</span>', '<span class="t-faint">.bash_history</span>', ...items];
   tprint(items.join('  '));
 }
@@ -761,6 +792,10 @@ function catCmd(args) {
   if (f === 'readme.md')      { tprintPre(README); return; }
   if (f === '.vimrc')         { tprintPre(VIMRC); return; }
   if (f === '.bash_history')  { tprintPre(BASH_HISTORY); return; }
+  if (f === 'cv.pdf' || f === 'cv' || f === './cv.pdf') {
+    tprint('binary file — opening ~/' + esc(cvLabel()) + ' in a new tab instead of printing it', 't-dim');
+    downloadCvCmd(); return;
+  }
   tprint(`cat: ${esc(args[0])}: No such file or directory`, 't-err');
 }
 const CDS = { '~':'home','':'home','home':'home','welcome':'home','welcome.md':'home','about':'about','about.md':'about',
@@ -773,6 +808,8 @@ function cdCmd(args) {
 }
 function openCmd(args) {
   if (!args.length) { tprint(`open: missing operand — try: open ${PROJECTS[0].slug}`, 't-err'); return; }
+  const _t = (args[0] || '').toLowerCase();
+  if (_t === 'cv' || _t === 'cv.pdf') { downloadCvCmd(); return; }
   openProject(args[0].replace(/\/+$/, ''));
 }
 function openProject(slug) {
@@ -891,6 +928,7 @@ function exec(line) {
     case 'about':    go('about', '→ ~/about.md'); break;
     case 'stack': case 'skills': go('stack', '→ ~/.config/stack.toml'); break;
     case 'contact':  go('contact', '→ ~/contact.md'); break;
+    case 'cv': downloadCvCmd(); break;
     case 'home': case 'welcome': go('home', '→ ~/welcome.md'); break;
     default: notFound(cmd);
   }
@@ -912,7 +950,7 @@ function rHome() {
     <p class="lede">Software engineering student. Full-stack, strongest on backend — services, data, payments, email, AI APIs, caching and background jobs for real SaaS and production apps.</p>
     <div class="hero-actions">
       <button class="btn btn-primary" data-cmd="ls projects/">See the work</button>
-      <button class="btn btn-ghost" data-cmd="cat contact.md">Contact</button>
+      <a class="btn btn-ghost" id="cv-btn" href="${(CONFIG.cv || './Endalkachew_Yaregal_CV.pdf')}" target="_blank" rel="noopener" style="text-decoration:none">View CV ↗</a>
     </div>
     <p class="hero-meta">typescript · react · node · postgres · redis · vercel · render · cloudflare</p>
     <div class="scan">
@@ -1018,6 +1056,7 @@ function rContact() {
     <ul class="links">
       <li><a href="${CONFIG.github}" target="_blank" rel="noopener"><span class="l-k">github</span><span class="l-v">${CONFIG.githubLabel} <i>${CHEV_RIGHT}</i></span></a></li>
       <li><a href="${CONFIG.linkedin}" target="_blank" rel="noopener"><span class="l-k">linkedin</span><span class="l-v">${CONFIG.linkedinLabel} <i>${CHEV_RIGHT}</i></span></a></li>
+      <li><a href="${(CONFIG.cv || './Endalkachew_Yaregal_CV.pdf')}" target="_blank" rel="noopener"><span class="l-k">cv</span><span class="l-v">${CONFIG.cvLabel || 'Endalkachew_Yaregal_CV.pdf'} — view pdf <i>${CHEV_RIGHT}</i></span></a></li>
       <li><a href="mailto:${CONFIG.email}"><span class="l-k">email</span><span class="l-v">${CONFIG.email} <i>${CHEV_RIGHT}</i></span></a></li>
     </ul>
     <footer class="colophon">config.js · zero frameworks · zero build steps</footer>

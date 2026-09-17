@@ -456,16 +456,16 @@ const FALLBACK_PROJECTS = [
       'f70a1e6  feat: resume from last committed batch',
       'b44d219  fix: timezone drift on legacy timestamps'] },
   { slug:'papertrail', name:'Papertrail', year:'2023', status:'archived',
-    blurb:'php monolith → typescript',
+    blurb:'legacy monolith → typescript',
     outcome:'Route-by-route cutover — zero downtime, zero lost sessions',
-    desc:'Ten-year PHP monolith migrated route-by-route to TypeScript services behind feature flags. Customers never saw a maintenance window.',
-    stack:['php','typescript','node','ci/cd'],
+    desc:'Ten-year legacy monolith migrated route-by-route to TypeScript services behind feature flags. Customers never saw a maintenance window.',
+    stack:['typescript','node','ci/cd'],
     url:'', repo:'',
     highlights:[
       'strangler-fig migration, no big-bang',
       'zero downtime, zero lost sessions'],
     gitlog:[
-      'c31f8a2  chore: delete 11k lines of retired PHP',
+      'c31f8a2  chore: delete 11k lines of retired code',
       '0d774e3  feat: flag-driven proxy, route 1 of 84'] },
   { slug:'homelab', name:'Homelab', year:'2019 —', status:'live',
     blurb:'prod-like ops practice',
@@ -495,7 +495,6 @@ const FALLBACK_TOML = `# ~/.config/stack.toml — tools used on shipped projects
 [language]
 core    = "typescript"
 scripts = "python"
-legacy  = "php"
 [frontend]
 frameworks = ["next.js", "tanstack start", "react"]
 state      = ["zustand", "tanstack query"]
@@ -851,7 +850,7 @@ function neofetch() {
     <div class="fi-sep">──────────────────</div>
     <div class="fi"><span class="fi-k">role</span>SWE student · backend-leaning full-stack</div>
     <div class="fi"><span class="fi-k">os</span>Fedora Linux</div>
-    <div class="fi"><span class="fi-k">languages</span>TypeScript · Python · SQL · PHP</div>
+    <div class="fi"><span class="fi-k">languages</span>TypeScript · Python · SQL</div>
     <div class="fi"><span class="fi-k">frontend</span>Next · React · Vite · TanStack · Zustand · Query · Tailwind</div>
     <div class="fi"><span class="fi-k">backend</span>Node · REST · WebSockets · cron · queues · workers</div>
      <div class="fi"><span class="fi-k">data</span>Postgres · Firestore · Supabase · Redis · Prisma</div>
@@ -974,7 +973,7 @@ function rAbout() {
         <dl class="facts">
           <div class="fact"><dt>name</dt><dd>Endalkachew Yaregal</dd></div>
           <div class="fact"><dt>status</dt><dd>SWE student</dd></div>
-          <div class="fact"><dt>languages</dt><dd>ts · py · sql · php</dd></div>
+          <div class="fact"><dt>languages</dt><dd>ts · py · sql</dd></div>
           <div class="fact"><dt>frontend</dt><dd>react · next · vite · tanstack · zustand</dd></div>
           <div class="fact"><dt>backend</dt><dd>node · rest · websockets · cron · queues</dd></div>
           <div class="fact"><dt>data</dt><dd>postgres · mongo · redis · drizzle · prisma</dd></div>

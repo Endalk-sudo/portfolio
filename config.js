@@ -405,7 +405,6 @@ window.SITE = {
 [language]
 core    = "typescript"
 scripts = "python"
-legacy  = "php"
 [frontend]
 frameworks = ["next.js", "react", "react-router"]
 state      = ["zustand", "tanstack query"]
@@ -419,11 +418,10 @@ jobs       = ["cron", "job queues", "workers"]
 relational = "postgres"
 documents  = "firestore"
 cache_queues = "redis"
-orms       = ["prisma"]
+orms       = ["prisma","drizzle"]
 [integrations]
 payments   = true
 email      = true
-sms        = true
 ai         = true
 [deploy]
 platforms  = ["vercel", "render", "cloudflare"]

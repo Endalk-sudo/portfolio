@@ -25,10 +25,11 @@ Save + refresh.
 
 ## Deploy
 
-Upload `index.html` + `config.js` together to any static host
+Upload `index.html` + `config.js` + `cv.pdf` together to any static host
 (Vercel, Render, Cloudflare, GitHub Pages). No build step.
 
 ## Files
 
 - `index.html` — page (don't edit data inside it)
 - `config.js` — edit this
+- `cv.pdf` — your CV; drop it at the repo root, the ↓ CV buttons and the `cv` terminal command open it in a new tab

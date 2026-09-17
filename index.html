@@ -951,8 +951,7 @@ function rHome() {
     <p class="lede">Software engineering student. Full-stack, strongest on backend — services, data, payments, SMS, email, AI APIs, caching and background jobs for real SaaS and production apps.</p>
     <div class="hero-actions">
       <button class="btn btn-primary" data-cmd="ls projects/">See the work</button>
-      <button class="btn btn-ghost" data-cmd="cat contact.md">Contact</button>
-      <a class="btn btn-ghost" id="cv-btn" href="${(CONFIG.cv || './Endalkachew_Yaregal_CV.pdf')}" target="_blank" rel="noopener">↓ CV</a>
+      <a class="btn btn-ghost" id="cv-btn" href="${(CONFIG.cv || './Endalkachew_Yaregal_CV.pdf')}" target="_blank" rel="noopener" style="text-decoration:none">View CV ↗</a>
     </div>
     <p class="hero-meta">typescript · react · node · postgres · redis · vercel · render · cloudflare</p>
     <div class="scan">
@@ -1054,7 +1053,6 @@ function rContact() {
       <code id="mail">${CONFIG.email}</code>
       <button class="btn btn-ghost btn-small" id="copy-mail">copy</button>
       <a class="btn btn-primary" href="mailto:${CONFIG.email}" style="text-decoration:none">Email me</a>
-      <a class="btn btn-ghost" id="cv-btn-contact" href="${(CONFIG.cv || './Endalkachew_Yaregal_CV.pdf')}" target="_blank" rel="noopener">↓ CV</a>
     </div>
     <ul class="links">
       <li><a href="${CONFIG.github}" target="_blank" rel="noopener"><span class="l-k">github</span><span class="l-v">${CONFIG.githubLabel} <i>${CHEV_RIGHT}</i></span></a></li>

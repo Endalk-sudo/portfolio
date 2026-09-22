@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Endalkachew Yaregal — dev@dev-box · software engineering student</title>
-<meta name="description" content="Endalkachew Yaregal — SWE student. Full-stack, backend-leaning. SaaS, payments, email, AI integrations. React, Vite, Redis, queues, workers. Vercel, Render, Cloudflare, Docker.">
+<meta name="description" content="Endalkachew Yaregal — software engineering student at Woldia University. Backend-leaning full-stack: SaaS, payments, AI, queues. Open to a Feb 2027 internship.">
 <meta name="author" content="Endalkachew Yaregal">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Endalkachew Yaregal — software engineering student">
@@ -18,8 +18,10 @@
 <meta name="twitter:title" content="Endalkachew Yaregal — software engineering student">
 <meta name="twitter:description" content="Full-stack, backend-leaning. SaaS, payments, email, AI integrations.">
 <meta name="theme-color" content="#0b0a09">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Endalkachew Yaregal","jobTitle":"Software Engineering Student","knowsAbout":["TypeScript","React","Vite","Node.js","Postgres","Redis","Next.js","SaaS","Payments","Email","AI integrations","Job queues","Workers","Vercel","Render","Cloudflare","Docker"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Endalkachew Yaregal","jobTitle":"Software Engineering Student","url":"https://portfolio.endalkachewyaregal747.workers.dev/","email":"mailto:endalkachewyaregal747@gmail.com","sameAs":["https://github.com/Endalk-sudo","https://www.linkedin.com/in/endalkachew-yaregal-swe"],"affiliation":{"@type":"CollegeOrUniversity","name":"Woldia University"},"knowsAbout":["TypeScript","React","Vite","Node.js","Postgres","Redis","Next.js","SaaS","Payments","Email","AI integrations","Job queues","Workers","Vercel","Render","Cloudflare","Docker"]}</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230b0a09'/><circle cx='16' cy='16' r='4' fill='%23c9a66b'/></svg>">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,7 +33,7 @@
   --surface2:#181614;
   --ink:#ebe6df;
   --sub:#9a938a;
-  --faint:#6a645c;
+  --faint:#857e74;
   --hair:rgba(235,230,223,.08);
   --hair2:rgba(235,230,223,.045);
   --fill:rgba(235,230,223,.035);
@@ -165,6 +167,7 @@ code,pre,kbd{font-family:var(--mono)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .hero-meta{font:11.5px var(--mono);color:var(--faint);margin-top:28px;line-height:1.8;letter-spacing:.03em}
 .hero-meta b{color:var(--accent);font-weight:400;padding:0 8px}
+.hero-avail{color:var(--sub);margin-top:10px}
 .scan{
   margin-top:40px;padding-top:28px;border-top:1px solid var(--hair);
   max-width:36rem;
@@ -351,8 +354,8 @@ body.crt #crt{opacity:1}
 }
 @media (max-width:880px){ .about-grid{grid-template-columns:1fr} .sb-right #sb-up{display:none} }
 @media (max-width:760px){
-  .p-blurb{display:none}
-  .proj-row{grid-template-columns:2.8ch minmax(0,auto) 1fr max-content 16px}
+  .proj-row{grid-template-columns:2.8ch minmax(0,1fr) max-content 16px;gap:6px 14px}
+  .p-blurb{grid-column:2 / -1;grid-row:2;white-space:normal;overflow:visible;text-overflow:clip;font-size:12.5px;line-height:1.45}
   .tty-hint{display:none}
   #sb-path{display:none}
   .toml{padding:18px 16px}
@@ -397,7 +400,11 @@ body.crt #crt{opacity:1}
 </section>
 <noscript>
   <div style="position:fixed;inset:0;background:#0b0a09;color:#ebe6df;font:14px 'Hanken Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px">
-    This portfolio is a live terminal — it needs JavaScript.<br>Until then: endalkachewyaregal747@gmail.com
+    This portfolio is a live terminal — it needs JavaScript.<br><br>
+    <a href="mailto:endalkachewyaregal747@gmail.com" style="color:#c9a66b">endalkachewyaregal747@gmail.com</a><br>
+    <a href="https://github.com/Endalk-sudo" style="color:#c9a66b">github.com/Endalk-sudo</a> ·
+    <a href="https://www.linkedin.com/in/endalkachew-yaregal-swe" style="color:#c9a66b">linkedin.com/in/endalkachew-yaregal-swe</a><br>
+    <a href="./Endalkachew_Yaregal_CV.pdf" style="color:#c9a66b">CV (pdf)</a>
   </div>
 </noscript>
 <script src="./config.js"></script>
@@ -407,6 +414,8 @@ body.crt #crt{opacity:1}
    Fallbacks keep the page working if config.js is missing.
 ===================================================================== */
 const FALLBACK_CONFIG = {
+  name: 'Endalkachew Yaregal',
+  role: 'software engineering student',
   email: 'endalkachewyaregal747@gmail.com',
   github: 'https://github.com/Endalk-sudo',
   githubLabel: 'github.com/Endalk-sudo',
@@ -414,21 +423,34 @@ const FALLBACK_CONFIG = {
   linkedinLabel: 'linkedin.com/in/endalkachew-yaregal-swe',
   cv: './Endalkachew_Yaregal_CV.pdf',
   cvLabel: 'Endalkachew_Yaregal_CV.pdf',
+  location: 'Addis Ababa, Ethiopia',
+  education: { school: 'Woldia University', degree: 'BSc Software Engineering', period: 'in progress' },
+  availability: 'open to a 4-month software engineering internship starting February 2027 — onsite or hybrid',
+  heroMeta: 'typescript · react · node · postgres · redis · vercel · render · cloudflare',
+  analytics: '',
+  skills: {
+    languages: 'typescript · javascript · python · sql',
+    frontend: 'next · react · vite · tanstack · zustand · tailwind',
+    backend: 'node · express · rest · websockets · cron · queues · workers',
+    data: 'postgres · firestore · redis · prisma · supabase',
+    services: 'payments · email · ai integrations',
+    deploy: 'vercel · render · railway · cloudflare · docker · ci/cd',
+  },
 };
 /* ============ data (fallback if config.js missing) ============ */
 const FALLBACK_PROJECTS = [
   /* Mirrors the real projects in ./config.js — only used if config.js fails to load. */
   { slug:'feedwise', name:'FeedWise', year:'2025', status:'stable',
     blurb:'AI-powered SaaS for businesses to collect customer feedback via QR codes and turn it into actionable insights in real-time.',
-    outcome:'Collect, analyze, and act on customer feedback with Gemini AI sentiment analysis, priority scoring, and team collaboration.',
-    desc:'Full-stack SaaS platform combining QR-code-based feedback collection with real-time AI analysis (sentiment, category, urgency). Stripe subscriptions, team roles with RBAC, BullMQ queues, Redis caching, Postgres, Docker deploy.',
-    stack:['typescript','react','vite','node','express','postgres','prisma','gemini','stripe','bullmq','redis','docker','tailwind'],
+    outcome:'Enables small-to-medium businesses to instantly collect, analyze, and act on customer feedback through Gemini AI sentiment analysis, priority scoring, and team collaboration—reducing response time from days to minutes.',
+    desc:'Full-stack SaaS platform combining QR-code-based feedback collection with real-time AI analysis (sentiment, category, urgency, fixable problems, retention risk). Features include professional analytics dashboards, Stripe subscriptions (Basic/Pro tiers), team management with role-based access, intelligent admin chat for querying feedback, email alerts, and S3 logo storage. Designed for enterprise reliability with BullMQ job queues, Redis caching, PostgreSQL persistence, and Docker-based deployment.',
+    stack:['typescript','react','vite','node','express','postgres','prisma','better-auth','gemini','stripe','bullmq','redis','s3','tailwind','tanstack-router','tanstack-query','zustand','zod'],
     url:'', repo:'https://github.com/Endalk-sudo/Feedwise',
     sourceNote:'Open source — available on GitHub',
     highlights:[
-      'Gemini AI sentiment/urgency analysis on every response',
-      'Stripe SaaS billing with Basic/Pro tiers + webhooks',
-      'BullMQ + Redis queues for insights, alerts, digests'] },
+      'Monorepo structure (client/server/shared) with Zod schema contracts as single source of truth',
+      'Gemini Flash AI analysis: sentiment, category, urgency, satisfaction (1–5), fixable-problem detection, retention-risk signals',
+      'Stripe SaaS billing with Basic/Pro tiers, webhook sync, billing portal'] },
   { slug:'keyforge', name:'KeyForge', year:'2026', status:'live',
     blurb:'Node-locked licensing server with Ed25519 tokens + admin portal',
     outcome:'Ship piracy-resistant desktop software with online activation and offline verification',
@@ -457,7 +479,7 @@ const FALLBACK_TOML = `# ~/.config/stack.toml — tools used on shipped projects
 core    = "typescript"
 scripts = "python"
 [frontend]
-frameworks = ["next.js", "tanstack start", "react"]
+frameworks = ["next.js", "react", "react-router"]
 state      = ["zustand", "tanstack query"]
 styling    = "tailwind"
 tooling    = "vite"
@@ -467,7 +489,7 @@ apis       = ["rest", "websockets"]
 jobs       = ["cron", "job queues", "workers"]
 [data]
 relational = "postgres"
-documents  = "mongodb"
+documents  = "firestore"
 cache_queues = "redis"
 orms       = ["prisma", "drizzle"]
 [integrations]
@@ -486,7 +508,11 @@ strength   = "backend-leaning full-stack"
 ai         = "assist, not replace"`;
 /* ---- config loader: window.SITE from ./config.js overrides fallbacks ---- */
 const __SITE = (typeof window !== 'undefined' && window.SITE) || {};
-const CONFIG = Object.assign({}, FALLBACK_CONFIG, __SITE.profile || {});
+const __PROFILE = __SITE.profile || {};
+const CONFIG = Object.assign({}, FALLBACK_CONFIG, __PROFILE);
+/* nested merges: partial config edits never drop fallback keys */
+CONFIG.skills = Object.assign({}, FALLBACK_CONFIG.skills, __PROFILE.skills || {});
+CONFIG.education = Object.assign({}, FALLBACK_CONFIG.education, __PROFILE.education || {});
 const PROJECTS = (Array.isArray(__SITE.projects) && __SITE.projects.length) ? __SITE.projects : FALLBACK_PROJECTS;
 const TOML = (typeof __SITE.stackToml === 'string' && __SITE.stackToml.trim()) ? __SITE.stackToml : FALLBACK_TOML;
 /* Fail-soft validation: collect warnings, show in terminal after boot. */
@@ -504,8 +530,10 @@ const __CONFIG_WARNINGS = [];
     else if (seen.has(p.slug)) __CONFIG_WARNINGS.push(`${where}: duplicate slug "${p.slug}"`);
     else seen.add(p.slug);
     if (!p.name) __CONFIG_WARNINGS.push(`${where}: missing name`);
+    if (!p.desc) __CONFIG_WARNINGS.push(`${where}: missing desc — rendered empty`);
+    if (!Array.isArray(p.highlights) || !p.highlights.length) __CONFIG_WARNINGS.push(`${where}: highlights should be a non-empty array`);
     if (p.status && !validStatus.has(p.status)) __CONFIG_WARNINGS.push(`${where}: status "${p.status}" should be live|stable|archived`);
-    if (!Array.isArray(p.stack)) __CONFIG_WARNINGS.push(`${where}: stack should be an array`);
+    if (!Array.isArray(p.stack)) __CONFIG_WARNINGS.push(`${where}: stack should be an array — rendering empty`);
   });
 })();
 /* Fail-soft URL fix — scheme-less links in config get https:// (warning shown in terminal). */
@@ -696,8 +724,11 @@ function syncChrome(id) {
   navBtns.forEach((b, i) => b.classList.toggle('active', SECTIONS[i].id === id));
 }
 function renderSection(id, cb) {
+  if (!RENDER[id]) return;
   if (currentId !== id) {
     currentId = id;
+    /* deep links: keep /#projects in sync without spamming history */
+    if (location.hash !== '#' + id) { try { history.replaceState(null, '', '#' + id); } catch (_) { location.hash = id; } }
     const page = $('#page');
     page.classList.add('out');
     setTimeout(() => {
@@ -714,6 +745,10 @@ function go(id, note) {
   renderSection(id);
   if (note) tprint(note, 't-dim');
 }
+window.addEventListener('hashchange', () => {
+  const id = (location.hash || '').slice(1);
+  if (RENDER[id] && id !== currentId) renderSection(id);
+});
 /* ============ command implementations ============ */
 function notFound(cmd) {
   tprint(`bash: ${esc(cmd)}: command not found`, 't-err');
@@ -781,9 +816,9 @@ function cdCmd(args) {
 }
 function openCmd(args) {
   if (!args.length) { tprint(`open: missing operand — try: open ${PROJECTS[0].slug}`, 't-err'); return; }
-  const _t = (args[0] || '').toLowerCase();
+  const _t = (args[0] || '').toLowerCase().replace(/\/+$/, '');
   if (_t === 'cv' || _t === 'cv.pdf') { downloadCvCmd(); return; }
-  openProject(args[0].replace(/\/+$/, ''));
+  openProject(_t);
 }
 function openProject(slug) {
   const p = PROJECTS.find(x => x.slug === slug);
@@ -803,34 +838,44 @@ function openProject(slug) {
   if (currentId !== 'projects') renderSection('projects', expand); else expand();
 }
 function whoami() {
+  const s = CONFIG.skills || {}, e = CONFIG.education || {};
+  const row = (k, v) => `${k.padEnd(11)}${v}`;
   tprintPre([
-    'Endalkachew Yaregal',
-    'software engineering student',
+    CONFIG.name || 'Endalkachew Yaregal',
+    CONFIG.role || 'software engineering student',
     'full-stack builder · backend-leaning',
+    [e.school, [e.degree, e.period].filter(Boolean).join(', ')].filter(Boolean).join(' — '),
     '',
-    'frontend    next · react · vite · tanstack · zustand · tailwind',
-    'backend     node · rest · websockets · cron · queues · workers',
-    'data        postgres · firestore · supabase · redis · prisma',
-    'services    payments · email · ai integrations',
-    'deploy      vercel · render · cloudflare · docker · ci/cd',
+    row('languages', s.languages || ''),
+    row('frontend', s.frontend || ''),
+    row('backend', s.backend || ''),
+    row('data', s.data || ''),
+    row('services', s.services || ''),
+    row('deploy', s.deploy || ''),
     '',
     'ships real SaaS and production apps',
+    `available: ${CONFIG.availability || ''}`,
+    '',
     'try: projects · stack · neofetch',
   ].join('\n'));
 }
 function neofetch() {
+  const s = CONFIG.skills || {}, e = CONFIG.education || {};
+  const row = (k, v) => `<div class="fi"><span class="fi-k">${k}</span>${esc(v)}</div>`;
   tprint(`<div class="fetch"><pre class="fetch-art">${esc(TUX)}</pre><div class="fetch-info">
-    <div class="fi-head">Endalkachew@dev-box</div>
+    <div class="fi-head">${esc((CONFIG.name || 'Endalkachew').split(' ')[0])}@dev-box</div>
     <div class="fi-sep">──────────────────</div>
-    <div class="fi"><span class="fi-k">role</span>SWE student · backend-leaning full-stack</div>
-    <div class="fi"><span class="fi-k">os</span>Fedora Linux</div>
-    <div class="fi"><span class="fi-k">languages</span>TypeScript · Python · SQL</div>
-    <div class="fi"><span class="fi-k">frontend</span>Next · React · Vite · TanStack · Zustand · Query · Tailwind</div>
-    <div class="fi"><span class="fi-k">backend</span>Node · REST · WebSockets · cron · queues · workers</div>
-     <div class="fi"><span class="fi-k">data</span>Postgres · Firestore · Supabase · Redis · Prisma</div>
-    <div class="fi"><span class="fi-k">services</span>payments · email · AI APIs</div>
-    <div class="fi"><span class="fi-k">deploy</span>Vercel · Render · Cloudflare · Docker · CI/CD</div>
-    <div class="fi fi-hot"><span class="fi-k">ships</span>SaaS & real-world production apps</div>
+    ${row('role', 'SWE student · backend-leaning full-stack')}
+    ${row('university', [e.school, e.period].filter(Boolean).join(' · '))}
+    ${row('os', 'Fedora Linux')}
+    ${row('languages', s.languages || '')}
+    ${row('frontend', s.frontend || '')}
+    ${row('backend', s.backend || '')}
+    ${row('data', s.data || '')}
+    ${row('services', s.services || '')}
+    ${row('deploy', s.deploy || '')}
+    <div class="fi fi-hot"><span class="fi-k">ships</span>SaaS &amp; real-world production apps</div>
+    <div class="fi fi-hot"><span class="fi-k">available</span>${esc(CONFIG.availability || '')}</div>
   </div></div>`);
 }
 function pingCmd() {
@@ -912,12 +957,12 @@ const CHEV_RIGHT = '<svg width="11" height="11" viewBox="0 0 12 12" fill="none">
 function rHome() {
   const picks = PROJECTS.slice(0, 3).map(p => `
     <li>
-      <button type="button" data-cmd="open ${p.slug}">${p.name}</button>
-      <span class="scan-out">${p.outcome}</span>
+      <button type="button" data-cmd="open ${esc(p.slug)}">${esc(p.name)}</button>
+      <span class="scan-out">${esc(p.outcome || p.blurb || '')}</span>
     </li>`).join('');
   return `
   <header class="hero">
-    <p class="hero-name">Endalkachew Yaregal</p>
+    <p class="hero-name">${esc(CONFIG.name || 'Endalkachew Yaregal')}</p>
     <p class="kicker"><span class="t-user">visitor@dev-box</span><span class="k-dim">:~$</span> cat welcome.md</p>
     <h1 class="display">I build systems<br>end to end.<span class="hcaret" aria-hidden="true"></span></h1>
     <p class="lede">Software engineering student. Full-stack, strongest on backend — services, data, payments, email, AI APIs, caching and background jobs for real SaaS and production apps.</p>
@@ -925,36 +970,47 @@ function rHome() {
       <button class="btn btn-primary" data-cmd="ls projects/">See the work</button>
       <a class="btn btn-ghost" id="cv-btn" href="${(CONFIG.cv || './Endalkachew_Yaregal_CV.pdf')}" target="_blank" rel="noopener" style="text-decoration:none">View CV ↗</a>
     </div>
-    <p class="hero-meta">typescript · react · node · postgres · redis · vercel · render · cloudflare</p>
+    <p class="hero-meta">${esc(CONFIG.heroMeta || '')}</p>
+    <p class="hero-meta hero-avail"><b>now</b> ${esc(CONFIG.availability || '')}</p>
     <div class="scan">
       <p class="scan-h">Selected work — click to expand</p>
       <ul class="scan-list">${picks}</ul>
     </div>
   </header>`;
 }
+function aboutFacts() {
+  const s = CONFIG.skills || {}, e = CONFIG.education || {};
+  const edu = [e.school, [e.degree, e.period].filter(Boolean).join(', ')].filter(Boolean).join(' — ');
+  return [
+    ['name', CONFIG.name || 'Endalkachew Yaregal'],
+    ['education', edu],
+    ['location', CONFIG.location || ''],
+    ['languages', s.languages || ''],
+    ['frontend', s.frontend || ''],
+    ['backend', s.backend || ''],
+    ['data', s.data || ''],
+    ['services', s.services || ''],
+    ['deploy', s.deploy || ''],
+    ['lean', 'backend · SaaS systems'],
+    ['availability', CONFIG.availability || '', true],
+  ].filter(r => r[1]).map(([k, v, hot]) =>
+    `<div class="fact${hot ? ' fact-hot' : ''}"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
+}
 function rAbout() {
+  const e = CONFIG.education || {};
+  const eduClause = e.school ? ` at ${esc(e.school)} (${esc([e.degree, e.period].filter(Boolean).join(', '))})` : '';
   return `
   <section class="sec">
     <p class="kicker">~/about.md</p>
     <h2 class="display-2">What I can take on.</h2>
     <div class="about-grid">
       <div class="prose">
-        <p><strong>Endalkachew Yaregal</strong> — software engineering student. I ship full-stack product work: multi-tenant SaaS, payment and email integrations, realtime services, Redis caching, cron jobs, queues and workers, data migrations, and deploys on Vercel, Render, Cloudflare, and Docker.</p>
+        <p><strong>${esc(CONFIG.name || 'Endalkachew Yaregal')}</strong> — ${esc(CONFIG.role || 'software engineering student')}${eduClause}. I ship full-stack product work: multi-tenant SaaS, payment and email integrations, realtime services, Redis caching, cron jobs, queues and workers, data migrations, and deploys on Vercel, Render, Cloudflare, and Docker.</p>
         <p>Comfortable across the stack; I prefer owning the backend path — APIs, schemas, webhooks, and the pieces that must stay correct under load. Frontend is solid (React, Next, Vite, TanStack Query, Zustand) when the product needs it.</p>
       </div>
       <aside>
         <h3 class="facts-h">// at a glance</h3>
-        <dl class="facts">
-          <div class="fact"><dt>name</dt><dd>Endalkachew Yaregal</dd></div>
-          <div class="fact"><dt>status</dt><dd>SWE student</dd></div>
-          <div class="fact"><dt>languages</dt><dd>ts · py · sql</dd></div>
-          <div class="fact"><dt>frontend</dt><dd>react · next · vite · tanstack · zustand</dd></div>
-          <div class="fact"><dt>backend</dt><dd>node · rest · websockets · cron · queues</dd></div>
-          <div class="fact"><dt>data</dt><dd>postgres · mongo · redis · drizzle · prisma</dd></div>
-          <div class="fact"><dt>services</dt><dd>payments · email · ai</dd></div>
-          <div class="fact"><dt>deploy</dt><dd>vercel · render · cloudflare · docker</dd></div>
-          <div class="fact fact-hot"><dt>lean</dt><dd>backend · SaaS systems</dd></div>
-        </dl>
+        <dl class="facts">${aboutFacts()}</dl>
       </aside>
     </div>
   </section>`;
@@ -964,37 +1020,47 @@ function statusLabel(p) {
 }
 function projLinks(p) {
   const bits = [];
-  if (p.url) bits.push(`<a href="${p.url}" target="_blank" rel="noopener">live demo</a>`);
-  if (p.repo) bits.push(`<a href="${p.repo}" target="_blank" rel="noopener">source</a>`);
+  if (p.url) bits.push(`<a href="${esc(p.url)}" target="_blank" rel="noopener">live demo</a>`);
+  if (p.repo) bits.push(`<a href="${esc(p.repo)}" target="_blank" rel="noopener">source</a>`);
   if (!bits.length && !p.sourceNote) return '';
   const note = p.sourceNote ? `<span class="tag">${esc(p.sourceNote)}</span>` : '';
   return `<div class="p-links">${bits.join('')}${note}</div>`;
 }
 function rProjects() {
-  const rows = PROJECTS.map((p, i) => `
-  <article class="proj" data-slug="${p.slug}">
+  const rows = PROJECTS.map((p, i) => {
+    const slug = String(p.slug || '');
+    const st = ['live', 'stable', 'archived'].includes(p.status) ? p.status : 'archived';
+    const hi = Array.isArray(p.highlights) ? p.highlights : [];
+    const tags = Array.isArray(p.stack) ? p.stack : [];
+    return `
+  <article class="proj" data-slug="${esc(slug)}">
     <button class="proj-row" aria-expanded="false">
       <span class="p-idx">${String(i + 1).padStart(2, '0')}</span>
-      <span class="p-name">${p.name}</span>
-      <span class="p-blurb">${p.outcome || p.blurb}</span>
-      <span class="p-year">${p.year}</span>
+      <span class="p-name">${esc(p.name || slug)}</span>
+      <span class="p-blurb">${esc(p.outcome || p.blurb || '')}</span>
+      <span class="p-year">${esc(p.year || '—')}</span>
       <span class="p-caret" aria-hidden="true">${CHEV_DOWN}</span>
     </button>
     <div class="proj-body"><div class="proj-inner">
-      <p class="p-out">${p.outcome || ''}</p>
-      <p class="p-desc">${p.desc}</p>
-      <p class="p-status"><span class="st-dot st-${p.status}"></span>${statusLabel(p)}</p>
-      <ul class="p-high">${p.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
-      <div class="p-tags">${p.stack.map(s => `<span class="tag">${s}</span>`).join('')}</div>
+      <p class="p-out">${esc(p.outcome || '')}</p>
+      <p class="p-desc">${esc(p.desc || '')}</p>
+      <p class="p-status"><span class="st-dot st-${st}"></span>${statusLabel({ status: st })}</p>
+      <ul class="p-high">${hi.map(h => `<li>${esc(h)}</li>`).join('')}</ul>
+      <div class="p-tags">${tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
       ${projLinks(p)}
     </div></div>
-  </article>`).join('');
+  </article>`;
+  }).join('');
+  const first = PROJECTS[0] ? PROJECTS[0].slug : '';
+  const hint = first
+    ? `<p class="list-hint">every project opens from the terminal too — try <button class="inline-cmd" data-cmd="open ${esc(first)}">open ${esc(first)}</button></p>`
+    : '';
   return `
   <section class="sec">
     <p class="kicker">~/projects — ${PROJECTS.length} systems · outcomes first</p>
     <h2 class="display-2">Shipped systems.</h2>
     <div class="proj-list">${rows}</div>
-    <p class="list-hint">Add live / repo URLs in CONFIG projects when public — or open from the terminal: <button class="inline-cmd" data-cmd="open feedwise">open feedwise</button></p>
+    ${hint}
   </section>`;
 }
 function rStack() {
@@ -1025,10 +1091,10 @@ function rContact() {
       <a class="btn btn-primary" href="mailto:${CONFIG.email}" style="text-decoration:none">Email me</a>
     </div>
     <ul class="links">
-      <li><a href="${CONFIG.github}" target="_blank" rel="noopener"><span class="l-k">github</span><span class="l-v">${CONFIG.githubLabel} <i>${CHEV_RIGHT}</i></span></a></li>
-      <li><a href="${CONFIG.linkedin}" target="_blank" rel="noopener"><span class="l-k">linkedin</span><span class="l-v">${CONFIG.linkedinLabel} <i>${CHEV_RIGHT}</i></span></a></li>
-      <li><a href="${(CONFIG.cv || './Endalkachew_Yaregal_CV.pdf')}" target="_blank" rel="noopener"><span class="l-k">cv</span><span class="l-v">${CONFIG.cvLabel || 'Endalkachew_Yaregal_CV.pdf'} — view pdf <i>${CHEV_RIGHT}</i></span></a></li>
-      <li><a href="mailto:${CONFIG.email}"><span class="l-k">email</span><span class="l-v">${CONFIG.email} <i>${CHEV_RIGHT}</i></span></a></li>
+      <li><a href="${esc(CONFIG.github)}" target="_blank" rel="noopener"><span class="l-k">github</span><span class="l-v">${esc(CONFIG.githubLabel)} <i>${CHEV_RIGHT}</i></span></a></li>
+      <li><a href="${esc(CONFIG.linkedin)}" target="_blank" rel="noopener"><span class="l-k">linkedin</span><span class="l-v">${esc(CONFIG.linkedinLabel)} <i>${CHEV_RIGHT}</i></span></a></li>
+      <li><a href="${esc(CONFIG.cv || './Endalkachew_Yaregal_CV.pdf')}" target="_blank" rel="noopener"><span class="l-k">cv</span><span class="l-v">${esc(CONFIG.cvLabel || 'Endalkachew_Yaregal_CV.pdf')} — view pdf <i>${CHEV_RIGHT}</i></span></a></li>
+      <li><a href="mailto:${esc(CONFIG.email)}"><span class="l-k">email</span><span class="l-v">${esc(CONFIG.email)} <i>${CHEV_RIGHT}</i></span></a></li>
     </ul>
     <footer class="colophon">config.js · zero frameworks · zero build steps</footer>
   </section>`;
@@ -1130,10 +1196,18 @@ function tick() {
   upEl.textContent = 'up ' + (s < 60 ? s + 's' : Math.floor(s / 60) + 'm ' + (s % 60) + 's');
 }
 tick(); setInterval(tick, 1000);
+/* ============ analytics (config-driven; skipped when token empty) ============ */
+if (CONFIG.analytics) {
+  const beacon = document.createElement('script');
+  beacon.defer = true;
+  beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  beacon.setAttribute('data-cf-beacon', JSON.stringify({ token: CONFIG.analytics }));
+  document.head.appendChild(beacon);
+}
 /* ============ boot ============ */
 let bootTimer = null;
 function skipBoot() {
-  if (bootTimer) { clearTimeout(bootTimer); bootTimer = null; typeCommand('cat welcome.md'); }
+  if (bootTimer) { clearTimeout(bootTimer); bootTimer = null; typeCommand((typeof __bootSec !== 'undefined' && __bootSec && __bootSec.cmd) || 'cat welcome.md'); }
   else if (typing) finishTyping();
 }
 window.addEventListener('keydown', skipBoot, true);
@@ -1145,7 +1219,9 @@ tprint('Linux dev-box 6.9.4-handcrafted x86_64 · tty1');
 tprint(`last login: ${new Date().toDateString()} — from your browser`, 't-dim');
 tprint('');
 if (__CONFIG_WARNINGS.length) __CONFIG_WARNINGS.forEach(w => tprint('config: ' + w, 't-dim'));
-bootTimer = setTimeout(() => { bootTimer = null; typeCommand('cat welcome.md'); }, 420);
+const __bootId = (location.hash || '').slice(1);
+const __bootSec = SECTIONS.find(s => s.id === __bootId);
+bootTimer = setTimeout(() => { bootTimer = null; typeCommand(__bootSec ? __bootSec.cmd : 'cat welcome.md'); }, 420);
 setTimeout(() => tprint(`type 'help' for commands · or just click the menu above`, 't-dim'), 2800);
 if (matchMedia('(min-width: 900px)').matches) setTimeout(() => kbd.focus(), 400);
 </script>

@@ -14,6 +14,9 @@
 
    HOW TO EDIT LINKS / INFO:
    - Edit `profile` below. Labels are what the contact page shows.
+   - `education` / `availability` / `skills` / `heroMeta` drive the hero,
+     about, whoami and neofetch sections — change them once, everywhere.
+   - `analytics`: paste a Cloudflare Web Analytics token (empty string = off).
    - Edit `stackToml` to change the ~/.config/stack.toml section.
 ===================================================================== */
 window.SITE = {
@@ -29,6 +32,28 @@ window.SITE = {
            Rename here if your file is named differently. */
         cv: './Endalkachew_Yaregal_CV.pdf',
         cvLabel: 'Endalkachew_Yaregal_CV.pdf',
+
+        location: 'Addis Ababa, Ethiopia',
+        education: {
+            school: 'Woldia University',
+            degree: 'BSc Software Engineering',
+            period: 'in progress',
+        },
+        /* Shown in the hero, about page, whoami + neofetch. */
+        availability: 'open to a 4-month software engineering internship starting February 2027 — onsite or hybrid',
+        /* Single source of truth — whoami, neofetch + About all read this. */
+        skills: {
+            languages: 'typescript · javascript · python · sql',
+            frontend: 'next · react · vite · tanstack · zustand · tailwind',
+            backend: 'node · express · rest · websockets · cron · queues · workers',
+            data: 'postgres · firestore · redis · prisma · supabase',
+            services: 'payments · email · ai integrations',
+            deploy: 'vercel · render · railway · cloudflare · docker · ci/cd',
+        },
+        heroMeta: 'typescript · react · node · postgres · redis · vercel · render · cloudflare',
+        /* Cloudflare Web Analytics beacon token (dash → Web Analytics → site → code).
+           Empty string = analytics off. */
+        analytics: '',
     },
 
     /* Set url / repo to real links when ready — empty string hides the button */

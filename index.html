@@ -54,7 +54,7 @@ html,body{height:100%}
 body{
   background:var(--bg); color:var(--ink);
   font:15.5px/1.55 var(--sans);
-  display:grid; grid-template-rows:auto minmax(0,1fr) auto;
+  display:grid; grid-template-rows:auto minmax(0,1fr) auto; grid-template-columns:minmax(0,1fr);
   height:100vh; height:100dvh; overflow:hidden;
   -webkit-font-smoothing:antialiased;
   /* quiet paper grain */
@@ -187,7 +187,7 @@ code,pre,kbd{font-family:var(--mono)}
 .scan-out{font:12px var(--mono);color:var(--sub);text-align:right;max-width:28ch}
 .p-out{
   font:12.5px var(--mono);color:var(--accent);margin:10px 8px 0;
-  letter-spacing:.01em;line-height:1.5;
+  letter-spacing:.01em;line-height:1.5;max-width:60ch;
 }
 .p-links{display:flex;flex-wrap:wrap;gap:10px;margin:0 8px 18px;padding-top:4px}
 .p-links a{
@@ -361,8 +361,22 @@ body.crt #crt{opacity:1}
   .toml{padding:18px 16px}
   .scan-list li{grid-template-columns:1fr;gap:4px}
   .scan-out{text-align:left;max-width:none}
+  /* touch targets ≥44px */
+  .scan-list button{padding:11px 0;min-height:44px}
+  .sb-win{padding:12px 10px}
+  .brand{padding:12px 10px}
+  #dock-toggle{padding:14px 10px;min-width:44px;min-height:44px;justify-content:center;align-items:center;margin:-14px -6px -14px 4px}
 }
-@media (max-width:560px){ .sb-win{padding:7px 9px;font-size:12.5px} .brand-name{font-size:12.5px} }
+@media (max-width:560px){ .sb-win{padding:12px 9px;font-size:12.5px} .brand-name{font-size:12.5px} #sb-clock{display:none} }
+@media (max-height:820px){
+  #page{padding-top:clamp(24px,5vh,44px)}
+  .display{font-size:clamp(36px,4.6vw,60px)}
+  .kicker{margin-bottom:12px}
+  .lede{margin-top:16px}
+  .hero-actions{margin-top:22px}
+  .hero-meta{margin-top:20px}
+  .hero-avail{margin-top:6px}
+}
 @media (prefers-reduced-motion:reduce){
   .hcaret,#t-cur,.tty-dot{animation:none}
   #page,.proj-body,.p-caret{transition:none}
@@ -648,7 +662,6 @@ function submit() {
 }
 function typeCommand(cmd) {
   finishTyping();
-  expandDock();
   kbd.value = ''; renderInput();
   typingCmd = cmd; busy = true;
   if (REDUCED) { busy = false; kbd.value = cmd; renderInput(); submit(); return; }
@@ -767,7 +780,7 @@ function printHelp() {
     ['contact', 'reach out'],
     ['cv', 'view my CV (pdf, new tab)'],
     ['clear', 'wipe screen (ctrl+l)'],
-  ].forEach(([c, d]) => tprint(`<span class="t-acc">${esc(c)}</span><span class="t-dim">${esc(d)}</span>`));
+  ].forEach(([c, d]) => tprint(`<span class="t-acc">${esc(c)}</span><span class="t-dim">${esc(d)}</span>`, 'help-row'));
   tprint(`also try: ai · ping · vim`, 't-dim');
 }
 function lsCmd(args) {
@@ -1153,10 +1166,10 @@ async function copyMail() {
   }
 });
 /* ============ sheet: collapse + drag-resize ============ */
-let termH = innerWidth < 720 ? Math.round(innerHeight * 0.4) : 212;
-let collapsed = false;
+let termH = innerWidth < 720 ? Math.round(innerHeight * 0.4) : (innerHeight <= 820 ? 180 : 212);
+let collapsed = innerWidth < 720; /* mobile: content first — tap the tty bar to open */
 function applyH() { dock.style.height = collapsed ? '46px' : termH + 'px'; }
-function setCollapsed(c) { collapsed = c; dock.classList.toggle('collapsed', c); applyH(); }
+function setCollapsed(c) { collapsed = c; dock.classList.toggle('collapsed', c); applyH(); if (!c) dockBody.scrollTop = dockBody.scrollHeight; }
 function expandDock() { if (collapsed) setCollapsed(false); }
 applyH();
 dockHead.addEventListener('pointerdown', e => {
@@ -1174,7 +1187,7 @@ dockHead.addEventListener('pointerdown', e => {
   const up = () => {
     window.removeEventListener('pointermove', mv);
     window.removeEventListener('pointerup', up);
-    if (!moved) setCollapsed(!collapsed);
+    if (!moved) setCollapsed(!collapsed); else dockBody.scrollTop = dockBody.scrollHeight;
   };
   window.addEventListener('pointermove', mv);
   window.addEventListener('pointerup', up);
@@ -1186,7 +1199,7 @@ dockBody.addEventListener('click', () => {
 });
 /* typing anywhere on the page falls through to the terminal */
 document.addEventListener('keydown', e => {
-  if (e.target === document.body && e.key.length === 1 && e.key !== ' ' && !e.ctrlKey && !e.metaKey && !e.altKey) kbd.focus();
+  if (e.target === document.body && e.key.length === 1 && e.key !== ' ' && !e.ctrlKey && !e.metaKey && !e.altKey) { expandDock(); kbd.focus(); }
 });
 /* ============ clock + uptime ============ */
 const T0 = Date.now();

@@ -23,7 +23,7 @@ window.SITE = {
         email: 'endalkachewyaregal747@gmail.com',
         github: 'https://github.com/Endalk-sudo',
         githubLabel: 'github.com/Endalk-sudo',
-        linkedin: 'www.linkedin.com/in/endalkachew-yaregal-swe',
+        linkedin: 'https://www.linkedin.com/in/endalkachew-yaregal-swe',
         linkedinLabel: 'linkedin.com/in/endalkachew-yaregal-swe',
         /* CV download: PDF lives next to index.html (upload it on deploy).
            Rename here if your file is named differently. */
@@ -77,16 +77,6 @@ window.SITE = {
                 'TypeScript strict mode across both packages; Vite (client) + tsx watch (server)',
                 'Docker Compose (dev + prod) + Render Blueprint support (Neon Postgres)',
             ],
-            gitlog: [
-                'Initial monorepo setup with React 19 + Express 5 + Prisma',
-                'Gemini 3.5 integration with sentiment/category/urgency analysis',
-                'Stripe payment flow and subscription sync',
-                'QR code generation and collection page',
-                'BullMQ job queue for insights and email digests',
-                'Team management UI and role-based access',
-                'Admin AI chat feature',
-                'Docker Compose dev + prod, Render Blueprint deployment',
-            ],
         },
         {
             slug: 'full-time-capsule',
@@ -126,15 +116,6 @@ window.SITE = {
                 'Modern React 19 frontend with Vite, Tailwind CSS, Radix UI components',
                 'Prisma ORM with PostgreSQL database, auto-migrations on startup',
             ],
-            gitlog: [
-                '6971306  fix create capsule functionality',
-                'b93ad43  fix redis connection',
-                '4f5eefd  remove generated prisma client and fix db url in the backend',
-                'a958d60  add readme file',
-                '797022e  implement docker and docker compose',
-                'a6d7ea0  fix s3upload issues in the frontend',
-                '6eeaa0f  everythings implemented correctly and it is solid',
-            ],
         },
         {
             slug: 'lexilearn',
@@ -155,7 +136,6 @@ window.SITE = {
                 'Amharic translations + browser TTS',
                 'Local Ollama Mentor (practice/writing/role-play/explainer)',
             ],
-            gitlog: ['33de3f1  first commit'],
         },
         {
             slug: 'a-kiyon',
@@ -195,7 +175,6 @@ window.SITE = {
                 'CSV exports & dark mode toggle',
                 'Storage monitoring with Firestore doc/file usage tracking',
             ],
-            gitlog: ['6947a19  Latest commit'],
         },
         {
             slug: 'sub-gen-tg',
@@ -218,13 +197,6 @@ window.SITE = {
                 'Container restart resilience — stuck jobs reclaimed on boot',
                 'No FFmpeg dependency — Gemini handles native audio formats',
                 '97 test suite with full handler, schema, and worker lifecycle coverage',
-            ],
-            gitlog: [
-                'ccb7294  fix issues in image payment verification',
-                '6fd944b  add payer name and payer account in db',
-                '72a4c97  make upgrade error messages user-friendly',
-                'fe7b76d  fix payment verification bugs and errors',
-                'e3e9555  make 5 free audio transcriptions, up to 5 minutes each',
             ],
         },
 
@@ -264,14 +236,6 @@ window.SITE = {
                 'Keyboard shortcuts (space play/pause, J/K/L scrub, Ctrl+Z undo, Ctrl+Enter add cue), undo/redo system',
                 'Auto-save to localStorage with session restoration, proper Geʽez script rendering via Noto Sans Ethiopic',
             ],
-            gitlog: [
-                '8b62e17  add caption length parameter',
-                '7341084  improve details',
-                '4f9aebb  Update model fallback order in README',
-                '375e0ed  export pipeline fix',
-                'e03bc10  fix burning process animation and ui',
-                '1891fc8  fix transcribing process animation and ui',
-            ],
         },
         {
             slug: 'uniexam-hub',
@@ -309,14 +273,6 @@ window.SITE = {
                 'DB-backed sessions with CSRF protection, bcrypt password hashing, rate limiting',
                 'Accessibility & 3G-optimized design with dark mode and motion animations',
             ],
-            gitlog: [
-                '53d67f3  fix: Vercel deployment auth - session cookie and Prisma config',
-                'c3fd311  fix: major bug fixes, modern UI redesign, and infrastructure updates',
-                '00f3ef2  remove email verification and password reset features',
-                '95f8be2  add progress save in local storage',
-                '81a602  hide test sync menu',
-                '7a9671  fix hard coded json import override field',
-            ],
         },
         {
             slug: 'teacher-evaluation',
@@ -340,13 +296,6 @@ window.SITE = {
                 'User authentication with session control',
                 'Secure password hashing and input validation',
             ],
-            gitlog: [
-                'e630dde  add something',
-                '5048d51  improve auth pages',
-                'b49a29f  add js validation',
-                '9533319  almost all done',
-                'ab284ba  fix textarea style',
-            ],
         },
 
         {
@@ -366,10 +315,6 @@ window.SITE = {
                 'Atomic seat enforcement + DB-backed 5/min rate limiting',
                 'Admin portal: key gen, air-gapped .lic, revocation, audit trail',
             ],
-            gitlog: [
-                '7041151  add a readme file',
-                '3a38695  feat: add /api/v1/verify revocation check + integration test suite',
-            ],
         },
         {
             slug: 'portfolio',
@@ -384,7 +329,6 @@ window.SITE = {
             repo: 'https://github.com/Endalk-sudo/portfolio',
             sourceNote: 'Open source — available on GitHub',
             highlights: ['one config file drives every section', 'works on file:// and any static host'],
-            gitlog: ['72a959b  chore: portfolio.html → index.html + config.js'],
         },
         /* --- TEMPLATE: copy for a new project ---
     { slug:'my-new-app', name:'My New App', year:'2026', status:'live',
@@ -394,8 +338,7 @@ window.SITE = {
       stack:['typescript','node','postgres'],
       url:'https://my-app.example.com', repo:'https://github.com/me/my-app',
       sourceNote:'', // or e.g. 'private — ask me' when url+repo are ""
-      highlights:['highlight one', 'highlight two'],
-      gitlog:['abc1234  feat: initial ship'] },
+      highlights:['highlight one', 'highlight two'] },
     status must be one of: live | stable | archived
     --- */
     ],

@@ -9,7 +9,12 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Endalkachew Yaregal — software engineering student">
 <meta property="og:description" content="Full-stack, backend-leaning. SaaS, payments, email, AI integrations. React, Vite, Redis, queues, workers. Vercel, Render, Cloudflare, Docker.">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://portfolio.endalkachewyaregal747.workers.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Endalkachew Yaregal — I build systems end to end.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://portfolio.endalkachewyaregal747.workers.dev/og.png">
 <meta name="twitter:title" content="Endalkachew Yaregal — software engineering student">
 <meta name="twitter:description" content="Full-stack, backend-leaning. SaaS, payments, email, AI integrations.">
 <meta name="theme-color" content="#0b0a09">
@@ -242,12 +247,6 @@ code,pre,kbd{font-family:var(--mono)}
   font:11px var(--mono);color:var(--sub);border:1px solid var(--hair);
   background:var(--surface);padding:4px 10px;border-radius:6px;letter-spacing:.02em;
 }
-.git{
-  font:11.5px/1.75 var(--mono);color:var(--sub);
-  background:var(--surface2);border:1px solid var(--hair2);border-radius:var(--r);
-  padding:12px 14px;overflow-x:auto;margin:0 8px 28px;white-space:pre;
-}
-.g-h{color:var(--accent);opacity:.9} .g-p{color:var(--accent)}
 .list-hint{font:12px var(--mono);color:var(--faint);margin-top:24px;letter-spacing:.02em}
 .inline-cmd{
   background:none;border:0;border-bottom:1px dashed var(--accent-dim);
@@ -411,85 +410,47 @@ const FALLBACK_CONFIG = {
   email: 'endalkachewyaregal747@gmail.com',
   github: 'https://github.com/Endalk-sudo',
   githubLabel: 'github.com/Endalk-sudo',
-  linkedin: 'https://www.linkedin.com/in/endalk-y-035323258/',
-  linkedinLabel: 'linkedin.com/in/endalk-y',
+  linkedin: 'https://www.linkedin.com/in/endalkachew-yaregal-swe',
+  linkedinLabel: 'linkedin.com/in/endalkachew-yaregal-swe',
   cv: './Endalkachew_Yaregal_CV.pdf',
   cvLabel: 'Endalkachew_Yaregal_CV.pdf',
 };
 /* ============ data (fallback if config.js missing) ============ */
 const FALLBACK_PROJECTS = [
-  /* Set url / repo to real links when ready — empty string hides the button */
-  { slug:'ledgerflow', name:'Ledgerflow', year:'2024', status:'live',
-    blurb:'multi-tenant invoicing SaaS',
-    outcome:'Billing + payments for small businesses — webhooks, isolation, no double-charge',
-    desc:'Multi-tenant invoicing SaaS: retainers, overages, partial payments, dunning. Payment gateway webhooks are idempotent; tenant isolation at the DB layer. Client state with Zustand and TanStack Query.',
-    stack:['next.js','typescript','zustand','tanstack query','postgres','drizzle','payments','vercel'],
-    url:'', repo:'',
+  /* Mirrors the real projects in ./config.js — only used if config.js fails to load. */
+  { slug:'feedwise', name:'FeedWise', year:'2025', status:'stable',
+    blurb:'AI-powered SaaS for businesses to collect customer feedback via QR codes and turn it into actionable insights in real-time.',
+    outcome:'Collect, analyze, and act on customer feedback with Gemini AI sentiment analysis, priority scoring, and team collaboration.',
+    desc:'Full-stack SaaS platform combining QR-code-based feedback collection with real-time AI analysis (sentiment, category, urgency). Stripe subscriptions, team roles with RBAC, BullMQ queues, Redis caching, Postgres, Docker deploy.',
+    stack:['typescript','react','vite','node','express','postgres','prisma','gemini','stripe','bullmq','redis','docker','tailwind'],
+    url:'', repo:'https://github.com/Endalk-sudo/Feedwise',
+    sourceNote:'Open source — available on GitHub',
     highlights:[
-      'payment gateway + idempotent webhooks',
-      'row-level tenant isolation'],
-    gitlog:[
-      'a3f91c2  fix: race in invoice numbering under load',
-      '1c88e0e  feat: RLS policies from day one'] },
-  { slug:'relay', name:'Relay', year:'2024', status:'live',
-    blurb:'realtime ops room',
-    outcome:'Live incident room — chat, presence, AI summaries',
-    desc:'Realtime chat, presence, and shared pins for live incidents. WebSocket fan-out with offline catch-up and AI-assisted summaries in the ops flow. Deployed with a typed server/client boundary.',
-    stack:['tanstack start','node','mongodb','websockets','ai','render'],
-    url:'', repo:'',
+      'Gemini AI sentiment/urgency analysis on every response',
+      'Stripe SaaS billing with Basic/Pro tiers + webhooks',
+      'BullMQ + Redis queues for insights, alerts, digests'] },
+  { slug:'keyforge', name:'KeyForge', year:'2026', status:'live',
+    blurb:'Node-locked licensing server with Ed25519 tokens + admin portal',
+    outcome:'Ship piracy-resistant desktop software with online activation and offline verification',
+    desc:'KeyForge validates product keys, binds hardware fingerprints, and issues Ed25519-signed license tokens. Includes verify API, air-gapped .lic generation, device revocation, token inspector, audit trail, and Vercel + Postgres serverless deploy.',
+    stack:['typescript','next.js','node','postgres','prisma','tailwind','vercel','neon'],
+    url:'https://key-forge-zeta.vercel.app/', repo:'',
+    sourceNote:'private — ask me',
     highlights:[
-      'sub-100ms fan-out under load',
-      'AI in the incident loop'],
-    gitlog:[
-      'e12b7a0  perf: fan-out 340ms → 88ms',
-      '5c19fd3  feat: catch-up sync protocol v2'] },
-  { slug:'ferry', name:'Ferry', year:'2023', status:'stable',
-    blurb:'safe legacy → postgres',
-    outcome:'Zero-downtime ETL — dry-run, checksums, resumable batches',
-    desc:'Python ETL CLI for moving old databases into Postgres without downtime. Dry-run diffs, per-batch checksums, resumable runs — backend and data work end to end.',
-    stack:['python','postgres','docker','ci/cd'],
-    url:'', repo:'',
-    highlights:[
-      'dry-run before you commit',
-      'resumable — kill, restart, continue'],
-    gitlog:[
-      'f70a1e6  feat: resume from last committed batch',
-      'b44d219  fix: timezone drift on legacy timestamps'] },
-  { slug:'papertrail', name:'Papertrail', year:'2023', status:'archived',
-    blurb:'legacy monolith → typescript',
-    outcome:'Route-by-route cutover — zero downtime, zero lost sessions',
-    desc:'Ten-year legacy monolith migrated route-by-route to TypeScript services behind feature flags. Customers never saw a maintenance window.',
-    stack:['typescript','node','ci/cd'],
-    url:'', repo:'',
-    highlights:[
-      'strangler-fig migration, no big-bang',
-      'zero downtime, zero lost sessions'],
-    gitlog:[
-      'c31f8a2  chore: delete 11k lines of retired code',
-      '0d774e3  feat: flag-driven proxy, route 1 of 84'] },
-  { slug:'homelab', name:'Homelab', year:'2019 —', status:'live',
-    blurb:'prod-like ops practice',
-    outcome:'Deploy + recover practice — Docker, Vercel, Render, restore drills',
-    desc:'Self-hosted stacks on Fedora plus cloud deploys on Vercel and Render. Docker, nginx, timed restore drills, CI/CD — core DevOps practiced on real apps.',
-    stack:['fedora','docker','nginx','vercel','render','ci/cd'],
-    url:'', repo:'',
-    highlights:[
-      'restore drills, timed and documented',
-      'one command from clean metal to full stack'],
-    gitlog:[
-      'd19a3e1  ops: restore drill — 4m12s, documented',
-      '88c0d55  feat: deploys on merge, reverts on red'] },
+      'Ed25519-signed licenses with offline verify + zero-dep Node reference',
+      'Atomic seat enforcement + DB-backed 5/min rate limiting',
+      'Admin portal: key gen, air-gapped .lic, revocation, audit trail'] },
   { slug:'portfolio', name:'Portfolio', year:'2026', status:'live',
     blurb:'this site — terminal as portfolio',
     outcome:'Recruiter-readable in 10s, terminal-native throughout',
     desc:'This site: a terminal-themed portfolio with zero frameworks and zero build steps. Menu bar, pager, and draggable tty sheet; all content in one config.js with fail-soft validation.',
     stack:['javascript','html','css','cloudflare'],
-    url:'', repo:'',
+    url:'https://portfolio.endalkachewyaregal747.workers.dev/',
+    repo:'https://github.com/Endalk-sudo/portfolio',
+    sourceNote:'Open source — available on GitHub',
     highlights:[
       'one config file drives every section',
-      'works on file:// and any static host'],
-    gitlog:[
-      '72a959b  chore: portfolio.html → index.html + config.js'] },
+      'works on file:// and any static host'] },
 ];
 const FALLBACK_TOML = `# ~/.config/stack.toml — tools used on shipped projects
 [language]
@@ -547,6 +508,19 @@ const __CONFIG_WARNINGS = [];
     if (!Array.isArray(p.stack)) __CONFIG_WARNINGS.push(`${where}: stack should be an array`);
   });
 })();
+/* Fail-soft URL fix — scheme-less links in config get https:// (warning shown in terminal). */
+function __absUrl(v, where) {
+  if (typeof v !== 'string' || !v || /^(https?:|mailto:|tel:|data:|\.?\/|#)/i.test(v)) return v;
+  __CONFIG_WARNINGS.push(`${where}: "${v}" has no scheme — assuming https://${v}`);
+  return 'https://' + v;
+}
+CONFIG.github   = __absUrl(CONFIG.github, 'profile.github');
+CONFIG.linkedin = __absUrl(CONFIG.linkedin, 'profile.linkedin');
+PROJECTS.forEach(p => {
+  if (!p || typeof p !== 'object') return;
+  p.url  = __absUrl(p.url,  `${p.slug || '?'}: url`);
+  p.repo = __absUrl(p.repo, `${p.slug || '?'}: repo`);
+});
 const TUX = [
 "        .--.",
 "       |o_o |",
@@ -568,7 +542,7 @@ const VIMRC = [
 '" plugins: 0 · muscle memory: all of it',
 ].join('\n');
 const BASH_HISTORY = [
-"git commit -s -m \"fix: what the agent couldn't finish\"",
+"cat welcome.md",
 "sudo dnf upgrade --refresh",
 ":qa!",
 ].join('\n');
@@ -986,7 +960,7 @@ function rAbout() {
   </section>`;
 }
 function statusLabel(p) {
-  return { live:'live', stable:'stable', archived:'archived' }[p.status];
+  return { live:'live', stable:'stable', archived:'archived' }[p.status] || '—';
 }
 function projLinks(p) {
   const bits = [];
@@ -1013,8 +987,6 @@ function rProjects() {
       <ul class="p-high">${p.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
       <div class="p-tags">${p.stack.map(s => `<span class="tag">${s}</span>`).join('')}</div>
       ${projLinks(p)}
-      <pre class="git"><span class="g-p">$</span> git log --oneline --author=me
-  ${p.gitlog.map(g => { const m = String(g).match(/^([0-9a-f]{7,40})\s{2,}(.*)$/i); return m ? `<span class="g-h">${m[1]}</span>  ${esc(m[2].trim())}` : esc(String(g).trim()); }).join('\n')}</pre>
     </div></div>
   </article>`).join('');
   return `
@@ -1022,7 +994,7 @@ function rProjects() {
     <p class="kicker">~/projects — ${PROJECTS.length} systems · outcomes first</p>
     <h2 class="display-2">Shipped systems.</h2>
     <div class="proj-list">${rows}</div>
-    <p class="list-hint">Add live / repo URLs in CONFIG projects when public — or open from the terminal: <button class="inline-cmd" data-cmd="open relay">open relay</button></p>
+    <p class="list-hint">Add live / repo URLs in CONFIG projects when public — or open from the terminal: <button class="inline-cmd" data-cmd="open feedwise">open feedwise</button></p>
   </section>`;
 }
 function rStack() {

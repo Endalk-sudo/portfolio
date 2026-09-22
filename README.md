@@ -25,11 +25,13 @@ Save + refresh.
 
 ## Deploy
 
-Upload `index.html` + `config.js` + `cv.pdf` together to any static host
+Upload `index.html` + `config.js` + `Endalkachew_Yaregal_CV.pdf` + `og.png` together to any static host
 (Vercel, Render, Cloudflare, GitHub Pages). No build step.
+If you deploy on a different domain than the one in `og:image`/`twitter:image`, update those two
+URLs in `index.html` `<head>` so link previews point at your real domain.
 
 ## Files
 
 - `index.html` — page (don't edit data inside it)
 - `config.js` — edit this
-- `cv.pdf` — your CV; drop it at the repo root, the ↓ CV buttons and the `cv` terminal command open it in a new tab
+- `Endalkachew_Yaregal_CV.pdf` — your CV; keep it at the repo root (same name as `profile.cv` in config.js), the ↓ CV buttons and the `cv` terminal command open it in a new tab

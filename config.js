@@ -62,7 +62,7 @@ window.SITE = {
             slug: 'feedwise',
             name: 'FeedWise',
             year: '2025',
-            status: 'stable',
+            status: 'live',
             blurb: 'AI-powered SaaS for businesses to collect customer feedback via QR codes and turn it into actionable insights in real-time.',
             outcome:
                 'Enables small-to-medium businesses to instantly collect, analyze, and act on customer feedback through Gemini AI sentiment analysis, priority scoring, and team collaboration—reducing response time from days to minutes.',
@@ -87,7 +87,7 @@ window.SITE = {
                 'zustand',
                 'zod',
             ],
-            url: '',
+            url: 'https://feedwise-nine.vercel.app/',
             repo: 'https://github.com/Endalk-sudo/Feedwise',
             sourceNote: 'Open source — available on GitHub',
             highlights: [

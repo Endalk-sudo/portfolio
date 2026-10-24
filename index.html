@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Endalkachew Yaregal — dev@dev-box · software engineering student</title>
+<title>Endalkachew Yaregal — dev@dev-box · pixel terminal</title>
 <meta name="description" content="Endalkachew Yaregal — software engineering student at Woldia University. Backend-leaning full-stack: SaaS, payments, AI, queues. Open to a Feb 2027 internship.">
 <meta name="author" content="Endalkachew Yaregal">
 <meta property="og:type" content="website">
@@ -17,417 +17,619 @@
 <meta name="twitter:image" content="https://portfolio.endalkachewyaregal747.workers.dev/og.png">
 <meta name="twitter:title" content="Endalkachew Yaregal — software engineering student">
 <meta name="twitter:description" content="Full-stack, backend-leaning. SaaS, payments, email, AI integrations.">
-<meta name="theme-color" content="#0b0a09">
+<meta name="theme-color" content="#090a09">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Endalkachew Yaregal","jobTitle":"Software Engineering Student","url":"https://portfolio.endalkachewyaregal747.workers.dev/","email":"mailto:endalkachewyaregal747@gmail.com","sameAs":["https://github.com/Endalk-sudo","https://www.linkedin.com/in/endalkachew-yaregal-swe"],"affiliation":{"@type":"CollegeOrUniversity","name":"Woldia University"},"knowsAbout":["TypeScript","React","Vite","Node.js","Postgres","Redis","Next.js","SaaS","Payments","Email","AI integrations","Job queues","Workers","Vercel","Render","Cloudflare","Docker"]}</script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230b0a09'/><circle cx='16' cy='16' r='4' fill='%23c9a66b'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23090a09'/><rect x='6' y='6' width='20' height='20' fill='%23ffbe3b'/><rect x='10' y='10' width='12' height='12' fill='%23090a09'/></svg>">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+
 <style>
-/* ============ instrument of thought ============ */
-:root{
-  --bg:#0b0a09;
-  --surface:#121110;
-  --surface2:#181614;
-  --ink:#ebe6df;
-  --sub:#9a938a;
-  --faint:#857e74;
-  --hair:rgba(235,230,223,.08);
-  --hair2:rgba(235,230,223,.045);
-  --fill:rgba(235,230,223,.035);
-  --fill2:rgba(235,230,223,.06);
-  --accent:#c9a66b;
-  --accent-soft:rgba(201,166,107,.12);
-  --accent-dim:rgba(201,166,107,.35);
-  --err:#d46a5c;
-  --amber:#c9a66b;
-  --ok:#8faf7a;
-  --sans:'Hanken Grotesk',-apple-system,system-ui,sans-serif;
-  --mono:'IBM Plex Mono',ui-monospace,monospace;
-  --ease:cubic-bezier(.25,.8,.25,1);
-  --r:10px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  background:var(--bg); color:var(--ink);
-  font:15.5px/1.55 var(--sans);
-  display:grid; grid-template-rows:auto minmax(0,1fr) auto; grid-template-columns:minmax(0,1fr);
-  height:100vh; height:100dvh; overflow:hidden;
-  -webkit-font-smoothing:antialiased;
-  /* quiet paper grain */
-  background-image:
-    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(201,166,107,.04), transparent 55%),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-}
-::selection{background:var(--accent);color:#1a1612}
-:focus-visible{outline:1.5px solid var(--accent-dim);outline-offset:3px}
-::-webkit-scrollbar{width:8px;height:8px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:rgba(235,230,223,.1);border:2px solid var(--bg);border-radius:4px}
-::-webkit-scrollbar-thumb:hover{background:rgba(235,230,223,.2)}
-button{font:inherit;color:inherit;cursor:pointer}
-code,pre,kbd{font-family:var(--mono)}
-
-/* ============ app chrome ============ */
-#sb{
-  display:flex;align-items:center;gap:4px;height:48px;
-  padding:0 clamp(14px,2.5vw,22px);
-  background:var(--surface);
-  border-bottom:1px solid var(--hair);
-  z-index:20; user-select:none;
-}
-.brand{
-  display:flex;align-items:center;gap:10px;
-  background:none;border:0;padding:7px 10px;border-radius:var(--r);
-}
-.brand:hover{background:var(--fill)}
-.brand-dot{
-  width:7px;height:7px;border-radius:50%;
-  background:var(--accent);flex:none;
-  box-shadow:0 0 0 3px var(--accent-soft);
-}
-.brand-name{font-size:13px;font-weight:600;letter-spacing:.01em;color:var(--ink)}
-#sb-path{font:11.5px var(--mono);color:var(--faint);margin-left:4px;letter-spacing:.02em}
-.sb-nav{display:flex;align-items:center;gap:1px;margin-left:12px;flex:1;overflow-x:auto;scrollbar-width:none}
-.sb-nav::-webkit-scrollbar{display:none}
-.sb-win{
-  background:none;border:0;color:var(--faint);
-  font-size:13px;font-weight:500;padding:7px 12px;border-radius:8px;
-  white-space:nowrap;transition:color .15s,background .15s;letter-spacing:.01em;
-}
-.sb-win:hover{color:var(--ink);background:var(--fill)}
-.sb-win.active{color:var(--ink);background:var(--fill2)}
-.sb-right{display:flex;align-items:center;gap:16px;font:11.5px var(--mono);color:var(--faint);white-space:nowrap;letter-spacing:.02em}
-#sb-clock{color:var(--sub);font-variant-numeric:tabular-nums}
-
-/* ============ content ============ */
-#view{overflow-y:auto;min-height:0;position:relative}
-#page{
-  max-width:920px;margin:0 auto;
-  padding:clamp(40px,8vh,96px) clamp(20px,5vw,48px) 120px;
-  transition:opacity .28s var(--ease),transform .28s var(--ease);
-}
-#page.out{opacity:0;transform:translateY(10px)}
-.kicker{
-  font:11.5px var(--mono);color:var(--faint);
-  margin-bottom:20px;letter-spacing:.04em;text-transform:lowercase;
-}
-.kicker .t-user{color:var(--accent)}
-.kicker .k-dim{color:var(--faint)}
-.display{
-  font-weight:500;font-size:clamp(40px,6.2vw,78px);
-  line-height:1.05;letter-spacing:-.03em;color:var(--ink);
-}
-.hcaret{
-  display:inline-block;width:3px;height:.78em;border-radius:1px;
-  background:var(--accent);margin-left:.12em;transform:translateY(.05em);
-  animation:blink 1.2s steps(1) infinite;
-}
-@keyframes blink{50%{opacity:0}}
-.display-2{
-  font-weight:500;font-size:clamp(28px,3.8vw,44px);
-  line-height:1.08;letter-spacing:-.025em;margin:4px 0 36px;max-width:16ch;
-  color:var(--ink);
-}
-.lede{
-  font-size:clamp(15px,1.4vw,17.5px);line-height:1.6;
-  color:var(--sub);max-width:38ch;margin-top:24px;font-weight:400;
+:root {
+  --bg: #090a09;
+  --surface: #101210;
+  --surface-border: #283028;
+  --header-bg: #151815;
+  --ink: #e2e8e2;
+  --dim: #8fa08f;
+  --faint: #4c574c;
+  --accent: #ffbe3b;
+  --accent-dim: rgba(255, 190, 59, 0.12);
+  --green: #4ade80;
+  --green-dim: rgba(74, 222, 128, 0.15);
+  --blue: #60a5fa;
+  --blue-dim: rgba(96, 165, 250, 0.15);
+  --red: #f87171;
+  --yellow: #facc15;
+  --purple: #c084fc;
+  --pixel: 'Silkscreen', monospace;
+  --mono: 'VT323', monospace;
 }
 
-/* ============ buttons ============ */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  font-size:13.5px;font-weight:550;letter-spacing:.01em;
-  padding:11px 22px;border-radius:8px;border:0;
-  transition:background .15s,color .15s,border-color .15s,transform .1s;
-}
-.btn:active{transform:scale(.97)}
-.btn-primary{background:var(--ink);color:#0b0a09}
-.btn-primary:hover{background:#fff}
-.btn-ghost{
-  background:transparent;color:var(--sub);
-  border:1px solid var(--hair);font:500 12.5px var(--mono);
-}
-.btn-ghost:hover{color:var(--ink);border-color:rgba(235,230,223,.16);background:var(--fill)}
-.btn-small{padding:9px 16px;font:500 12px var(--mono)}
-
-/* ============ hero ============ */
-.hero{
-  display:flex;flex-direction:column;justify-content:center;
-  min-height:clamp(380px,calc(100dvh - 220px),720px);
-  max-width:42rem;
-}
-.hero-name{
-  font:12.5px var(--mono);color:var(--accent);letter-spacing:.04em;
-  margin-bottom:14px;font-weight:500;
-}
-.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.hero-meta{font:11.5px var(--mono);color:var(--faint);margin-top:28px;line-height:1.8;letter-spacing:.03em}
-.hero-meta b{color:var(--accent);font-weight:400;padding:0 8px}
-.hero-avail{color:var(--sub);margin-top:10px}
-.scan{
-  margin-top:40px;padding-top:28px;border-top:1px solid var(--hair);
-  max-width:36rem;
-}
-.scan-h{font:11px var(--mono);color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
-.scan-list{list-style:none;display:flex;flex-direction:column;gap:10px}
-.scan-list li{
-  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 16px;
-  align-items:baseline;font-size:14px;
-}
-.scan-list button{
-  background:none;border:0;padding:0;text-align:left;
-  color:var(--ink);font-weight:550;letter-spacing:-.01em;
-  border-bottom:1px solid transparent;transition:color .15s,border-color .15s;
-}
-.scan-list button:hover{color:var(--accent);border-bottom-color:var(--accent-dim)}
-.scan-out{font:12px var(--mono);color:var(--sub);text-align:right;max-width:28ch}
-.p-out{
-  font:12.5px var(--mono);color:var(--accent);margin:10px 8px 0;
-  letter-spacing:.01em;line-height:1.5;max-width:60ch;
-}
-.p-links{display:flex;flex-wrap:wrap;gap:10px;margin:0 8px 18px;padding-top:4px}
-.p-links a{
-  font:12px var(--mono);color:var(--sub);text-decoration:none;
-  border:1px solid var(--hair);padding:6px 12px;border-radius:6px;
-  background:var(--surface);transition:color .12s,border-color .12s;
-}
-.p-links a:hover{color:var(--accent);border-color:var(--accent-dim)}
-
-/* ============ about ============ */
-.about-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,1fr);gap:clamp(32px,5vw,64px)}
-.prose p{font-size:15.5px;line-height:1.7;color:var(--sub);margin-bottom:1.25em;max-width:48ch}
-.prose p strong{color:var(--ink);font-weight:600}
-.prose p:last-child{margin-bottom:0}
-.facts-h,.pr-h,.toml-h{font:11px var(--mono);color:var(--faint);margin:0 0 12px 4px;font-weight:400;letter-spacing:.06em;text-transform:uppercase}
-.facts{
-  border:1px solid var(--hair);border-radius:var(--r);
-  background:var(--surface);overflow:hidden;
-}
-.fact{
-  display:flex;justify-content:space-between;align-items:baseline;gap:14px;
-  padding:12px 16px;border-bottom:1px solid var(--hair2);font-size:14px;
-}
-.fact:last-child{border-bottom:0}
-.fact dt{color:var(--sub)}
-.fact dd{font:12.5px var(--mono);color:var(--ink);text-align:right;letter-spacing:.01em}
-.fact-hot dd{color:var(--accent);font-weight:500}
-
-/* ============ projects ============ */
-.proj-list{border-top:1px solid var(--hair)}
-.proj{border-bottom:1px solid var(--hair)}
-.proj-row{
-  width:100%;display:grid;
-  grid-template-columns:2.8ch minmax(0,auto) 1fr max-content 18px;
-  gap:8px 20px;align-items:center;padding:20px 8px;
-  background:none;border:0;text-align:left;border-radius:8px;
-  transition:background .15s;
-}
-.proj-row:hover{background:var(--fill)}
-.p-idx{font:11.5px var(--mono);color:var(--faint);transition:color .15s;letter-spacing:.02em}
-.proj-row:hover .p-idx{color:var(--accent)}
-.p-name{font-size:clamp(18px,2.2vw,23px);font-weight:550;letter-spacing:-.015em;transition:color .15s}
-.proj-row:hover .p-name{color:var(--accent)}
-.p-blurb{font-size:13.5px;color:var(--sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.p-year{font:11.5px var(--mono);color:var(--faint);letter-spacing:.02em}
-.p-caret{display:flex;align-items:center;justify-content:center;color:var(--faint);transition:transform .4s var(--ease),color .15s}
-.proj.open .p-caret{transform:rotate(180deg);color:var(--accent)}
-.proj-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
-.proj.open .proj-body{grid-template-rows:1fr}
-.proj-inner{overflow:hidden;min-height:0}
-.p-desc{font-size:14.5px;line-height:1.65;color:var(--sub);max-width:52ch;padding:4px 8px 0}
-.p-status{display:flex;align-items:center;gap:8px;font:11.5px var(--mono);color:var(--faint);margin:16px 0 4px;padding:0 8px;letter-spacing:.03em}
-.st-dot{width:6px;height:6px;border-radius:50%;flex:none}
-.st-live{background:var(--ok)} .st-stable{background:var(--accent)} .st-archived{background:var(--faint)}
-.p-high{list-style:none;margin:12px 0 18px;padding:0 8px}
-.p-high li{font-size:13.5px;color:var(--sub);padding:4px 0 4px 16px;position:relative}
-.p-high li::before{content:'·';position:absolute;left:2px;color:var(--accent);font-family:var(--mono)}
-.p-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px;padding:0 8px}
-.tag{
-  font:11px var(--mono);color:var(--sub);border:1px solid var(--hair);
-  background:var(--surface);padding:4px 10px;border-radius:6px;letter-spacing:.02em;
-}
-.list-hint{font:12px var(--mono);color:var(--faint);margin-top:24px;letter-spacing:.02em}
-.inline-cmd{
-  background:none;border:0;border-bottom:1px dashed var(--accent-dim);
-  color:var(--accent);padding:0 1px;font:inherit;cursor:pointer;
-}
-.inline-cmd:hover{color:#d4b87e}
-
-/* ============ stack ============ */
-.toml{
-  font:13px/1.9 var(--mono);
-  background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);
-  padding:24px 28px;overflow-x:auto;white-space:pre;
-  width:max-content;max-width:100%;min-width:min(100%,480px);
-}
-.tk-sec{color:var(--ink);font-weight:600}
-.tk-k{color:var(--sub)} .tk-v{color:#c8c2b8} .tk-o{color:var(--faint)}
-.tk-c{color:var(--faint);font-style:italic}
-.principles{list-style:none;max-width:520px;margin-top:14px;border-top:1px solid var(--hair)}
-.principles li{
-  font-size:15px;color:var(--sub);padding:14px 2px 14px 22px;
-  border-bottom:1px solid var(--hair2);position:relative;
-}
-.principles li::before{content:'—';position:absolute;left:0;color:var(--accent);font-family:var(--mono);font-size:13px}
-
-/* ============ contact ============ */
-.mail-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:36px 0 12px}
-.mail-row code{
-  font:500 14px var(--mono);background:var(--surface);border:1px solid var(--hair);
-  padding:13px 18px;border-radius:var(--r);color:var(--ink);letter-spacing:.01em;
-}
-.links{list-style:none;max-width:560px;border-top:1px solid var(--hair);margin-top:12px}
-.links a{
-  display:flex;align-items:center;gap:16px;padding:14px 6px;
-  border-bottom:1px solid var(--hair2);color:var(--ink);text-decoration:none;
-  font-size:14.5px;transition:background .12s;border-radius:8px;
-}
-.links a:hover{background:var(--fill)}
-.l-k{color:var(--sub);font-size:13.5px}
-.l-v{margin-left:auto;font:12.5px var(--mono);color:var(--sub);letter-spacing:.01em}
-.l-v i{font-style:normal;color:var(--faint);margin-left:6px;transition:transform .18s var(--ease),color .18s;display:inline-flex}
-.links a:hover .l-v i{transform:translateX(3px);color:var(--accent)}
-.hint{font:12.5px var(--mono);color:var(--sub);margin-top:28px;letter-spacing:.02em}
-.colophon{
-  margin-top:72px;padding-top:20px;border-top:1px solid var(--hair2);
-  font:11.5px var(--mono);color:var(--faint);text-align:center;letter-spacing:.04em;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  image-rendering: pixelated;
 }
 
-/* ============ terminal sheet ============ */
-#dock{
-  background:var(--surface2);border-top:1px solid var(--hair);
-  border-radius:14px 14px 0 0;display:flex;flex-direction:column;flex:none;
-  position:relative;z-index:15;
-  box-shadow:0 -16px 48px rgba(0,0,0,.45);
+::selection {
+  background: var(--accent);
+  color: #000;
 }
-#dock-head{
-  height:40px;flex:none;display:flex;align-items:center;gap:10px;padding:0 14px;
-  border-bottom:1px solid var(--hair2);font:11px var(--mono);color:var(--faint);
-  cursor:ns-resize;user-select:none;touch-action:none;
-  background:var(--surface);border-radius:14px 14px 0 0;letter-spacing:.03em;
-}
-.tty-dot{
-  width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none;
-  animation:pulse 2.6s ease-in-out infinite;
-}
-@keyframes pulse{50%{opacity:.35}}
-.tty-label{color:var(--sub)}
-.tty-hint{margin-left:auto;white-space:nowrap}
-.tty-hint b{color:var(--accent);font-weight:500}
-#dock-toggle{background:none;border:0;color:var(--faint);cursor:pointer;padding:5px;margin-left:6px;display:flex;transition:color .12s}
-#dock-toggle:hover{color:var(--ink)}
-#dock.collapsed #dock-body{display:none}
-#dock-body{flex:1;min-height:0;overflow-y:auto;padding:12px 16px 14px;font:12.5px/1.6 var(--mono);position:relative}
-#kbd{position:absolute;left:0;bottom:0;width:2px;height:2px;opacity:0;border:0;background:none;color:transparent;pointer-events:none;font-size:16px}
-.t-line{white-space:pre-wrap;word-break:break-word;color:var(--ink);padding:1px 0}
-.t-dim{color:var(--faint)} .t-faint{color:var(--faint)}
-.t-acc{color:var(--accent)} .t-err{color:var(--err)} .t-ok{color:var(--ok)}
-.t-user{color:var(--accent);font-weight:500} .t-path{color:var(--ink)} .t-cmd{color:var(--ink)}
-.t-pre{font:inherit;margin:2px 0 4px;white-space:pre-wrap}
-.help-row .t-acc{display:inline-block;min-width:14em}
-#t-inline{white-space:pre-wrap}
-#t-cur{
-  display:inline-block;width:6px;height:1em;border-radius:1px;
-  background:var(--accent);vertical-align:text-bottom;margin-left:1px;
-  animation:blink 1.1s steps(1) infinite;
-}
-.fetch{display:flex;flex-wrap:wrap;gap:10px 28px;padding:6px 0 10px}
-.fetch-art{font:11.5px/1.35 var(--mono);color:var(--accent);white-space:pre}
-.fetch-info{font:12px/1.65 var(--mono)}
-.fi-head{color:var(--accent);font-weight:600}
-.fi-sep{color:var(--faint)}
-.fi-k{display:inline-block;min-width:8em;color:var(--faint)}
-.fi-hot{color:var(--accent)}
 
-/* ============ crt ============ */
-#crt{position:fixed;inset:0;pointer-events:none;z-index:99;opacity:0;transition:opacity .4s;
-  background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
-body.crt #crt{opacity:1}
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 19px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  -webkit-font-smoothing: none;
+}
 
-/* ============ responsive ============ */
-@media (max-width:999px){
-  .hero{min-height:clamp(360px,calc(100dvh - 220px),640px)}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow: hidden;
+  background-color: #090a09;
+  background-image: radial-gradient(#182018 1px, transparent 1px);
+  background-size: 8px 8px;
 }
-@media (max-width:880px){ .about-grid{grid-template-columns:1fr} .sb-right #sb-up{display:none} }
-@media (max-width:760px){
-  .proj-row{grid-template-columns:2.8ch minmax(0,1fr) max-content 16px;gap:6px 14px}
-  .p-blurb{grid-column:2 / -1;grid-row:2;white-space:normal;overflow:visible;text-overflow:clip;font-size:12.5px;line-height:1.45}
-  .tty-hint{display:none}
-  #sb-path{display:none}
-  .toml{padding:18px 16px}
-  .scan-list li{grid-template-columns:1fr;gap:4px}
-  .scan-out{text-align:left;max-width:none}
-  /* touch targets ≥44px */
-  .scan-list button{padding:11px 0;min-height:44px}
-  .sb-win{padding:12px 10px}
-  .brand{padding:12px 10px}
-  #dock-toggle{padding:14px 10px;min-width:44px;min-height:44px;justify-content:center;align-items:center;margin:-14px -6px -14px 4px}
+
+/* Pixel Terminal Window Frame */
+.terminal-window {
+  width: 100%;
+  max-width: 980px;
+  height: calc(100vh - 32px);
+  background: var(--surface);
+  border: 3px solid var(--surface-border);
+  box-shadow: 
+    6px 6px 0px #000,
+    0 0 0 1px #384238;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
-@media (max-width:560px){ .sb-win{padding:12px 9px;font-size:12.5px} .brand-name{font-size:12.5px} #sb-clock{display:none} }
-@media (max-height:820px){
-  #page{padding-top:clamp(24px,5vh,44px)}
-  .display{font-size:clamp(36px,4.6vw,60px)}
-  .kicker{margin-bottom:12px}
-  .lede{margin-top:16px}
-  .hero-actions{margin-top:22px}
-  .hero-meta{margin-top:20px}
-  .hero-avail{margin-top:6px}
+
+/* Pixel Header Bar */
+.terminal-header {
+  height: 48px;
+  background: var(--header-bg);
+  border-bottom: 3px solid var(--surface-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  user-select: none;
+  flex-shrink: 0;
+  gap: 12px;
 }
-@media (prefers-reduced-motion:reduce){
-  .hcaret,#t-cur,.tty-dot{animation:none}
-  #page,.proj-body,.p-caret{transition:none}
+
+.window-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* Square Pixel Dots */
+.win-dot {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  box-shadow: 1px 1px 0px #000;
+}
+.win-dot.close { background: var(--red); }
+.win-dot.min   { background: var(--yellow); }
+.win-dot.max   { background: var(--green); }
+
+.terminal-title {
+  color: var(--accent);
+  font-family: var(--pixel);
+  font-size: 11px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  margin-left: 6px;
+  text-transform: uppercase;
+}
+
+.header-shortcuts {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.header-shortcuts::-webkit-scrollbar { display: none; }
+
+/* Pixel Buttons */
+.shortcut-btn {
+  background: #141714;
+  color: var(--dim);
+  border: 2px solid #283028;
+  padding: 4px 8px;
+  font-family: var(--pixel);
+  font-size: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.05s steps(2);
+}
+.shortcut-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: #1c211c;
+}
+.shortcut-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000;
+}
+.shortcut-btn.btn-cv {
+  color: var(--accent);
+  border-color: rgba(255, 190, 59, 0.6);
+}
+
+/* Terminal Body */
+.terminal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+  cursor: text;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+}
+.terminal-body::-webkit-scrollbar {
+  width: 10px;
+}
+.terminal-body::-webkit-scrollbar-track {
+  background: #0d0f0d;
+}
+.terminal-body::-webkit-scrollbar-thumb {
+  background: #283028;
+  border: 1px solid #000;
+}
+
+.term-entry {
+  margin-bottom: 20px;
+}
+
+.prompt-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+.prompt-user { color: var(--green); font-weight: bold; }
+.prompt-host { color: var(--dim); }
+.prompt-path { color: var(--blue); }
+.prompt-char { color: var(--accent); font-weight: bold; }
+.prompt-cmd  { color: var(--ink); font-weight: bold; }
+
+.term-output {
+  color: var(--ink);
+}
+
+/* Pixel Banner & Stat Badges */
+.ascii-banner {
+  color: var(--accent);
+  font-size: 13.5px;
+  line-height: 1.15;
+  white-space: pre;
+  margin-bottom: 12px;
+  user-select: none;
+  text-shadow: 2px 2px 0px #000;
+}
+
+/* Stat Counters Row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.stat-chip {
+  background: #131713;
+  border: 2px solid var(--surface-border);
+  box-shadow: 2px 2px 0 #000;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+}
+.stat-label {
+  font-family: var(--pixel);
+  font-size: 9px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+.stat-val {
+  color: var(--accent);
+  font-family: var(--pixel);
+  font-size: 11px;
+}
+.stat-chip.highlight .stat-val {
+  color: var(--green);
+}
+
+.banner-box {
+  border: 2px solid var(--accent);
+  background: rgba(255, 190, 59, 0.04);
+  box-shadow: 4px 4px 0px #000;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.banner-name {
+  color: var(--accent);
+  font-family: var(--pixel);
+  font-size: 14px;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+.banner-role {
+  color: var(--ink);
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+.banner-avail {
+  display: inline-block;
+  background: #142414;
+  color: var(--green);
+  border: 2px solid var(--green);
+  box-shadow: 2px 2px 0px #000;
+  padding: 3px 8px;
+  font-family: var(--pixel);
+  font-size: 9.5px;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+/* Section Header */
+.sec-title {
+  color: var(--accent);
+  font-family: var(--pixel);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  margin: 10px 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Pixel Project Cards */
+.proj-card {
+  border: 2px solid var(--surface-border);
+  box-shadow: 3px 3px 0px #000;
+  padding: 14px 16px;
+  margin: 12px 0;
+  background: #121512;
+  transition: all 0.1s steps(2);
+}
+.proj-card:hover {
+  border-color: var(--accent);
+}
+.proj-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.proj-name {
+  color: var(--accent);
+  font-family: var(--pixel);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+.status-pill {
+  font-family: var(--pixel);
+  font-size: 9px;
+  padding: 2px 6px;
+  text-transform: uppercase;
+  border: 1px solid;
+  box-shadow: 1px 1px 0px #000;
+}
+.status-pill.live {
+  background: #142414;
+  color: var(--green);
+  border-color: var(--green);
+}
+.status-pill.stable {
+  background: #122030;
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.proj-outcome {
+  color: var(--ink);
+  font-size: 19px;
+  margin-bottom: 8px;
+  line-height: 1.45;
+}
+
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+.tag {
+  background: #182018;
+  color: var(--dim);
+  border: 1px solid #283028;
+  padding: 1px 6px;
+  font-family: var(--pixel);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.proj-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 2px dashed #283028;
+}
+
+/* Action Badges */
+.badge-demo {
+  background: #142814;
+  color: var(--green);
+  border: 2px solid var(--green);
+  box-shadow: 2px 2px 0 #000;
+  padding: 3px 8px;
+  font-family: var(--pixel);
+  font-size: 10px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+}
+.badge-demo:hover {
+  background: var(--green);
+  color: #000;
+}
+
+.badge-repo {
+  background: #121e2d;
+  color: var(--blue);
+  border: 2px solid var(--blue);
+  box-shadow: 2px 2px 0 #000;
+  padding: 3px 8px;
+  font-family: var(--pixel);
+  font-size: 10px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+}
+.badge-repo:hover {
+  background: var(--blue);
+  color: #000;
+}
+
+.badge-details {
+  background: #1b1e1b;
+  color: var(--accent);
+  border: 2px solid var(--surface-border);
+  box-shadow: 2px 2px 0 #000;
+  padding: 3px 8px;
+  font-family: var(--pixel);
+  font-size: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.badge-details:hover {
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Visual Skills Matrix */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px;
+  margin: 10px 0 14px 0;
+}
+.skill-box {
+  background: #121512;
+  border: 2px solid var(--surface-border);
+  box-shadow: 2px 2px 0 #000;
+  padding: 10px 12px;
+}
+.skill-cat {
+  font-family: var(--pixel);
+  font-size: 10px;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+.skill-cat.lang { color: var(--yellow); }
+.skill-cat.back { color: var(--green); }
+.skill-cat.front { color: var(--blue); }
+.skill-cat.data { color: var(--accent); }
+.skill-cat.ops { color: var(--purple); }
+
+/* Contact List */
+.contact-list {
+  list-style: none;
+  margin: 10px 0;
+}
+.contact-list li {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 20px;
+}
+.contact-label {
+  color: var(--dim);
+  font-family: var(--pixel);
+  font-size: 11px;
+  width: 90px;
+  text-transform: uppercase;
+}
+.copy-badge {
+  background: #1a201a;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  box-shadow: 1px 1px 0px #000;
+  padding: 2px 7px;
+  font-family: var(--pixel);
+  font-size: 9.5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.copy-badge:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* Clickable Quick Command Chips directly above Prompt */
+.prompt-chips-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 2px dashed #202620;
+}
+.prompt-chips-label {
+  font-family: var(--pixel);
+  font-size: 9px;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-right: 2px;
+}
+.chip-btn {
+  background: #161b16;
+  color: var(--ink);
+  border: 1.5px solid #2e382e;
+  box-shadow: 2px 2px 0px #000;
+  padding: 2px 7px;
+  font-family: var(--pixel);
+  font-size: 9.5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.05s steps(2);
+}
+.chip-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: #1e241e;
+}
+.chip-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0px 0px 0px #000;
+}
+
+/* Active Prompt & Input */
+.active-prompt {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 8px;
+}
+.input-wrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#term-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 21px;
+  padding: 0;
+  margin: 0;
+  caret-color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 640px) {
+  body { padding: 0; }
+  .terminal-window {
+    height: 100vh;
+    border: none;
+    box-shadow: none;
+  }
+  .terminal-title { display: none; }
+  .ascii-banner { font-size: 9.5px; overflow-x: auto; }
+  .stats-row { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
-<div id="crt" aria-hidden="true"></div>
-<!-- frosted menu bar: brand = home, items type real commands -->
-<header id="sb">
-  <button class="brand" id="sb-brand" title="cd ~">
-    <span class="brand-dot" aria-hidden="true"></span>
-    <span class="brand-name">dev@dev-box</span><span id="sb-path">~</span>
-  </button>
-  <nav class="sb-nav" id="sb-nav" aria-label="sections"></nav>
-  <div class="sb-right"><span id="sb-up">up 0s</span><span id="sb-clock">--:--:--</span></div>
-</header>
-<!-- the pager: everything you cat renders here -->
-<main id="view"><div id="page"></div></main>
-<!-- terminal sheet: drag header to resize, click to collapse -->
-<section id="dock">
-  <div id="dock-head" title="drag to resize · click to collapse">
-    <span class="tty-dot" aria-hidden="true"></span>
-    <span class="tty-label">visitor@dev-box — tty1</span>
-    <span class="tty-hint">tab completes · ↑ history · try <b>help</b></span>
-    <button id="dock-toggle" aria-label="collapse terminal">
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-  </div>
-  <div id="dock-body" aria-live="polite">
-    <div id="t-out" role="log"></div>
-    <div id="t-inline"><span id="t-prompt"></span><span id="t-typed"></span><span id="t-cur" aria-hidden="true"></span></div>
-    <input id="kbd" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="terminal input">
-  </div>
-</section>
-<noscript>
-  <div style="position:fixed;inset:0;background:#0b0a09;color:#ebe6df;font:14px 'Hanken Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px">
-    This portfolio is a live terminal — it needs JavaScript.<br><br>
-    <a href="mailto:endalkachewyaregal747@gmail.com" style="color:#c9a66b">endalkachewyaregal747@gmail.com</a><br>
-    <a href="https://github.com/Endalk-sudo" style="color:#c9a66b">github.com/Endalk-sudo</a> ·
-    <a href="https://www.linkedin.com/in/endalkachew-yaregal-swe" style="color:#c9a66b">linkedin.com/in/endalkachew-yaregal-swe</a><br>
-    <a href="./Endalkachew_Yaregal_CV.pdf" style="color:#c9a66b">CV (pdf)</a>
-  </div>
-</noscript>
+
+<div class="terminal-window" id="window" onclick="focusInput()">
+  <header class="terminal-header">
+    <div class="window-controls">
+      <span class="win-dot close"></span>
+      <span class="win-dot min"></span>
+      <span class="win-dot max"></span>
+      <span class="terminal-title">endalk@dev-box: ~ [pixel]</span>
+    </div>
+    <nav class="header-shortcuts" aria-label="Quick commands">
+      <button class="shortcut-btn" onclick="runCmd('about')">about</button>
+      <button class="shortcut-btn" onclick="runCmd('projects')">projects</button>
+      <button class="shortcut-btn" onclick="runCmd('stack')">stack</button>
+      <button class="shortcut-btn" onclick="runCmd('contact')">contact</button>
+      <a class="shortcut-btn btn-cv" href="./Endalkachew_Yaregal_CV.pdf" target="_blank" rel="noopener">cv ↗</a>
+      <button class="shortcut-btn" onclick="runCmd('clear')">clear</button>
+    </nav>
+  </header>
+
+  <main class="terminal-body" id="term-body">
+    <div id="term-history"></div>
+
+    <!-- Quick action chips directly above the prompt -->
+    <div class="prompt-chips-bar">
+      <span class="prompt-chips-label">QUICK ACTIONS:</span>
+      <button class="chip-btn" onclick="runCmd('projects')">📂 PROJECTS</button>
+      <button class="chip-btn" onclick="runCmd('stack')">🛠️ STACK</button>
+      <button class="chip-btn" onclick="runCmd('about')">👤 ABOUT</button>
+      <button class="chip-btn" onclick="runCmd('contact')">📬 CONTACT</button>
+      <button class="chip-btn" onclick="runCmd('cv')">📄 RESUME ↗</button>
+      <button class="chip-btn" onclick="runCmd('clear')">🧹 CLEAR</button>
+    </div>
+
+    <div class="active-prompt">
+      <div class="prompt-line" style="margin-bottom:0">
+        <span class="prompt-user">visitor</span><span class="prompt-host">@dev-box</span><span class="prompt-char">:</span><span class="prompt-path">~</span><span class="prompt-char">$</span>
+      </div>
+      <div class="input-wrap" style="margin-left: 8px;">
+        <input id="term-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input" autofocus>
+      </div>
+    </div>
+  </main>
+</div>
+
 <script src="./config.js"></script>
 <script>
-/* =====================================================================
-   CONTENT — edit ./config.js (window.SITE). Do not edit below.
-   Fallbacks keep the page working if config.js is missing.
-===================================================================== */
-const FALLBACK_CONFIG = {
+const CFG = (window.SITE && window.SITE.profile) || {
   name: 'Endalkachew Yaregal',
   role: 'software engineering student',
   email: 'endalkachewyaregal747@gmail.com',
@@ -439,804 +641,381 @@ const FALLBACK_CONFIG = {
   cvLabel: 'Endalkachew_Yaregal_CV.pdf',
   location: 'Addis Ababa, Ethiopia',
   education: { school: 'Woldia University', degree: 'BSc Software Engineering', period: 'in progress' },
-  availability: 'open to a 4-month software engineering internship starting February 2027 — onsite or hybrid',
-  heroMeta: 'typescript · react · node · postgres · redis · vercel · render · cloudflare',
-  analytics: '',
-  skills: {
-    languages: 'typescript · javascript · python · sql',
-    frontend: 'next · react · vite · tanstack · zustand · tailwind',
-    backend: 'node · express · rest · websockets · cron · queues · workers',
-    data: 'postgres · firestore · redis · prisma · supabase',
-    services: 'payments · email · ai integrations',
-    deploy: 'vercel · render · railway · cloudflare · docker · ci/cd',
-  },
+  availability: 'Open to a 4-month software engineering internship starting February 2027 (onsite or hybrid)'
 };
-/* ============ data (fallback if config.js missing) ============ */
-const FALLBACK_PROJECTS = [
-  /* Mirrors the real projects in ./config.js — only used if config.js fails to load. */
-  { slug:'feedwise', name:'FeedWise', year:'2025', status:'stable',
-    blurb:'AI-powered SaaS for businesses to collect customer feedback via QR codes and turn it into actionable insights in real-time.',
-    outcome:'Enables small-to-medium businesses to instantly collect, analyze, and act on customer feedback through Gemini AI sentiment analysis, priority scoring, and team collaboration—reducing response time from days to minutes.',
-    desc:'Full-stack SaaS platform combining QR-code-based feedback collection with real-time AI analysis (sentiment, category, urgency, fixable problems, retention risk). Features include professional analytics dashboards, Stripe subscriptions (Basic/Pro tiers), team management with role-based access, intelligent admin chat for querying feedback, email alerts, and S3 logo storage. Designed for enterprise reliability with BullMQ job queues, Redis caching, PostgreSQL persistence, and Docker-based deployment.',
-    stack:['typescript','react','vite','node','express','postgres','prisma','better-auth','gemini','stripe','bullmq','redis','s3','tailwind','tanstack-router','tanstack-query','zustand','zod'],
-    url:'', repo:'https://github.com/Endalk-sudo/Feedwise',
-    sourceNote:'Open source — available on GitHub',
-    highlights:[
-      'Monorepo structure (client/server/shared) with Zod schema contracts as single source of truth',
-      'Gemini Flash AI analysis: sentiment, category, urgency, satisfaction (1–5), fixable-problem detection, retention-risk signals',
-      'Stripe SaaS billing with Basic/Pro tiers, webhook sync, billing portal'] },
-  { slug:'keyforge', name:'KeyForge', year:'2026', status:'live',
-    blurb:'Node-locked licensing server with Ed25519 tokens + admin portal',
-    outcome:'Ship piracy-resistant desktop software with online activation and offline verification',
-    desc:'KeyForge validates product keys, binds hardware fingerprints, and issues Ed25519-signed license tokens. Includes verify API, air-gapped .lic generation, device revocation, token inspector, audit trail, and Vercel + Postgres serverless deploy.',
-    stack:['typescript','next.js','node','postgres','prisma','tailwind','vercel','neon'],
-    url:'https://key-forge-zeta.vercel.app/', repo:'',
-    sourceNote:'private — ask me',
-    highlights:[
-      'Ed25519-signed licenses with offline verify + zero-dep Node reference',
-      'Atomic seat enforcement + DB-backed 5/min rate limiting',
-      'Admin portal: key gen, air-gapped .lic, revocation, audit trail'] },
-  { slug:'portfolio', name:'Portfolio', year:'2026', status:'live',
-    blurb:'this site — terminal as portfolio',
-    outcome:'Recruiter-readable in 10s, terminal-native throughout',
-    desc:'This site: a terminal-themed portfolio with zero frameworks and zero build steps. Menu bar, pager, and draggable tty sheet; all content in one config.js with fail-soft validation.',
-    stack:['javascript','html','css','cloudflare'],
-    url:'https://portfolio.endalkachewyaregal747.workers.dev/',
-    repo:'https://github.com/Endalk-sudo/portfolio',
-    sourceNote:'Open source — available on GitHub',
-    highlights:[
-      'one config file drives every section',
-      'works on file:// and any static host'] },
-];
-const FALLBACK_TOML = `# ~/.config/stack.toml — tools used on shipped projects
-[language]
-core    = "typescript"
-scripts = "python"
-[frontend]
-frameworks = ["next.js", "react", "react-router"]
-state      = ["zustand", "tanstack query"]
-styling    = "tailwind"
-tooling    = "vite"
-[backend]
-runtime    = "node"
-apis       = ["rest", "websockets"]
-jobs       = ["cron", "job queues", "workers"]
-[data]
-relational = "postgres"
-documents  = "firestore"
-cache_queues = "redis"
-orms       = ["prisma", "drizzle"]
-[integrations]
-payments   = true
-email      = true
-ai         = true
-[deploy]
-platforms  = ["vercel", "render", "cloudflare"]
-containers = "docker"
-[ops]
-pipelines  = "ci/cd"
-core       = "devops fundamentals"
-[practice]
-builds     = "saas & real-world apps"
-strength   = "backend-leaning full-stack"
-ai         = "assist, not replace"`;
-/* ---- config loader: window.SITE from ./config.js overrides fallbacks ---- */
-const __SITE = (typeof window !== 'undefined' && window.SITE) || {};
-const __PROFILE = __SITE.profile || {};
-const CONFIG = Object.assign({}, FALLBACK_CONFIG, __PROFILE);
-/* nested merges: partial config edits never drop fallback keys */
-CONFIG.skills = Object.assign({}, FALLBACK_CONFIG.skills, __PROFILE.skills || {});
-CONFIG.education = Object.assign({}, FALLBACK_CONFIG.education, __PROFILE.education || {});
-const PROJECTS = (Array.isArray(__SITE.projects) && __SITE.projects.length) ? __SITE.projects : FALLBACK_PROJECTS;
-const TOML = (typeof __SITE.stackToml === 'string' && __SITE.stackToml.trim()) ? __SITE.stackToml : FALLBACK_TOML;
-/* Fail-soft validation: collect warnings, show in terminal after boot. */
-const __CONFIG_WARNINGS = [];
-(function validateSite() {
-  if (!__SITE || !__SITE.projects) {
-    if (!__SITE || Object.keys(__SITE).length === 0) __CONFIG_WARNINGS.push('config.js not loaded — using built-in fallback content');
+const PROJECTS = (window.SITE && window.SITE.projects) || [];
+const STACK_TOML = (window.SITE && window.SITE.stackToml) || '';
+
+const termHistory = document.getElementById('term-history');
+const termBody = document.getElementById('term-body');
+const termInput = document.getElementById('term-input');
+
+let cmdHistory = [];
+let historyIndex = -1;
+
+function esc(s) {
+  if (s == null) return '';
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function focusInput() {
+  termInput.focus();
+}
+
+function scrollToBottom() {
+  termBody.scrollTop = termBody.scrollHeight;
+}
+
+function printEntry(cmd, outputHtml) {
+  const entry = document.createElement('div');
+  entry.className = 'term-entry';
+  entry.innerHTML = `
+    <div class="prompt-line">
+      <span class="prompt-user">visitor</span><span class="prompt-host">@dev-box</span><span class="prompt-char">:</span><span class="prompt-path">~</span><span class="prompt-char">$</span>
+      <span class="prompt-cmd">${esc(cmd)}</span>
+    </div>
+    <div class="term-output">${outputHtml}</div>
+  `;
+  termHistory.appendChild(entry);
+  scrollToBottom();
+}
+
+function renderProjectCard(p) {
+  const st = p.status || 'stable';
+  const tags = (p.stack || []).map(t => `<span class="tag">${esc(t)}</span>`).join('');
+  const actions = [];
+  if (p.url) actions.push(`<a class="badge-demo" href="${esc(p.url)}" target="_blank" rel="noopener">● LIVE DEMO ↗</a>`);
+  if (p.repo) actions.push(`<a class="badge-repo" href="${esc(p.repo)}" target="_blank" rel="noopener">★ GITHUB ↗</a>`);
+  actions.push(`<button class="badge-details" onclick="runCmd('open ${esc(p.slug)}')">🔍 DETAILS</button>`);
+
+  return `
+    <article class="proj-card">
+      <div class="proj-title-row">
+        <span class="proj-name">${esc(p.name)} <span style="font-size:14px; color:var(--dim); font-family:var(--mono);">(${esc(p.year)})</span></span>
+        <span class="status-pill ${st}">${esc(st)}</span>
+      </div>
+      <p class="proj-outcome">${esc(p.outcome || p.blurb)}</p>
+      <div class="proj-tags">${tags}</div>
+      <div class="proj-actions">${actions.join('')}</div>
+    </article>
+  `;
+}
+
+/* Boot Dashboard: Shows key stats & top 2 projects immediately */
+function printWelcome() {
+  const banner = `
+ ╔═══════════════════════════════════════════════════════════════╗
+ ║  ENDALKACHEW YAREGAL  ::  DEV-BOX v1.0 [PIXEL TERMINAL]       ║
+ ║  >> FULL-STACK SOFTWARE ENGINEER (BACKEND & SYSTEMS)          ║
+ ║  >> TYPESCRIPT · NODE.JS · POSTGRESQL · BULLMQ · REDIS        ║
+ ╚═══════════════════════════════════════════════════════════════╝`;
+
+  const topPicks = PROJECTS.slice(0, 2).map(renderProjectCard).join('');
+
+  const html = `
+    <pre class="ascii-banner">${banner}</pre>
+    
+    <!-- Stat Badges for Quick 5-Second Scan -->
+    <div class="stats-row">
+      <div class="stat-chip">
+        <span class="stat-label">ENGINEERING PROFILE</span>
+        <span class="stat-val">FULL-STACK & SYSTEMS</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-label">PRIMARY STACK</span>
+        <span class="stat-val">NODE · TS · POSTGRES · REDIS</span>
+      </div>
+      <div class="stat-chip highlight">
+        <span class="stat-label">AVAILABILITY</span>
+        <span class="stat-val">4-MO INTERNSHIP (FEB 2027)</span>
+      </div>
+    </div>
+
+    <!-- Intro Box -->
+    <div class="banner-box">
+      <div class="banner-name">${esc(CFG.name)}</div>
+      <div class="banner-role">${esc(CFG.role)} · ${esc(CFG.education.school)} (${esc(CFG.education.degree)})</div>
+      <p style="color:var(--dim); font-size:19px; margin: 4px 0;">
+        I build production full-stack systems — background queues (BullMQ/Redis), AI integrations (Gemini Flash), payment webhooks, and performant APIs.
+      </p>
+      <div class="banner-avail"><b>● STATUS:</b> ${esc(CFG.availability)}</div>
+    </div>
+
+    <!-- Flagship Featured Projects Displayed on Load -->
+    <div class="sec-title">★ FEATURED SHIPPED SYSTEMS (AT-A-GLANCE):</div>
+    ${topPicks}
+
+    <p style="color:var(--dim); font-size:18px; margin: 8px 0;">
+      Click the quick actions below, or type <span class="help-cmd" onclick="runCmd('projects')">projects</span> to see all 4 systems. (Try <span class="help-cmd" onclick="runCmd('help')">help</span>).
+    </p>
+  `;
+
+  const welcomeDiv = document.createElement('div');
+  welcomeDiv.className = 'term-entry';
+  welcomeDiv.innerHTML = `<div class="term-output">${html}</div>`;
+  termHistory.appendChild(welcomeDiv);
+}
+
+/* Command Handlers */
+function cmdHelp() {
+  return `
+    <p style="margin-bottom:6px; color:var(--dim)">[COMMAND LIST]</p>
+    <table class="help-table">
+      <tr><td class="help-cmd" onclick="runCmd('about')">about</td><td class="help-desc">Background, education, and current availability</td></tr>
+      <tr><td class="help-cmd" onclick="runCmd('projects')">projects</td><td class="help-desc">All curated featured projects (alias: ls)</td></tr>
+      <tr><td class="help-cmd" onclick="runCmd('stack')">stack</td><td class="help-desc">Core engineering stack & tools matrix (alias: skills)</td></tr>
+      <tr><td class="help-cmd" onclick="runCmd('contact')">contact</td><td class="help-desc">Email with 1-click copy, GitHub, LinkedIn links</td></tr>
+      <tr><td class="help-cmd" onclick="runCmd('cv')">cv</td><td class="help-desc">View / download my CV in a new tab</td></tr>
+      <tr><td class="help-cmd" onclick="runCmd('clear')">clear</td><td class="help-desc">Clear terminal screen</td></tr>
+    </table>
+    <p style="margin-top:6px; color:var(--faint); font-size:17px;">Tip: You can also run <code>open &lt;slug&gt;</code> (e.g. <code>open feedwise</code>).</p>
+  `;
+}
+
+function cmdAbout() {
+  return `
+    <div style="max-width: 760px;">
+      <h3 class="sec-title">// ABOUT ME</h3>
+      <p style="margin-bottom: 8px; font-size:19px;">
+        I am a <strong>${esc(CFG.role)}</strong> at <strong>${esc(CFG.education.school)}</strong> (${esc(CFG.education.degree)}), based in <strong>${esc(CFG.location)}</strong>.
+      </p>
+      <p style="color:var(--dim); margin-bottom: 12px; font-size:19px; line-height:1.5;">
+        I focus on backend-leaning full-stack architecture: building multi-tenant SaaS platforms, payment and email pipelines, background worker queues with BullMQ and Redis, and reliable relational databases.
+      </p>
+      <div style="background: #121512; border: 2px solid var(--surface-border); box-shadow: 2px 2px 0 #000; padding:12px 14px; font-size:18px;">
+        <p style="margin-bottom:4px;"><strong style="color:var(--ink); font-family:var(--pixel); font-size:11px;">EDUCATION:</strong> <span style="color:var(--dim);">${esc(CFG.education.school)} — ${esc(CFG.education.degree)} (${esc(CFG.education.period)})</span></p>
+        <p style="margin-bottom:4px;"><strong style="color:var(--ink); font-family:var(--pixel); font-size:11px;">LOCATION:</strong> <span style="color:var(--dim);">${esc(CFG.location)}</span></p>
+        <p><strong style="color:var(--green); font-family:var(--pixel); font-size:11px;">STATUS:</strong> <span style="color:var(--dim);">${esc(CFG.availability)}</span></p>
+      </div>
+    </div>
+  `;
+}
+
+function cmdProjects() {
+  if (!PROJECTS.length) return '<p style="color:var(--dim)">No projects configured.</p>';
+  return `
+    <h3 class="sec-title">// ALL CURATED PROJECTS (${PROJECTS.length})</h3>
+    ${PROJECTS.map(renderProjectCard).join('')}
+  `;
+}
+
+function cmdOpen(slug) {
+  if (!slug) return '<p style="color:var(--red);">Usage: open &lt;project-slug&gt; (e.g. <code>open feedwise</code>)</p>';
+  const p = PROJECTS.find(item => item.slug.toLowerCase() === slug.toLowerCase());
+  if (!p) {
+    return `<p style="color:var(--red);">Project "${esc(slug)}" not found. Run <span class="help-cmd" onclick="runCmd('projects')">projects</span> to see all slugs.</p>`;
+  }
+
+  const tags = (p.stack || []).map(t => `<span class="tag">${esc(t)}</span>`).join('');
+  const highlights = (p.highlights || []).map(h => `<li style="margin: 4px 0;">${esc(h)}</li>`).join('');
+  const actions = [];
+  if (p.url) actions.push(`<a class="badge-demo" href="${esc(p.url)}" target="_blank" rel="noopener">● LIVE DEMO ↗</a>`);
+  if (p.repo) actions.push(`<a class="badge-repo" href="${esc(p.repo)}" target="_blank" rel="noopener">★ GITHUB ↗</a>`);
+
+  return `
+    <div style="border: 2px solid var(--accent); box-shadow: 3px 3px 0 #000; padding: 14px 16px; background: #121512; max-width: 760px;">
+      <h3 style="color:var(--accent); font-family:var(--pixel); font-size:13px; margin-bottom: 6px;">${esc(p.name)} <span style="color:var(--dim); font-size:15px; font-family:var(--mono);">(${esc(p.year)})</span></h3>
+      <p style="color:var(--ink); font-size: 19px; margin: 6px 0;">${esc(p.outcome)}</p>
+      <p style="color:var(--dim); font-size: 18px; margin-bottom: 10px; line-height:1.5;">${esc(p.desc || p.blurb)}</p>
+      ${highlights ? `<ul style="color:var(--dim); font-size: 18px; padding-left: 20px; margin-bottom: 10px;">${highlights}</ul>` : ''}
+      <div class="proj-tags">${tags}</div>
+      <div class="proj-actions" style="margin-top:12px;">${actions.join('')}</div>
+    </div>
+  `;
+}
+
+function cmdStack() {
+  const s = CFG.skills || {};
+  return `
+    <div style="max-width: 760px;">
+      <h3 class="sec-title">// CORE TECHNICAL STACK MATRIX</h3>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <div class="skill-cat lang">⚙ LANGUAGES</div>
+          <p style="color:var(--ink); font-size:18px;">${esc(s.languages || 'TypeScript, JavaScript, Python, SQL')}</p>
+        </div>
+        <div class="skill-box">
+          <div class="skill-cat back">⚡ BACKEND & QUEUES</div>
+          <p style="color:var(--ink); font-size:18px;">${esc(s.backend || 'Node.js, Express, REST, WebSockets, BullMQ, Redis')}</p>
+        </div>
+        <div class="skill-box">
+          <div class="skill-cat front">💻 FRONTEND</div>
+          <p style="color:var(--ink); font-size:18px;">${esc(s.frontend || 'React, Next.js, Vite, TanStack Query, Zustand, Tailwind')}</p>
+        </div>
+        <div class="skill-box">
+          <div class="skill-cat data">🗄️ DATABASE & STORAGE</div>
+          <p style="color:var(--ink); font-size:18px;">${esc(s.database || 'PostgreSQL, Prisma ORM, Redis, Firestore, SQLite')}</p>
+        </div>
+        <div class="skill-box">
+          <div class="skill-cat ops">🚀 CLOUD & DEVOPS</div>
+          <p style="color:var(--ink); font-size:18px;">${esc(s.cloud_ops || 'Docker, Vercel, Render, Railway, Cloudflare, CI/CD')}</p>
+        </div>
+        <div class="skill-box">
+          <div class="skill-cat" style="color:var(--green);">🔌 INTEGRATIONS</div>
+          <p style="color:var(--ink); font-size:18px;">${esc(s.integrations || 'Gemini AI, Stripe SaaS, TeleBirr, CBE, S3, Resend')}</p>
+        </div>
+      </div>
+      ${STACK_TOML ? `<pre style="color:var(--dim); font-size: 16px; background: #0c0e0c; border:2px solid var(--surface-border); padding:10px; overflow-x:auto;">${esc(STACK_TOML)}</pre>` : ''}
+    </div>
+  `;
+}
+
+function copyEmail(btn) {
+  navigator.clipboard.writeText(CFG.email).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'COPIED!';
+    setTimeout(() => { btn.textContent = orig; }, 1800);
+  }).catch(() => {
+    alert('Email: ' + CFG.email);
+  });
+}
+
+function cmdContact() {
+  return `
+    <div style="max-width: 680px;">
+      <h3 class="sec-title">// CONTACT & REACH OUT</h3>
+      <p style="color:var(--dim); font-size: 18px; margin-bottom: 10px;">
+        Open to software engineering internship opportunities starting February 2027. Email is the fastest path.
+      </p>
+      <ul class="contact-list">
+        <li>
+          <span class="contact-label">EMAIL:</span>
+          <a class="badge-demo" style="text-transform:none;" href="mailto:${esc(CFG.email)}">${esc(CFG.email)}</a>
+          <button class="copy-badge" onclick="copyEmail(this)">COPY</button>
+        </li>
+        <li>
+          <span class="contact-label">GITHUB:</span>
+          <a class="badge-repo" href="${esc(CFG.github)}" target="_blank" rel="noopener">${esc(CFG.githubLabel)} ↗</a>
+        </li>
+        <li>
+          <span class="contact-label">LINKEDIN:</span>
+          <a class="badge-repo" style="border-color:var(--accent); color:var(--accent);" href="${esc(CFG.linkedin)}" target="_blank" rel="noopener">${esc(CFG.linkedinLabel)} ↗</a>
+        </li>
+        <li>
+          <span class="contact-label">RESUME:</span>
+          <a class="badge-demo" style="border-color:var(--yellow); color:var(--yellow);" href="${esc(CFG.cv)}" target="_blank" rel="noopener">${esc(CFG.cvLabel)} ↗</a>
+        </li>
+      </ul>
+    </div>
+  `;
+}
+
+function cmdCv() {
+  if (typeof window !== 'undefined' && typeof window.open === 'function') {
+    try { window.open(CFG.cv, '_blank', 'noopener'); } catch (e) {}
+  }
+  return `<p>Opening CV (<a class="term-link" href="${esc(CFG.cv)}" target="_blank" rel="noopener">${esc(CFG.cvLabel)}</a>)...</p>`;
+}
+
+/* Dispatcher */
+function runCmd(raw) {
+  const line = (raw || '').trim();
+  if (!line) return;
+
+  cmdHistory.push(line);
+  historyIndex = cmdHistory.length;
+
+  const parts = line.split(/\s+/);
+  const cmd = parts[0].toLowerCase();
+  const arg = parts.slice(1).join(' ');
+
+  if (cmd === 'clear') {
+    termHistory.innerHTML = '';
     return;
   }
-  const seen = new Set(), validStatus = new Set(['live', 'stable', 'archived']);
-  (__SITE.projects || []).forEach((p, i) => {
-    const where = `projects[${i}]${p && p.slug ? ` (${p.slug})` : ''}`;
-    if (!p || typeof p !== 'object') { __CONFIG_WARNINGS.push(`${where}: not an object — skipped`); return; }
-    if (!p.slug || !/^[a-z0-9-]+$/.test(p.slug)) __CONFIG_WARNINGS.push(`${where}: slug must be lowercase a-z/0-9/-`);
-    else if (seen.has(p.slug)) __CONFIG_WARNINGS.push(`${where}: duplicate slug "${p.slug}"`);
-    else seen.add(p.slug);
-    if (!p.name) __CONFIG_WARNINGS.push(`${where}: missing name`);
-    if (!p.desc) __CONFIG_WARNINGS.push(`${where}: missing desc — rendered empty`);
-    if (!Array.isArray(p.highlights) || !p.highlights.length) __CONFIG_WARNINGS.push(`${where}: highlights should be a non-empty array`);
-    if (p.status && !validStatus.has(p.status)) __CONFIG_WARNINGS.push(`${where}: status "${p.status}" should be live|stable|archived`);
-    if (!Array.isArray(p.stack)) __CONFIG_WARNINGS.push(`${where}: stack should be an array — rendering empty`);
-  });
-})();
-/* Fail-soft URL fix — scheme-less links in config get https:// (warning shown in terminal). */
-function __absUrl(v, where) {
-  if (typeof v !== 'string' || !v || /^(https?:|mailto:|tel:|data:|\.?\/|#)/i.test(v)) return v;
-  __CONFIG_WARNINGS.push(`${where}: "${v}" has no scheme — assuming https://${v}`);
-  return 'https://' + v;
-}
-CONFIG.github   = __absUrl(CONFIG.github, 'profile.github');
-CONFIG.linkedin = __absUrl(CONFIG.linkedin, 'profile.linkedin');
-PROJECTS.forEach(p => {
-  if (!p || typeof p !== 'object') return;
-  p.url  = __absUrl(p.url,  `${p.slug || '?'}: url`);
-  p.repo = __absUrl(p.repo, `${p.slug || '?'}: repo`);
-});
-const TUX = [
-"        .--.",
-"       |o_o |",
-"       |:_/ |",
-"      //   \\ \\",
-"     (|     | )",
-"    /'\\_   _/`\\",
-"    \\___)=(___/",
-].join('\n');
-const README = [
-"# dev — software engineering student",
-"builds systems end to end · one file · no framework",
-"look around: ls · cat · projects · neofetch · whoami",
-].join('\n');
-const VIMRC = [
-"set nocompatible",
-"set relativenumber",
-"set noswapfile",
-'" plugins: 0 · muscle memory: all of it',
-].join('\n');
-const BASH_HISTORY = [
-"cat welcome.md",
-"sudo dnf upgrade --refresh",
-":qa!",
-].join('\n');
-const AI_DOC = [
-"ai — how I use it",
-"",
-"  tools draft and research.",
-"  I design, verify, and own the result.",
-"",
-"  when something breaks, I debug it myself.",
-"",
-"try: whoami · stack",
-].join('\n');
-/* ============ dom refs ============ */
-const $  = s => document.querySelector(s);
-const $$ = s => [...document.querySelectorAll(s)];
-const out = $('#t-out'), kbd = $('#kbd'), tTyped = $('#t-typed'),
-      tPrompt = $('#t-prompt'), view = $('#view'), dock = $('#dock'),
-      dockBody = $('#dock-body'), dockHead = $('#dock-head'),
-      toggleBtn = $('#dock-toggle'), navEl = $('#sb-nav'),
-      sbPath = $('#sb-path'), clockEl = $('#sb-clock'), upEl = $('#sb-up');
-const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-/* ============ CV (same-origin PDF next to index.html, opens in new tab) ============ */
-function cvHref() { return (typeof CONFIG !== 'undefined' && CONFIG.cv) || './Endalkachew_Yaregal_CV.pdf'; }
-function cvLabel() { return (typeof CONFIG !== 'undefined' && CONFIG.cvLabel) || 'Endalkachew_Yaregal_CV.pdf'; }
-function downloadCvCmd() {
-  const href = cvHref(), label = cvLabel();
-  const openTab = () => {
-    const win = window.open(href, '_blank', 'noopener');
-    if (!win) {
-      /* Popup blocker: print a clickable link so the user can open it manually. */
-      const d = tprint('', 't-dim');
-      d.innerHTML = `popup blocked — <a href="${esc(href)}" target="_blank" rel="noopener" style="color:var(--accent)">open ~/${esc(label)} here</a>`;
-      return;
-    }
-    tprint(`opened ~/${esc(label)} in a new tab — use the viewer's ⤓ button to save it`, 't-dim');
-  };
-  tprint('opening ~/' + esc(label) + ' …', 't-dim');
-  /* Fail-soft: warn when the PDF is missing instead of opening a dead tab.
-     (file:// has no HEAD support, so just open there.) */
-  if (location.protocol.startsWith('http')) {
-    fetch(href, { method: 'HEAD' }).then(
-      r => {
-        if (r.ok) openTab();
-        else tprint('cv pdf not found — add it next to index.html', 't-err');
-      },
-      () => openTab()
-    );
-  } else openTab();
-}
-/* ============ terminal core ============ */
-let cwd = '~', hist = [], histIdx = 0, busy = false, typing = null, typingCmd = '';
-const promptHTML = () =>
-  `<span class="t-user">visitor@dev-box</span><span class="t-dim">:</span><span class="t-path">${cwd}</span><span class="t-dim">$ </span>`;
-function tprint(html = '', cls = '') {
-  const d = document.createElement('div');
-  d.className = 't-line ' + cls;
-  d.innerHTML = html;
-  out.appendChild(d);
-  dockBody.scrollTop = dockBody.scrollHeight;
-  return d;
-}
-function tprintPre(text, cls = '') { return tprint(`<pre class="t-pre ${cls}">${esc(text)}</pre>`); }
-function renderPrompt() { tPrompt.innerHTML = promptHTML(); }
-function renderInput()  { tTyped.textContent = kbd.value; }
-function clearTerm()    { out.innerHTML = ''; }
-function submit() {
-  if (busy) return;
-  const raw = kbd.value;
-  tprint(promptHTML() + `<span class="t-cmd">${esc(raw)}</span>`);
-  if (raw.trim()) { hist.push(raw); histIdx = hist.length; }
-  kbd.value = ''; renderInput();
-  exec(raw.trim());
-}
-function typeCommand(cmd) {
-  finishTyping();
-  kbd.value = ''; renderInput();
-  typingCmd = cmd; busy = true;
-  if (REDUCED) { busy = false; kbd.value = cmd; renderInput(); submit(); return; }
-  let i = 0;
-  typing = setInterval(() => {
-    i++; kbd.value = typingCmd.slice(0, i); renderInput();
-    if (i >= typingCmd.length) {
-      clearInterval(typing); typing = null;
-      setTimeout(() => { busy = false; submit(); }, 110);
-    }
-  }, 13);
-}
-function finishTyping() {
-  if (!typing) return;
-  clearInterval(typing); typing = null; busy = false;
-  kbd.value = typingCmd; renderInput(); submit();
-}
-function runCommand(cmd) { typeCommand(cmd); }
-kbd.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && !typing && !busy) { submit(); return; }
-  if (e.key === 'Tab')        { e.preventDefault(); complete(); return; }
-  if (e.key === 'ArrowUp')    { e.preventDefault(); if (histIdx > 0) { histIdx--; kbd.value = hist[histIdx] || ''; renderInput(); } return; }
-  if (e.key === 'ArrowDown')  { e.preventDefault(); if (histIdx < hist.length) { histIdx++; kbd.value = hist[histIdx] || ''; renderInput(); } return; }
-  if (e.key === 'l' && e.ctrlKey) { e.preventDefault(); clearTerm(); return; }
-  if (e.key === 'c' && e.ctrlKey) {
-    e.preventDefault();
-    tprint(promptHTML() + `<span class="t-cmd">${esc(kbd.value)}</span><span class="t-dim">^C</span>`);
-    kbd.value = ''; renderInput();
-  }
-});
-kbd.addEventListener('input', renderInput);
-const ALL_CMDS = ['help','ls','cat','cd','open','whoami','neofetch','projects','about','stack','skills','contact','cv','history','echo','date','uptime','pwd','clear','crt','exit','ping','sudo','vim','rm','ai'];
-function complete() {
-  const v = kbd.value, parts = v.split(/\s+/);
-  let pool, idx;
-  if (parts.length === 1) { pool = ALL_CMDS; idx = 0; }
-  else {
-    pool = parts[0] === 'open' ? [...PROJECTS.map(p => p.slug), 'cv']
-         : ['about.md','contact.md','welcome.md','readme.md','cv.pdf','.vimrc','.bash_history','.config/','stack.toml','projects/','-a'];
-    idx = parts.length - 1;
-  }
-  const prefix = parts[idx] || '';
-  const hits = pool.filter(x => x.startsWith(prefix));
-  if (hits.length === 1) { parts[idx] = hits[0]; kbd.value = parts.join(' ') + ' '; }
-  else if (hits.length > 1) {
-    tprint(promptHTML() + `<span class="t-cmd">${esc(v)}</span>`);
-    tprint(hits.join('   '), 't-dim');
-  }
-  renderInput();
-}
-/* ============ sections / routing ============ */
-const SECTIONS = [
-  { id:'home',     label:'home',     cmd:'cat welcome.md' },
-  { id:'about',    label:'about',    cmd:'cat about.md' },
-  { id:'projects', label:'projects', cmd:'ls projects/' },
-  { id:'stack',    label:'stack',    cmd:'cat stack.toml' },
-  { id:'contact',  label:'contact',  cmd:'cat contact.md' },
-];
-const CWD_OF = { home:'~', about:'~/about', projects:'~/projects', stack:'~/.config', contact:'~/contact' };
-let currentId = null, navBtns = [];
-function buildNav() {
-  SECTIONS.forEach(s => {
-    const b = document.createElement('button');
-    b.className = 'sb-win';
-    b.textContent = s.label;
-    b.addEventListener('click', () => runCommand(s.cmd));
-    navEl.appendChild(b);
-  });
-  navBtns = $$('.sb-win');
-}
-function syncChrome(id) {
-  cwd = CWD_OF[id]; sbPath.textContent = cwd; renderPrompt();
-  navBtns.forEach((b, i) => b.classList.toggle('active', SECTIONS[i].id === id));
-}
-function renderSection(id, cb) {
-  if (!RENDER[id]) return;
-  if (currentId !== id) {
-    currentId = id;
-    /* deep links: keep /#projects in sync without spamming history */
-    if (location.hash !== '#' + id) { try { history.replaceState(null, '', '#' + id); } catch (_) { location.hash = id; } }
-    const page = $('#page');
-    page.classList.add('out');
-    setTimeout(() => {
-      page.innerHTML = RENDER[id]();
-      page.classList.remove('out');
-      afterRender(id);
-      view.scrollTop = 0;
-      if (cb) cb();
-    }, 170);
-  } else if (cb) cb();
-  syncChrome(id);
-}
-function go(id, note) {
-  renderSection(id);
-  if (note) tprint(note, 't-dim');
-}
-window.addEventListener('hashchange', () => {
-  const id = (location.hash || '').slice(1);
-  if (RENDER[id] && id !== currentId) renderSection(id);
-});
-/* ============ command implementations ============ */
-function notFound(cmd) {
-  tprint(`bash: ${esc(cmd)}: command not found`, 't-err');
-  const sug = ALL_CMDS.find(c => cmd.length > 1 && c.startsWith(cmd.slice(0, Math.min(3, cmd.length))));
-  if (sug && sug !== cmd) tprint(`did you mean '${sug}'?`, 't-dim');
-}
-function printHelp() {
-  [
-    ['help', 'this list'],
-    ['ls · cat · cd', 'move around'],
-    ['open <project>', 'expand a project'],
-    ['whoami', 'background & focus'],
-    ['neofetch', 'skills snapshot'],
-    ['projects', 'what I have built'],
-    ['stack · skills', 'tools I use'],
-    ['contact', 'reach out'],
-    ['cv', 'view my CV (pdf, new tab)'],
-    ['clear', 'wipe screen (ctrl+l)'],
-  ].forEach(([c, d]) => tprint(`<span class="t-acc">${esc(c)}</span><span class="t-dim">${esc(d)}</span>`, 'help-row'));
-  tprint(`also try: ai · ping · vim`, 't-dim');
-}
-function lsCmd(args) {
-  const all = args.some(a => /^-(a|la|al)$/.test(a));
-  const target = args.find(a => !a.startsWith('-'));
-  if (target) {
-    const t = target.replace(/\/+$/, '');
-    if (t === 'projects') {
-      tprint(PROJECTS.map(p => `<span class="t-acc">${p.slug}/</span>`).join('  '));
-      go('projects', '→ ~/projects/ rendered above ↑');
-      return;
-    }
-    if (t === '.config') { tprint('<span class="t-acc">stack.toml</span>'); return; }
-    if (t !== '~' && t !== '.') { tprint(`ls: ${esc(target)}: No such file or directory`, 't-err'); return; }
-  }
-  let items = ['<span class="t-acc">projects/</span>', 'welcome.md', 'about.md', 'readme.md', 'contact.md', 'cv.pdf'];
-  if (all) items = ['.', '..', '<span class="t-acc">.config/</span>', '<span class="t-faint">.vimrc</span>', '<span class="t-faint">.bash_history</span>', ...items];
-  tprint(items.join('  '));
-}
-function catCmd(args) {
-  if (!args.length) { tprint('cat: missing operand — try: cat about.md', 't-err'); return; }
-  const f = args[0].replace(/\/+$/, '');
-  const parts = f.split('/');
-  if (f === 'projects') { go('projects', '→ ~/projects/ rendered above ↑'); return; }
-  if (parts[0] === 'projects' && parts[1]) { openProject(parts[1]); return; }
-  if (f === 'welcome.md') { go('home', '→ rendered in the pager above ↑'); return; }
-  if (f === 'about.md')   { go('about', '→ rendered in the pager above ↑'); return; }
-  if (f === 'contact.md') { go('contact', '→ rendered in the pager above ↑'); return; }
-  if (f === 'stack.toml' || f === '.config/stack.toml' || f === 'stack') { go('stack', '→ ~/.config/stack.toml ↑'); return; }
-  if (f === 'readme.md')      { tprintPre(README); return; }
-  if (f === '.vimrc')         { tprintPre(VIMRC); return; }
-  if (f === '.bash_history')  { tprintPre(BASH_HISTORY); return; }
-  if (f === 'cv.pdf' || f === 'cv' || f === './cv.pdf') {
-    tprint('binary file — opening ~/' + esc(cvLabel()) + ' in a new tab instead of printing it', 't-dim');
-    downloadCvCmd(); return;
-  }
-  tprint(`cat: ${esc(args[0])}: No such file or directory`, 't-err');
-}
-const CDS = { '~':'home','':'home','home':'home','welcome':'home','welcome.md':'home','about':'about','about.md':'about',
-  'projects':'projects','stack':'stack','.config':'stack','stack.toml':'stack','contact':'contact','contact.md':'contact','..':'home','/':'home' };
-function cdCmd(args) {
-  if (!args.length) { go('home'); return; }
-  const t = args[0];
-  if (CDS[t] !== undefined) go(CDS[t], `→ ${CWD_OF[CDS[t]]}`);
-  else tprint(`cd: ${esc(t)}: No such file or directory`, 't-err');
-}
-function openCmd(args) {
-  if (!args.length) { tprint(`open: missing operand — try: open ${PROJECTS[0].slug}`, 't-err'); return; }
-  const _t = (args[0] || '').toLowerCase().replace(/\/+$/, '');
-  if (_t === 'cv' || _t === 'cv.pdf') { downloadCvCmd(); return; }
-  openProject(_t);
-}
-function openProject(slug) {
-  const p = PROJECTS.find(x => x.slug === slug);
-  if (!p) { tprint(`open: ${esc(slug)}: no such project — try: ${PROJECTS.map(x => x.slug).join(', ')}`, 't-err'); return; }
-  const expand = () => {
-    const el = document.querySelector(`.proj[data-slug="${slug}"]`);
-    if (!el) return;
-    closeOthers(el);
-    el.classList.add('open');
-    el.querySelector('.proj-row').setAttribute('aria-expanded', 'true');
-    el.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' });
-  };
-  tprint(`opening ~/projects/${esc(slug)}/ ↑`, 't-dim');
-  if (p.url) tprint(`live: ${esc(p.url)}`, 't-dim');
-  if (p.repo) tprint(`source: ${esc(p.repo)}`, 't-dim');
-  if (!p.url && !p.repo && p.sourceNote) tprint(esc(p.sourceNote), 't-dim');
-  if (currentId !== 'projects') renderSection('projects', expand); else expand();
-}
-function whoami() {
-  const s = CONFIG.skills || {}, e = CONFIG.education || {};
-  const row = (k, v) => `${k.padEnd(11)}${v}`;
-  tprintPre([
-    CONFIG.name || 'Endalkachew Yaregal',
-    CONFIG.role || 'software engineering student',
-    'full-stack builder · backend-leaning',
-    [e.school, [e.degree, e.period].filter(Boolean).join(', ')].filter(Boolean).join(' — '),
-    '',
-    row('languages', s.languages || ''),
-    row('frontend', s.frontend || ''),
-    row('backend', s.backend || ''),
-    row('data', s.data || ''),
-    row('services', s.services || ''),
-    row('deploy', s.deploy || ''),
-    '',
-    'ships real SaaS and production apps',
-    `available: ${CONFIG.availability || ''}`,
-    '',
-    'try: projects · stack · neofetch',
-  ].join('\n'));
-}
-function neofetch() {
-  const s = CONFIG.skills || {}, e = CONFIG.education || {};
-  const row = (k, v) => `<div class="fi"><span class="fi-k">${k}</span>${esc(v)}</div>`;
-  tprint(`<div class="fetch"><pre class="fetch-art">${esc(TUX)}</pre><div class="fetch-info">
-    <div class="fi-head">${esc((CONFIG.name || 'Endalkachew').split(' ')[0])}@dev-box</div>
-    <div class="fi-sep">──────────────────</div>
-    ${row('role', 'SWE student · backend-leaning full-stack')}
-    ${row('university', [e.school, e.period].filter(Boolean).join(' · '))}
-    ${row('os', 'Fedora Linux')}
-    ${row('languages', s.languages || '')}
-    ${row('frontend', s.frontend || '')}
-    ${row('backend', s.backend || '')}
-    ${row('data', s.data || '')}
-    ${row('services', s.services || '')}
-    ${row('deploy', s.deploy || '')}
-    <div class="fi fi-hot"><span class="fi-k">ships</span>SaaS &amp; real-world production apps</div>
-    <div class="fi fi-hot"><span class="fi-k">available</span>${esc(CONFIG.availability || '')}</div>
-  </div></div>`);
-}
-function pingCmd() {
-  tprint('PING contact: 56 data bytes');
-  [12.4, 11.9, 13.1].forEach((t, i) => tprint(`64 bytes from inbox: icmp_seq=${i} ttl=64 time=${t} ms`, 't-dim'));
-  tprint('--- 3 packets transmitted, 3 received, 0.0% packet loss ---', 't-dim');
-  tprint('replies usually within a day', 't-acc');
-}
-function sudoCmd(args) {
-  if (args[0] === 'hire-me' || args[0] === 'hireme') {
-    tprint('no elevated privileges needed.', 't-dim');
-    tprint('the work is above — open a project, or cat contact.md', 't-dim');
-  } else {
-    tprint('[sudo] password for visitor: ••••••••', 't-dim');
-    tprint('visitor is not in the sudoers file. this incident will be reported.', 't-err');
-  }
-}
-function rmCmd(args) {
-  const a = args.join(' ');
-  if (a.includes('-rf') && (a.includes('/') || a.includes('*'))) {
-    tprint('rm: operation declined — I build things, I don’t delete them.', 't-err');
-    tprint('(also: bold of you)', 't-dim');
-  } else tprint('rm: cannot remove: Read-only file system', 't-err');
-}
-function uptimeCmd() {
-  const s = Math.floor((Date.now() - T0) / 1000);
-  const str = s < 60 ? s + 's' : Math.floor(s / 60) + 'm ' + (s % 60) + 's';
-  tprint(` up ${str}, 1 user, load average: 0.31, 0.09, coffee`, 't-dim');
-}
-function toggleCrt() {
-  const on = document.body.classList.toggle('crt');
-  tprint(on ? 'crt overlay: on — phosphor nostalgia engaged' : 'crt overlay: off', 't-dim');
-}
-function exec(line) {
-  if (!line) return;
-  const parts = line.split(/\s+/);
-  const cmd = parts[0].toLowerCase(), args = parts.slice(1);
+
+  let out = '';
   switch (cmd) {
-    case 'help': printHelp(); break;
-    case 'ls': lsCmd(args); break;
-    case 'cat': catCmd(args); break;
-    case 'cd': cdCmd(args); break;
-    case 'open': openCmd(args); break;
-    case 'pwd': tprint(cwd, 't-dim'); break;
-    case 'whoami': whoami(); break;
-    case 'neofetch': neofetch(); break;
-    case 'clear': clearTerm(); break;
-    case 'history':
-      tprintPre(hist.map((h, i) => String(i + 1).padStart(4) + '  ' + h).join('\n') || '(empty)');
+    case 'help':
+      out = cmdHelp();
       break;
-    case 'echo': tprint(esc(args.join(' ')) || ' '); break;
-    case 'date': tprint(new Date().toString(), 't-dim'); break;
-    case 'uptime': uptimeCmd(); break;
-    case 'crt': toggleCrt(); break;
-    case 'exit': case 'logout':
-      tprint('logout — nice try. the tab closes when you decide.', 't-dim'); break;
-    case 'ping': pingCmd(); break;
-    case 'sudo': sudoCmd(args); break;
-    case 'vim': case 'nvim': case 'vi':
-      tprint('vim: not installed here — but the muscle memory is permanent.');
-      tprint('(this interface has no modes. you’re welcome.)', 't-dim');
+    case 'about':
+    case 'whoami':
+      out = cmdAbout();
       break;
-    case 'rm': rmCmd(args); break;
-    case 'tmux': tprint('you’re already inside it — see the menu bar up top. ↑', 't-dim'); break;
-    case 'ai': case 'chatgpt': case 'copilot': case 'claude': case 'gemini': case 'llm':
-      tprintPre(AI_DOC); break;
-    case 'projects': go('projects', '→ ~/projects'); break;
-    case 'about':    go('about', '→ ~/about.md'); break;
-    case 'stack': case 'skills': go('stack', '→ ~/.config/stack.toml'); break;
-    case 'contact':  go('contact', '→ ~/contact.md'); break;
-    case 'cv': downloadCvCmd(); break;
-    case 'home': case 'welcome': go('home', '→ ~/welcome.md'); break;
-    default: notFound(cmd);
+    case 'projects':
+    case 'ls':
+      out = cmdProjects();
+      break;
+    case 'open':
+    case 'project':
+    case 'cat':
+      out = cmdOpen(arg);
+      break;
+    case 'stack':
+    case 'skills':
+      out = cmdStack();
+      break;
+    case 'contact':
+    case 'email':
+      out = cmdContact();
+      break;
+    case 'cv':
+      out = cmdCv();
+      break;
+    default:
+      out = `<p style="color:var(--red);">command not found: <code>${esc(cmd)}</code>. Type <span class="help-cmd" onclick="runCmd('help')">help</span> for available commands.</p>`;
   }
+
+  printEntry(line, out);
 }
-/* ============ page renderers ============ */
-const CHEV_DOWN = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const CHEV_RIGHT = '<svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M4.5 2.5L8 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-function rHome() {
-  const picks = PROJECTS.slice(0, 3).map(p => `
-    <li>
-      <button type="button" data-cmd="open ${esc(p.slug)}">${esc(p.name)}</button>
-      <span class="scan-out">${esc(p.outcome || p.blurb || '')}</span>
-    </li>`).join('');
-  return `
-  <header class="hero">
-    <p class="hero-name">${esc(CONFIG.name || 'Endalkachew Yaregal')}</p>
-    <p class="kicker"><span class="t-user">visitor@dev-box</span><span class="k-dim">:~$</span> cat welcome.md</p>
-    <h1 class="display">I build systems<br>end to end.<span class="hcaret" aria-hidden="true"></span></h1>
-    <p class="lede">Software engineering student. Full-stack, strongest on backend — services, data, payments, email, AI APIs, caching and background jobs for real SaaS and production apps.</p>
-    <div class="hero-actions">
-      <button class="btn btn-primary" data-cmd="ls projects/">See the work</button>
-      <a class="btn btn-ghost" id="cv-btn" href="${(CONFIG.cv || './Endalkachew_Yaregal_CV.pdf')}" target="_blank" rel="noopener" style="text-decoration:none">View CV ↗</a>
-    </div>
-    <p class="hero-meta">${esc(CONFIG.heroMeta || '')}</p>
-    <p class="hero-meta hero-avail"><b>now</b> ${esc(CONFIG.availability || '')}</p>
-    <div class="scan">
-      <p class="scan-h">Selected work — click to expand</p>
-      <ul class="scan-list">${picks}</ul>
-    </div>
-  </header>`;
-}
-function aboutFacts() {
-  const s = CONFIG.skills || {}, e = CONFIG.education || {};
-  const edu = [e.school, [e.degree, e.period].filter(Boolean).join(', ')].filter(Boolean).join(' — ');
-  return [
-    ['name', CONFIG.name || 'Endalkachew Yaregal'],
-    ['education', edu],
-    ['location', CONFIG.location || ''],
-    ['languages', s.languages || ''],
-    ['frontend', s.frontend || ''],
-    ['backend', s.backend || ''],
-    ['data', s.data || ''],
-    ['services', s.services || ''],
-    ['deploy', s.deploy || ''],
-    ['lean', 'backend · SaaS systems'],
-    ['availability', CONFIG.availability || '', true],
-  ].filter(r => r[1]).map(([k, v, hot]) =>
-    `<div class="fact${hot ? ' fact-hot' : ''}"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
-}
-function rAbout() {
-  const e = CONFIG.education || {};
-  const eduClause = e.school ? ` at ${esc(e.school)} (${esc([e.degree, e.period].filter(Boolean).join(', '))})` : '';
-  return `
-  <section class="sec">
-    <p class="kicker">~/about.md</p>
-    <h2 class="display-2">What I can take on.</h2>
-    <div class="about-grid">
-      <div class="prose">
-        <p><strong>${esc(CONFIG.name || 'Endalkachew Yaregal')}</strong> — ${esc(CONFIG.role || 'software engineering student')}${eduClause}. I ship full-stack product work: multi-tenant SaaS, payment and email integrations, realtime services, Redis caching, cron jobs, queues and workers, data migrations, and deploys on Vercel, Render, Cloudflare, and Docker.</p>
-        <p>Comfortable across the stack; I prefer owning the backend path — APIs, schemas, webhooks, and the pieces that must stay correct under load. Frontend is solid (React, Next, Vite, TanStack Query, Zustand) when the product needs it.</p>
-      </div>
-      <aside>
-        <h3 class="facts-h">// at a glance</h3>
-        <dl class="facts">${aboutFacts()}</dl>
-      </aside>
-    </div>
-  </section>`;
-}
-function statusLabel(p) {
-  return { live:'live', stable:'stable', archived:'archived' }[p.status] || '—';
-}
-function projLinks(p) {
-  const bits = [];
-  if (p.url) bits.push(`<a href="${esc(p.url)}" target="_blank" rel="noopener">live demo</a>`);
-  if (p.repo) bits.push(`<a href="${esc(p.repo)}" target="_blank" rel="noopener">source</a>`);
-  if (!bits.length && !p.sourceNote) return '';
-  const note = p.sourceNote ? `<span class="tag">${esc(p.sourceNote)}</span>` : '';
-  return `<div class="p-links">${bits.join('')}${note}</div>`;
-}
-function rProjects() {
-  const rows = PROJECTS.map((p, i) => {
-    const slug = String(p.slug || '');
-    const st = ['live', 'stable', 'archived'].includes(p.status) ? p.status : 'archived';
-    const hi = Array.isArray(p.highlights) ? p.highlights : [];
-    const tags = Array.isArray(p.stack) ? p.stack : [];
-    return `
-  <article class="proj" data-slug="${esc(slug)}">
-    <button class="proj-row" aria-expanded="false">
-      <span class="p-idx">${String(i + 1).padStart(2, '0')}</span>
-      <span class="p-name">${esc(p.name || slug)}</span>
-      <span class="p-blurb">${esc(p.outcome || p.blurb || '')}</span>
-      <span class="p-year">${esc(p.year || '—')}</span>
-      <span class="p-caret" aria-hidden="true">${CHEV_DOWN}</span>
-    </button>
-    <div class="proj-body"><div class="proj-inner">
-      <p class="p-out">${esc(p.outcome || '')}</p>
-      <p class="p-desc">${esc(p.desc || '')}</p>
-      <p class="p-status"><span class="st-dot st-${st}"></span>${statusLabel({ status: st })}</p>
-      <ul class="p-high">${hi.map(h => `<li>${esc(h)}</li>`).join('')}</ul>
-      <div class="p-tags">${tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
-      ${projLinks(p)}
-    </div></div>
-  </article>`;
-  }).join('');
-  const first = PROJECTS[0] ? PROJECTS[0].slug : '';
-  const hint = first
-    ? `<p class="list-hint">every project opens from the terminal too — try <button class="inline-cmd" data-cmd="open ${esc(first)}">open ${esc(first)}</button></p>`
-    : '';
-  return `
-  <section class="sec">
-    <p class="kicker">~/projects — ${PROJECTS.length} systems · outcomes first</p>
-    <h2 class="display-2">Shipped systems.</h2>
-    <div class="proj-list">${rows}</div>
-    ${hint}
-  </section>`;
-}
-function rStack() {
-  return `
-  <section class="sec">
-    <p class="kicker">~/.config/stack.toml</p>
-    <h2 class="display-2">Tools I use to ship.</h2>
-    <pre class="toml" id="toml-pre"></pre>
-    <h3 class="pr-h">// how I work</h3>
-    <ul class="principles">
-      <li>full-stack capable — strongest on backend and data</li>
-      <li>integrate payments, email, and AI where the product needs them</li>
-      <li>redis caching, cron jobs, queues and workers for background work</li>
-      <li>ship on Vercel, Render, Cloudflare, and Docker with basic DevOps practice</li>
-      <li>if I cannot explain it, I do not ship it</li>
-    </ul>
-  </section>`;
-}
-function rContact() {
-  return `
-  <section class="sec">
-    <p class="kicker">~/contact.md</p>
-    <h2 class="display-2">Reach out.</h2>
-    <p class="lede">Recruiters, founders, or anyone reviewing the work — email is the fastest path. I read messages and reply.</p>
-    <div class="mail-row">
-      <code id="mail">${CONFIG.email}</code>
-      <button class="btn btn-ghost btn-small" id="copy-mail">copy</button>
-      <a class="btn btn-primary" href="mailto:${CONFIG.email}" style="text-decoration:none">Email me</a>
-    </div>
-    <ul class="links">
-      <li><a href="${esc(CONFIG.github)}" target="_blank" rel="noopener"><span class="l-k">github</span><span class="l-v">${esc(CONFIG.githubLabel)} <i>${CHEV_RIGHT}</i></span></a></li>
-      <li><a href="${esc(CONFIG.linkedin)}" target="_blank" rel="noopener"><span class="l-k">linkedin</span><span class="l-v">${esc(CONFIG.linkedinLabel)} <i>${CHEV_RIGHT}</i></span></a></li>
-      <li><a href="${esc(CONFIG.cv || './Endalkachew_Yaregal_CV.pdf')}" target="_blank" rel="noopener"><span class="l-k">cv</span><span class="l-v">${esc(CONFIG.cvLabel || 'Endalkachew_Yaregal_CV.pdf')} — view pdf <i>${CHEV_RIGHT}</i></span></a></li>
-      <li><a href="mailto:${esc(CONFIG.email)}"><span class="l-k">email</span><span class="l-v">${esc(CONFIG.email)} <i>${CHEV_RIGHT}</i></span></a></li>
-    </ul>
-    <footer class="colophon">config.js · zero frameworks · zero build steps</footer>
-  </section>`;
-}
-const RENDER = { home:rHome, about:rAbout, projects:rProjects, stack:rStack, contact:rContact };
-function afterRender(id) {
-  if (id === 'stack') highlightToml();
-}
-/* ============ toml syntax highlight ============ */
-function highlightToml() {
-  const pre = document.getElementById('toml-pre'); if (!pre) return;
-  pre.innerHTML = TOML.split('\n').map(line => {
-    let c = '';
-    const ci = line.indexOf('#');
-    if (ci > -1) { c = line.slice(ci); line = line.slice(0, ci); }
-    let html;
-    const sec = line.match(/^(\s*)\[([^\]]+)\]\s*$/);
-    if (sec) html = `${sec[1]}<span class="tk-sec">[${esc(sec[2])}]</span>`;
-    else {
-      const kv = line.match(/^(\s*)([A-Za-z_]+)(\s*=\s*)(.*)$/);
-      html = kv
-        ? `${kv[1]}<span class="tk-k">${kv[2]}</span><span class="tk-o">${kv[3]}</span><span class="tk-v">${esc(kv[4])}</span>`
-        : esc(line);
+
+/* Key Event Listeners: Enter, History, Tab Completion */
+termInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const val = termInput.value;
+    termInput.value = '';
+    runCmd(val);
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (historyIndex > 0) {
+      historyIndex--;
+      termInput.value = cmdHistory[historyIndex] || '';
     }
-    if (c) html += `<span class="tk-c">${esc(c)}</span>`;
-    return html;
-  }).join('\n');
-}
-/* ============ page interactions (delegated) ============ */
-function closeOthers(el) {
-  $$('.proj.open').forEach(p => {
-    if (p !== el) { p.classList.remove('open'); p.querySelector('.proj-row').setAttribute('aria-expanded', 'false'); }
+  } else if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    if (historyIndex < cmdHistory.length - 1) {
+      historyIndex++;
+      termInput.value = cmdHistory[historyIndex] || '';
+    } else {
+      historyIndex = cmdHistory.length;
+      termInput.value = '';
+    }
+  } else if (e.key === 'Tab') {
+    e.preventDefault();
+    const val = termInput.value.trim().toLowerCase();
+    const cmds = ['help', 'about', 'projects', 'stack', 'contact', 'cv', 'clear'];
+    const projectSlugs = PROJECTS.map(p => p.slug);
+
+    if (val.startsWith('open ')) {
+      const slugPrefix = val.slice(5).trim();
+      const match = projectSlugs.find(s => s.startsWith(slugPrefix));
+      if (match) termInput.value = 'open ' + match;
+    } else if (val) {
+      const match = cmds.find(c => c.startsWith(val));
+      if (match) termInput.value = match;
+    }
+  }
+});
+
+/* Init */
+printWelcome();
+focusInput();
+
+// Support deep links like #projects, #about, #contact
+if (typeof window !== 'undefined' && window.addEventListener) {
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = (window.location.hash || '').replace('#', '').trim().toLowerCase();
+    if (hash && ['about', 'projects', 'stack', 'contact', 'cv'].includes(hash)) {
+      runCmd(hash);
+    }
   });
 }
-async function copyMail() {
-  expandDock();
-  const mail = $('#mail').textContent;
-  try {
-    await navigator.clipboard.writeText(mail);
-    tprint(`<span class="t-acc">$</span> echo ${esc(mail)} | xclip -selection clipboard`);
-    tprint('copied to clipboard ✓', 't-ok');
-  } catch (e) {
-    tprint('clipboard blocked by the browser — the address is right there ↑', 't-dim');
-  }
-}
- $('#page').addEventListener('click', e => {
-  const cmdBtn = e.target.closest('[data-cmd]');
-  if (cmdBtn) { runCommand(cmdBtn.dataset.cmd); return; }
-  if (e.target.closest('#copy-mail')) { copyMail(); return; }
-  const row = e.target.closest('.proj-row');
-  if (row) {
-    const art = row.closest('.proj');
-    if (art.classList.contains('open')) {
-      art.classList.remove('open'); row.setAttribute('aria-expanded', 'false');
-    } else { closeOthers(art); art.classList.add('open'); row.setAttribute('aria-expanded', 'true'); }
-  }
-});
-/* ============ sheet: collapse + drag-resize ============ */
-let termH = innerWidth < 720 ? Math.round(innerHeight * 0.4) : (innerHeight <= 820 ? 180 : 212);
-let collapsed = innerWidth < 720; /* mobile: content first — tap the tty bar to open */
-function applyH() { dock.style.height = collapsed ? '46px' : termH + 'px'; }
-function setCollapsed(c) { collapsed = c; dock.classList.toggle('collapsed', c); applyH(); if (!c) dockBody.scrollTop = dockBody.scrollHeight; }
-function expandDock() { if (collapsed) setCollapsed(false); }
-applyH();
-dockHead.addEventListener('pointerdown', e => {
-  if (e.target.closest('button')) return;
-  const startY = e.clientY, startH = collapsed ? 46 : termH;
-  let moved = false;
-  const mv = ev => {
-    if (Math.abs(startY - ev.clientY) > 3) moved = true;
-    if (moved) {
-      collapsed = false; dock.classList.remove('collapsed');
-      termH = Math.max(130, Math.min(Math.round(innerHeight * 0.75), startH + (startY - ev.clientY)));
-      applyH();
-    }
-  };
-  const up = () => {
-    window.removeEventListener('pointermove', mv);
-    window.removeEventListener('pointerup', up);
-    if (!moved) setCollapsed(!collapsed); else dockBody.scrollTop = dockBody.scrollHeight;
-  };
-  window.addEventListener('pointermove', mv);
-  window.addEventListener('pointerup', up);
-});
-toggleBtn.addEventListener('click', e => { e.stopPropagation(); setCollapsed(!collapsed); });
-/* click anywhere in the terminal focuses the prompt */
-dockBody.addEventListener('click', () => {
-  if (!window.getSelection().toString()) kbd.focus();
-});
-/* typing anywhere on the page falls through to the terminal */
-document.addEventListener('keydown', e => {
-  if (e.target === document.body && e.key.length === 1 && e.key !== ' ' && !e.ctrlKey && !e.metaKey && !e.altKey) { expandDock(); kbd.focus(); }
-});
-/* ============ clock + uptime ============ */
-const T0 = Date.now();
-function tick() {
-  clockEl.textContent = new Date().toLocaleTimeString('en-GB', { hour12: false });
-  const s = Math.floor((Date.now() - T0) / 1000);
-  upEl.textContent = 'up ' + (s < 60 ? s + 's' : Math.floor(s / 60) + 'm ' + (s % 60) + 's');
-}
-tick(); setInterval(tick, 1000);
-/* ============ analytics (config-driven; skipped when token empty) ============ */
-if (CONFIG.analytics) {
-  const beacon = document.createElement('script');
-  beacon.defer = true;
-  beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
-  beacon.setAttribute('data-cf-beacon', JSON.stringify({ token: CONFIG.analytics }));
-  document.head.appendChild(beacon);
-}
-/* ============ boot ============ */
-let bootTimer = null;
-function skipBoot() {
-  if (bootTimer) { clearTimeout(bootTimer); bootTimer = null; typeCommand((typeof __bootSec !== 'undefined' && __bootSec && __bootSec.cmd) || 'cat welcome.md'); }
-  else if (typing) finishTyping();
-}
-window.addEventListener('keydown', skipBoot, true);
-window.addEventListener('pointerdown', skipBoot, true);
-buildNav();
- $('#sb-brand').addEventListener('click', () => runCommand('cd ~'));
-renderPrompt();
-tprint('Linux dev-box 6.9.4-handcrafted x86_64 · tty1');
-tprint(`last login: ${new Date().toDateString()} — from your browser`, 't-dim');
-tprint('');
-if (__CONFIG_WARNINGS.length) __CONFIG_WARNINGS.forEach(w => tprint('config: ' + w, 't-dim'));
-const __bootId = (location.hash || '').slice(1);
-const __bootSec = SECTIONS.find(s => s.id === __bootId);
-bootTimer = setTimeout(() => { bootTimer = null; typeCommand(__bootSec ? __bootSec.cmd : 'cat welcome.md'); }, 420);
-setTimeout(() => tprint(`type 'help' for commands · or just click the menu above`, 't-dim'), 2800);
-if (matchMedia('(min-width: 900px)').matches) setTimeout(() => kbd.focus(), 400);
 </script>
 </body>
 </html>

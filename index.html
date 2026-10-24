@@ -963,7 +963,14 @@ function runCmd(raw) {
 
   if (cmd === 'clear') {
     termHistory.innerHTML = '';
+    if (window.history && history.replaceState) {
+      history.replaceState(null, '', window.location.pathname);
+    }
     return;
+  }
+
+  if (['about', 'projects', 'stack', 'contact'].includes(cmd) && window.history && history.replaceState) {
+    history.replaceState(null, '', '#' + cmd);
   }
 
   let out = '';
@@ -1046,12 +1053,14 @@ focusInput();
 
 // Support deep links like #projects, #about, #contact
 if (typeof window !== 'undefined' && window.addEventListener) {
-  window.addEventListener('DOMContentLoaded', () => {
+  const handleHash = () => {
     const hash = (window.location.hash || '').replace('#', '').trim().toLowerCase();
     if (hash && ['about', 'projects', 'stack', 'contact', 'cv'].includes(hash)) {
       runCmd(hash);
     }
-  });
+  };
+  window.addEventListener('DOMContentLoaded', handleHash);
+  window.addEventListener('hashchange', handleHash);
 }
 </script>
 </body>

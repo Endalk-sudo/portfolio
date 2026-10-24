@@ -19,40 +19,38 @@
 <meta name="twitter:description" content="Full-stack, backend-leaning. SaaS, payments, email, AI integrations.">
 <meta name="theme-color" content="#090a09">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Endalkachew Yaregal","jobTitle":"Software Engineering Student","url":"https://portfolio.endalkachewyaregal747.workers.dev/","email":"mailto:endalkachewyaregal747@gmail.com","sameAs":["https://github.com/Endalk-sudo","https://www.linkedin.com/in/endalkachew-yaregal-swe"],"affiliation":{"@type":"CollegeOrUniversity","name":"Woldia University"},"knowsAbout":["TypeScript","React","Vite","Node.js","Postgres","Redis","Next.js","SaaS","Payments","Email","AI integrations","Job queues","Workers","Vercel","Render","Cloudflare","Docker"]}</script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23090a09'/><rect x='6' y='6' width='20' height='20' fill='%23ffbe3b'/><rect x='10' y='10' width='12' height='12' fill='%23090a09'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23090a09'/><rect x='6' y='6' width='20' height='20' fill='%23ffc233'/><rect x='10' y='10' width='12' height='12' fill='%23090a09'/></svg>">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --bg: #090a09;
-  --surface: #101210;
-  --surface-border: #283028;
-  --header-bg: #151815;
-  --ink: #e2e8e2;
-  --dim: #8fa08f;
-  --faint: #4c574c;
-  --accent: #ffbe3b;
-  --accent-dim: rgba(255, 190, 59, 0.12);
-  --green: #4ade80;
-  --green-dim: rgba(74, 222, 128, 0.15);
-  --blue: #60a5fa;
-  --blue-dim: rgba(96, 165, 250, 0.15);
+  --surface: #101310;
+  --surface-card: #131713;
+  --surface-border: #2c362c;
+  --header-bg: #151915;
+  --ink: #f5f8f5;          /* Crisp high-contrast ivory */
+  --dim: #c8d6c8;          /* High-readability bright silver-green */
+  --faint: #8da08d;        /* Legible tertiary text */
+  --accent: #ffc233;       /* Vibrant retro amber */
+  --accent-dim: rgba(255, 194, 51, 0.15);
+  --green: #4ade80;        /* Terminal phosphor green */
+  --blue: #60a5fa;         /* Retro cyan/blue */
   --red: #f87171;
   --yellow: #facc15;
   --purple: #c084fc;
   --pixel: 'Silkscreen', monospace;
-  --mono: 'VT323', monospace;
+  --mono: 'IBM Plex Mono', 'VT323', ui-monospace, monospace;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  image-rendering: pixelated;
 }
 
 ::selection {
@@ -65,10 +63,9 @@ html, body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--mono);
-  font-size: 19px;
-  line-height: 1.4;
-  letter-spacing: 0.5px;
-  -webkit-font-smoothing: none;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -91,7 +88,7 @@ body {
   border: 3px solid var(--surface-border);
   box-shadow: 
     6px 6px 0px #000,
-    0 0 0 1px #384238;
+    0 0 0 1px #384638;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -120,8 +117,8 @@ body {
 
 /* Square Pixel Dots */
 .win-dot {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   display: inline-block;
   box-shadow: 1px 1px 0px #000;
 }
@@ -132,7 +129,7 @@ body {
 .terminal-title {
   color: var(--accent);
   font-family: var(--pixel);
-  font-size: 11px;
+  font-size: 11.5px;
   letter-spacing: 1px;
   white-space: nowrap;
   margin-left: 6px;
@@ -153,9 +150,9 @@ body {
   background: #141714;
   color: var(--dim);
   border: 2px solid #283028;
-  padding: 4px 8px;
+  padding: 4px 9px;
   font-family: var(--pixel);
-  font-size: 10px;
+  font-size: 11px;
   cursor: pointer;
   box-shadow: 2px 2px 0px #000;
   text-decoration: none;
@@ -177,14 +174,14 @@ body {
 }
 .shortcut-btn.btn-cv {
   color: var(--accent);
-  border-color: rgba(255, 190, 59, 0.6);
+  border-color: rgba(255, 194, 51, 0.7);
 }
 
 /* Terminal Body */
 .terminal-body {
   flex: 1;
   overflow-y: auto;
-  padding: 18px;
+  padding: 20px;
   cursor: text;
   scroll-behavior: smooth;
   display: flex;
@@ -202,22 +199,23 @@ body {
 }
 
 .term-entry {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .prompt-line {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 8px;
-  font-size: 20px;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
 }
-.prompt-user { color: var(--green); font-weight: bold; }
+.prompt-user { color: var(--green); font-weight: 600; }
 .prompt-host { color: var(--dim); }
 .prompt-path { color: var(--blue); }
-.prompt-char { color: var(--accent); font-weight: bold; }
-.prompt-cmd  { color: var(--ink); font-weight: bold; }
+.prompt-char { color: var(--accent); font-weight: 600; }
+.prompt-cmd  { color: var(--ink); font-weight: 600; }
 
 .term-output {
   color: var(--ink);
@@ -226,10 +224,11 @@ body {
 /* Pixel Banner & Stat Badges */
 .ascii-banner {
   color: var(--accent);
-  font-size: 13.5px;
+  font-family: 'VT323', monospace;
+  font-size: 15px;
   line-height: 1.15;
   white-space: pre;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   user-select: none;
   text-shadow: 2px 2px 0px #000;
 }
@@ -237,30 +236,30 @@ body {
 /* Stat Counters Row */
 .stats-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 8px;
-  margin-bottom: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
 }
 .stat-chip {
-  background: #131713;
+  background: var(--surface-card);
   border: 2px solid var(--surface-border);
   box-shadow: 2px 2px 0 #000;
-  padding: 8px 10px;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
 }
 .stat-label {
   font-family: var(--pixel);
-  font-size: 9px;
+  font-size: 10.5px;
   color: var(--dim);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 .stat-val {
   color: var(--accent);
   font-family: var(--pixel);
-  font-size: 11px;
+  font-size: 12px;
 }
 .stat-chip.highlight .stat-val {
   color: var(--green);
@@ -268,43 +267,51 @@ body {
 
 .banner-box {
   border: 2px solid var(--accent);
-  background: rgba(255, 190, 59, 0.04);
+  background: rgba(255, 194, 51, 0.05);
   box-shadow: 4px 4px 0px #000;
-  padding: 14px 16px;
-  margin-bottom: 14px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
 }
 .banner-name {
   color: var(--accent);
   font-family: var(--pixel);
-  font-size: 14px;
-  margin-bottom: 4px;
+  font-size: 15px;
+  margin-bottom: 6px;
   letter-spacing: 0.5px;
 }
 .banner-role {
   color: var(--ink);
-  font-size: 20px;
-  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.banner-desc {
+  color: var(--dim);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 8px;
 }
 .banner-avail {
   display: inline-block;
-  background: #142414;
+  background: #142814;
   color: var(--green);
   border: 2px solid var(--green);
   box-shadow: 2px 2px 0px #000;
-  padding: 3px 8px;
+  padding: 4px 10px;
   font-family: var(--pixel);
-  font-size: 9.5px;
+  font-size: 11px;
   margin-top: 6px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Section Header */
 .sec-title {
   color: var(--accent);
   font-family: var(--pixel);
-  font-size: 13px;
+  font-size: 13.5px;
   letter-spacing: 0.5px;
-  margin: 10px 0 6px 0;
+  margin: 14px 0 10px 0;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -314,9 +321,9 @@ body {
 .proj-card {
   border: 2px solid var(--surface-border);
   box-shadow: 3px 3px 0px #000;
-  padding: 14px 16px;
-  margin: 12px 0;
-  background: #121512;
+  padding: 16px 18px;
+  margin: 14px 0;
+  background: var(--surface-card);
   transition: all 0.1s steps(2);
 }
 .proj-card:hover {
@@ -328,38 +335,44 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .proj-name {
   color: var(--accent);
   font-family: var(--pixel);
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.5px;
+}
+.proj-year {
+  font-size: 13px;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-weight: normal;
 }
 .status-pill {
   font-family: var(--pixel);
-  font-size: 9px;
-  padding: 2px 6px;
+  font-size: 10px;
+  padding: 2px 7px;
   text-transform: uppercase;
   border: 1px solid;
   box-shadow: 1px 1px 0px #000;
 }
 .status-pill.live {
-  background: #142414;
+  background: #142814;
   color: var(--green);
   border-color: var(--green);
 }
 .status-pill.stable {
-  background: #122030;
+  background: #122438;
   color: var(--blue);
   border-color: var(--blue);
 }
 
 .proj-outcome {
   color: var(--ink);
-  font-size: 19px;
-  margin-bottom: 8px;
-  line-height: 1.45;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 10px;
 }
 
 .proj-tags {
@@ -369,33 +382,33 @@ body {
   margin: 10px 0;
 }
 .tag {
-  background: #182018;
+  background: #1a221a;
   color: var(--dim);
-  border: 1px solid #283028;
-  padding: 1px 6px;
+  border: 1px solid #2e3a2e;
+  padding: 2px 7px;
   font-family: var(--pixel);
-  font-size: 9px;
+  font-size: 10.5px;
   text-transform: uppercase;
 }
 
 .proj-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 2px dashed #283028;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 2px dashed #283428;
 }
 
 /* Action Badges */
 .badge-demo {
-  background: #142814;
+  background: #142c14;
   color: var(--green);
   border: 2px solid var(--green);
   box-shadow: 2px 2px 0 #000;
-  padding: 3px 8px;
+  padding: 4px 10px;
   font-family: var(--pixel);
-  font-size: 10px;
+  font-size: 11px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -408,13 +421,13 @@ body {
 }
 
 .badge-repo {
-  background: #121e2d;
+  background: #122234;
   color: var(--blue);
   border: 2px solid var(--blue);
   box-shadow: 2px 2px 0 #000;
-  padding: 3px 8px;
+  padding: 4px 10px;
   font-family: var(--pixel);
-  font-size: 10px;
+  font-size: 11px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -427,13 +440,13 @@ body {
 }
 
 .badge-details {
-  background: #1b1e1b;
+  background: #1a201a;
   color: var(--accent);
   border: 2px solid var(--surface-border);
   box-shadow: 2px 2px 0 #000;
-  padding: 3px 8px;
+  padding: 4px 10px;
   font-family: var(--pixel);
-  font-size: 10px;
+  font-size: 11px;
   cursor: pointer;
   text-transform: uppercase;
 }
@@ -445,20 +458,20 @@ body {
 /* Visual Skills Matrix */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 10px;
-  margin: 10px 0 14px 0;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 12px;
+  margin: 12px 0 16px 0;
 }
 .skill-box {
-  background: #121512;
+  background: var(--surface-card);
   border: 2px solid var(--surface-border);
   box-shadow: 2px 2px 0 #000;
-  padding: 10px 12px;
+  padding: 12px 14px;
 }
 .skill-cat {
   font-family: var(--pixel);
-  font-size: 10px;
-  margin-bottom: 4px;
+  font-size: 11px;
+  margin-bottom: 6px;
   letter-spacing: 0.5px;
 }
 .skill-cat.lang { color: var(--yellow); }
@@ -470,31 +483,31 @@ body {
 /* Contact List */
 .contact-list {
   list-style: none;
-  margin: 10px 0;
+  margin: 12px 0;
 }
 .contact-list li {
-  margin: 8px 0;
+  margin: 10px 0;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  font-size: 20px;
+  font-size: 15px;
 }
 .contact-label {
   color: var(--dim);
   font-family: var(--pixel);
-  font-size: 11px;
+  font-size: 11.5px;
   width: 90px;
   text-transform: uppercase;
 }
 .copy-badge {
-  background: #1a201a;
+  background: #1a241a;
   color: var(--accent);
   border: 1px solid var(--accent);
   box-shadow: 1px 1px 0px #000;
-  padding: 2px 7px;
+  padding: 2px 8px;
   font-family: var(--pixel);
-  font-size: 9.5px;
+  font-size: 10px;
   cursor: pointer;
   text-transform: uppercase;
 }
@@ -509,25 +522,25 @@ body {
   align-items: center;
   gap: 6px;
   flex-wrap: wrap;
-  margin-top: 14px;
-  padding-top: 10px;
-  border-top: 2px dashed #202620;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 2px dashed #242e24;
 }
 .prompt-chips-label {
   font-family: var(--pixel);
-  font-size: 9px;
+  font-size: 10px;
   color: var(--dim);
   text-transform: uppercase;
-  margin-right: 2px;
+  margin-right: 4px;
 }
 .chip-btn {
-  background: #161b16;
+  background: #161c16;
   color: var(--ink);
-  border: 1.5px solid #2e382e;
+  border: 1.5px solid #2e3a2e;
   box-shadow: 2px 2px 0px #000;
-  padding: 2px 7px;
+  padding: 3px 8px;
   font-family: var(--pixel);
-  font-size: 9.5px;
+  font-size: 10.5px;
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.05s steps(2);
@@ -535,7 +548,7 @@ body {
 .chip-btn:hover {
   color: var(--accent);
   border-color: var(--accent);
-  background: #1e241e;
+  background: #1f271f;
 }
 .chip-btn:active {
   transform: translate(1px, 1px);
@@ -547,7 +560,7 @@ body {
   display: flex;
   align-items: center;
   position: relative;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 .input-wrap {
   flex: 1;
@@ -562,12 +575,36 @@ body {
   outline: none;
   color: var(--ink);
   font-family: var(--mono);
-  font-size: 21px;
+  font-size: 16px;
+  font-weight: 500;
   padding: 0;
   margin: 0;
   caret-color: var(--accent);
   letter-spacing: 0.5px;
 }
+
+/* Help Table */
+.help-table {
+  width: 100%;
+  max-width: 680px;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+.help-table td {
+  padding: 6px 12px 6px 0;
+  vertical-align: top;
+  font-size: 15px;
+}
+.help-cmd {
+  color: var(--accent);
+  font-family: var(--pixel);
+  font-size: 11.5px;
+  white-space: nowrap;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.help-cmd:hover { color: #fff; text-shadow: 0 0 4px var(--accent); }
+.help-desc { color: var(--dim); }
 
 @media (max-width: 640px) {
   body { padding: 0; }
@@ -577,7 +614,7 @@ body {
     box-shadow: none;
   }
   .terminal-title { display: none; }
-  .ascii-banner { font-size: 9.5px; overflow-x: auto; }
+  .ascii-banner { font-size: 11px; overflow-x: auto; }
   .stats-row { grid-template-columns: 1fr; }
 }
 </style>
@@ -696,7 +733,7 @@ function renderProjectCard(p) {
   return `
     <article class="proj-card">
       <div class="proj-title-row">
-        <span class="proj-name">${esc(p.name)} <span style="font-size:14px; color:var(--dim); font-family:var(--mono);">(${esc(p.year)})</span></span>
+        <span class="proj-name">${esc(p.name)} <span class="proj-year">(${esc(p.year)})</span></span>
         <span class="status-pill ${st}">${esc(st)}</span>
       </div>
       <p class="proj-outcome">${esc(p.outcome || p.blurb)}</p>
@@ -740,7 +777,7 @@ function printWelcome() {
     <div class="banner-box">
       <div class="banner-name">${esc(CFG.name)}</div>
       <div class="banner-role">${esc(CFG.role)} · ${esc(CFG.education.school)} (${esc(CFG.education.degree)})</div>
-      <p style="color:var(--dim); font-size:19px; margin: 4px 0;">
+      <p class="banner-desc">
         I build production full-stack systems — background queues (BullMQ/Redis), AI integrations (Gemini Flash), payment webhooks, and performant APIs.
       </p>
       <div class="banner-avail"><b>● STATUS:</b> ${esc(CFG.availability)}</div>
@@ -750,7 +787,7 @@ function printWelcome() {
     <div class="sec-title">★ FEATURED SHIPPED SYSTEMS (AT-A-GLANCE):</div>
     ${topPicks}
 
-    <p style="color:var(--dim); font-size:18px; margin: 8px 0;">
+    <p style="color:var(--dim); font-size:15px; margin: 10px 0;">
       Click the quick actions below, or type <span class="help-cmd" onclick="runCmd('projects')">projects</span> to see all 4 systems. (Try <span class="help-cmd" onclick="runCmd('help')">help</span>).
     </p>
   `;
@@ -764,7 +801,7 @@ function printWelcome() {
 /* Command Handlers */
 function cmdHelp() {
   return `
-    <p style="margin-bottom:6px; color:var(--dim)">[COMMAND LIST]</p>
+    <p style="margin-bottom:8px; color:var(--dim)">[COMMAND LIST]</p>
     <table class="help-table">
       <tr><td class="help-cmd" onclick="runCmd('about')">about</td><td class="help-desc">Background, education, and current availability</td></tr>
       <tr><td class="help-cmd" onclick="runCmd('projects')">projects</td><td class="help-desc">All curated featured projects (alias: ls)</td></tr>
@@ -773,7 +810,7 @@ function cmdHelp() {
       <tr><td class="help-cmd" onclick="runCmd('cv')">cv</td><td class="help-desc">View / download my CV in a new tab</td></tr>
       <tr><td class="help-cmd" onclick="runCmd('clear')">clear</td><td class="help-desc">Clear terminal screen</td></tr>
     </table>
-    <p style="margin-top:6px; color:var(--faint); font-size:17px;">Tip: You can also run <code>open &lt;slug&gt;</code> (e.g. <code>open feedwise</code>).</p>
+    <p style="margin-top:8px; color:var(--faint); font-size:14px;">Tip: You can also run <code>open &lt;slug&gt;</code> (e.g. <code>open feedwise</code>).</p>
   `;
 }
 
@@ -781,15 +818,15 @@ function cmdAbout() {
   return `
     <div style="max-width: 760px;">
       <h3 class="sec-title">// ABOUT ME</h3>
-      <p style="margin-bottom: 8px; font-size:19px;">
+      <p style="margin-bottom: 10px; font-size:15px; line-height: 1.6;">
         I am a <strong>${esc(CFG.role)}</strong> at <strong>${esc(CFG.education.school)}</strong> (${esc(CFG.education.degree)}), based in <strong>${esc(CFG.location)}</strong>.
       </p>
-      <p style="color:var(--dim); margin-bottom: 12px; font-size:19px; line-height:1.5;">
+      <p style="color:var(--dim); margin-bottom: 14px; font-size:15px; line-height: 1.6;">
         I focus on backend-leaning full-stack architecture: building multi-tenant SaaS platforms, payment and email pipelines, background worker queues with BullMQ and Redis, and reliable relational databases.
       </p>
-      <div style="background: #121512; border: 2px solid var(--surface-border); box-shadow: 2px 2px 0 #000; padding:12px 14px; font-size:18px;">
-        <p style="margin-bottom:4px;"><strong style="color:var(--ink); font-family:var(--pixel); font-size:11px;">EDUCATION:</strong> <span style="color:var(--dim);">${esc(CFG.education.school)} — ${esc(CFG.education.degree)} (${esc(CFG.education.period)})</span></p>
-        <p style="margin-bottom:4px;"><strong style="color:var(--ink); font-family:var(--pixel); font-size:11px;">LOCATION:</strong> <span style="color:var(--dim);">${esc(CFG.location)}</span></p>
+      <div style="background: var(--surface-card); border: 2px solid var(--surface-border); box-shadow: 2px 2px 0 #000; padding:14px 16px; font-size:14.5px;">
+        <p style="margin-bottom:6px;"><strong style="color:var(--ink); font-family:var(--pixel); font-size:11px;">EDUCATION:</strong> <span style="color:var(--dim);">${esc(CFG.education.school)} — ${esc(CFG.education.degree)} (${esc(CFG.education.period)})</span></p>
+        <p style="margin-bottom:6px;"><strong style="color:var(--ink); font-family:var(--pixel); font-size:11px;">LOCATION:</strong> <span style="color:var(--dim);">${esc(CFG.location)}</span></p>
         <p><strong style="color:var(--green); font-family:var(--pixel); font-size:11px;">STATUS:</strong> <span style="color:var(--dim);">${esc(CFG.availability)}</span></p>
       </div>
     </div>
@@ -812,19 +849,19 @@ function cmdOpen(slug) {
   }
 
   const tags = (p.stack || []).map(t => `<span class="tag">${esc(t)}</span>`).join('');
-  const highlights = (p.highlights || []).map(h => `<li style="margin: 4px 0;">${esc(h)}</li>`).join('');
+  const highlights = (p.highlights || []).map(h => `<li style="margin: 5px 0;">${esc(h)}</li>`).join('');
   const actions = [];
   if (p.url) actions.push(`<a class="badge-demo" href="${esc(p.url)}" target="_blank" rel="noopener">● LIVE DEMO ↗</a>`);
   if (p.repo) actions.push(`<a class="badge-repo" href="${esc(p.repo)}" target="_blank" rel="noopener">★ GITHUB ↗</a>`);
 
   return `
-    <div style="border: 2px solid var(--accent); box-shadow: 3px 3px 0 #000; padding: 14px 16px; background: #121512; max-width: 760px;">
-      <h3 style="color:var(--accent); font-family:var(--pixel); font-size:13px; margin-bottom: 6px;">${esc(p.name)} <span style="color:var(--dim); font-size:15px; font-family:var(--mono);">(${esc(p.year)})</span></h3>
-      <p style="color:var(--ink); font-size: 19px; margin: 6px 0;">${esc(p.outcome)}</p>
-      <p style="color:var(--dim); font-size: 18px; margin-bottom: 10px; line-height:1.5;">${esc(p.desc || p.blurb)}</p>
-      ${highlights ? `<ul style="color:var(--dim); font-size: 18px; padding-left: 20px; margin-bottom: 10px;">${highlights}</ul>` : ''}
+    <div style="border: 2px solid var(--accent); box-shadow: 3px 3px 0 #000; padding: 16px 18px; background: var(--surface-card); max-width: 760px;">
+      <h3 style="color:var(--accent); font-family:var(--pixel); font-size:14px; margin-bottom: 8px;">${esc(p.name)} <span class="proj-year">(${esc(p.year)})</span></h3>
+      <p style="color:var(--ink); font-size: 15px; font-weight: 500; margin: 8px 0; line-height: 1.55;">${esc(p.outcome)}</p>
+      <p style="color:var(--dim); font-size: 14.5px; margin-bottom: 12px; line-height: 1.6;">${esc(p.desc || p.blurb)}</p>
+      ${highlights ? `<ul style="color:var(--dim); font-size: 14.5px; padding-left: 20px; margin-bottom: 12px; line-height: 1.55;">${highlights}</ul>` : ''}
       <div class="proj-tags">${tags}</div>
-      <div class="proj-actions" style="margin-top:12px;">${actions.join('')}</div>
+      <div class="proj-actions" style="margin-top:14px;">${actions.join('')}</div>
     </div>
   `;
 }
@@ -837,30 +874,30 @@ function cmdStack() {
       <div class="skills-grid">
         <div class="skill-box">
           <div class="skill-cat lang">⚙ LANGUAGES</div>
-          <p style="color:var(--ink); font-size:18px;">${esc(s.languages || 'TypeScript, JavaScript, Python, SQL')}</p>
+          <p style="color:var(--ink); font-size:14.5px; line-height:1.5;">${esc(s.languages || 'TypeScript, JavaScript, Python, SQL')}</p>
         </div>
         <div class="skill-box">
           <div class="skill-cat back">⚡ BACKEND & QUEUES</div>
-          <p style="color:var(--ink); font-size:18px;">${esc(s.backend || 'Node.js, Express, REST, WebSockets, BullMQ, Redis')}</p>
+          <p style="color:var(--ink); font-size:14.5px; line-height:1.5;">${esc(s.backend || 'Node.js, Express, REST, WebSockets, BullMQ, Redis')}</p>
         </div>
         <div class="skill-box">
           <div class="skill-cat front">💻 FRONTEND</div>
-          <p style="color:var(--ink); font-size:18px;">${esc(s.frontend || 'React, Next.js, Vite, TanStack Query, Zustand, Tailwind')}</p>
+          <p style="color:var(--ink); font-size:14.5px; line-height:1.5;">${esc(s.frontend || 'React, Next.js, Vite, TanStack Query, Zustand, Tailwind')}</p>
         </div>
         <div class="skill-box">
           <div class="skill-cat data">🗄️ DATABASE & STORAGE</div>
-          <p style="color:var(--ink); font-size:18px;">${esc(s.database || 'PostgreSQL, Prisma ORM, Redis, Firestore, SQLite')}</p>
+          <p style="color:var(--ink); font-size:14.5px; line-height:1.5;">${esc(s.database || 'PostgreSQL, Prisma ORM, Redis, Firestore, SQLite')}</p>
         </div>
         <div class="skill-box">
           <div class="skill-cat ops">🚀 CLOUD & DEVOPS</div>
-          <p style="color:var(--ink); font-size:18px;">${esc(s.cloud_ops || 'Docker, Vercel, Render, Railway, Cloudflare, CI/CD')}</p>
+          <p style="color:var(--ink); font-size:14.5px; line-height:1.5;">${esc(s.cloud_ops || 'Docker, Vercel, Render, Railway, Cloudflare, CI/CD')}</p>
         </div>
         <div class="skill-box">
           <div class="skill-cat" style="color:var(--green);">🔌 INTEGRATIONS</div>
-          <p style="color:var(--ink); font-size:18px;">${esc(s.integrations || 'Gemini AI, Stripe SaaS, TeleBirr, CBE, S3, Resend')}</p>
+          <p style="color:var(--ink); font-size:14.5px; line-height:1.5;">${esc(s.integrations || 'Gemini AI, Stripe SaaS, TeleBirr, CBE, S3, Resend')}</p>
         </div>
       </div>
-      ${STACK_TOML ? `<pre style="color:var(--dim); font-size: 16px; background: #0c0e0c; border:2px solid var(--surface-border); padding:10px; overflow-x:auto;">${esc(STACK_TOML)}</pre>` : ''}
+      ${STACK_TOML ? `<pre style="color:var(--dim); font-size: 13px; line-height: 1.5; background: #0c0e0c; border:2px solid var(--surface-border); padding:12px; overflow-x:auto;">${esc(STACK_TOML)}</pre>` : ''}
     </div>
   `;
 }
@@ -879,7 +916,7 @@ function cmdContact() {
   return `
     <div style="max-width: 680px;">
       <h3 class="sec-title">// CONTACT & REACH OUT</h3>
-      <p style="color:var(--dim); font-size: 18px; margin-bottom: 10px;">
+      <p style="color:var(--dim); font-size: 15px; line-height: 1.6; margin-bottom: 12px;">
         Open to software engineering internship opportunities starting February 2027. Email is the fastest path.
       </p>
       <ul class="contact-list">

@@ -4,23 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Endalkachew Yaregal — Software Engineering Student</title>
-<meta name="description" content="Endalkachew Yaregal — software engineering student at Woldia University. Full-stack, backend-leaning: SaaS, payments, AI, queues. Open to a Feb 2027 internship.">
+<meta name="description" content="Endalkachew Yaregal — Software engineering student at Woldia University. Full-stack & backend systems builder: BullMQ & Redis queues, Gemini AI, Stripe payments, performant APIs. Open to Feb 2027 internship.">
 <meta name="author" content="Endalkachew Yaregal">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://portfolio.endalkachewyaregal747.workers.dev/">
+
+<!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Endalkachew Yaregal — software engineering student">
-<meta property="og:description" content="Full-stack, backend-leaning. SaaS, payments, email, AI integrations. React, Vite, Redis, queues, workers. Vercel, Render, Cloudflare, Docker.">
+<meta property="og:url" content="https://portfolio.endalkachewyaregal747.workers.dev/">
+<meta property="og:site_name" content="Endalkachew Yaregal Portfolio">
+<meta property="og:title" content="Endalkachew Yaregal — Software Engineering Student">
+<meta property="og:description" content="Full-stack systems builder: background queues (BullMQ + Redis), AI integrations (Gemini), payment webhooks, and performant APIs. Open to Feb 2027 internship.">
 <meta property="og:image" content="https://portfolio.endalkachewyaregal747.workers.dev/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Endalkachew Yaregal — I build systems end to end.">
+<meta property="og:image:alt" content="Endalkachew Yaregal — Software Engineering Portfolio">
+
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://portfolio.endalkachewyaregal747.workers.dev/">
 <meta name="twitter:image" content="https://portfolio.endalkachewyaregal747.workers.dev/og.png">
-<meta name="twitter:title" content="Endalkachew Yaregal — software engineering student">
-<meta name="twitter:description" content="Full-stack, backend-leaning. SaaS, payments, email, AI integrations.">
+<meta name="twitter:title" content="Endalkachew Yaregal — Software Engineering Student">
+<meta name="twitter:description" content="Full-stack systems builder: background queues (BullMQ + Redis), AI integrations (Gemini), payment webhooks, and performant APIs.">
+
+<!-- Theme & Manifest -->
 <meta name="theme-color" content="#0a0c0a">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Endalkachew Yaregal","jobTitle":"Software Engineering Student","url":"https://portfolio.endalkachewyaregal747.workers.dev/","email":"mailto:endalkachewyaregal747@gmail.com","sameAs":["https://github.com/Endalk-sudo","https://www.linkedin.com/in/endalkachew-yaregal-swe"],"affiliation":{"@type":"CollegeOrUniversity","name":"Woldia University"},"knowsAbout":["TypeScript","React","Vite","Node.js","Postgres","Redis","Next.js","SaaS","Payments","Email","AI integrations","Job queues","Workers","Vercel","Render","Cloudflare","Docker"]}</script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0c0a'/><rect x='8' y='8' width='16' height='16' fill='%23ffc233'/><rect x='12' y='12' width='8' height='8' fill='%230a0c0a'/></svg>">
-<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
+
+<!-- Icons -->
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+
+<!-- Structured Data -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Endalkachew Yaregal","jobTitle":"Software Engineering Student","url":"https://portfolio.endalkachewyaregal747.workers.dev/","email":"mailto:endalkachewyaregal747@gmail.com","sameAs":["https://github.com/Endalk-sudo","https://www.linkedin.com/in/endalkachew-yaregal-swe"],"affiliation":{"@type":"CollegeOrUniversity","name":"Woldia University"},"knowsAbout":["TypeScript","JavaScript","Python","SQL","Node.js","Express","REST APIs","WebSockets","BullMQ","Redis","PostgreSQL","Prisma ORM","Supabase","Firestore","React","Next.js","Docker","Gemini AI","Stripe","Full-Stack Architecture"]}</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1012,7 +1029,7 @@ const CFG = (window.SITE && window.SITE.profile) || {
   cv: './Endalkachew_Yaregal_CV.pdf',
   cvLabel: 'Endalkachew_Yaregal_CV.pdf',
   location: 'Addis Ababa, Ethiopia',
-  tagline: 'I build production full-stack systems — background queues, AI integrations, payment webhooks, and performant APIs.',
+  tagline: 'I build production full-stack systems — background queues (BullMQ + Redis), AI integrations (Gemini), payment webhooks, and performant APIs.',
   availability: 'Open to a 4-month software engineering internship starting February 2027 (onsite or hybrid)',
   availabilityShort: 'Open to a 4-month internship · Feb 2027',
   education: { school: 'Woldia University', degree: 'BSc Software Engineering', period: 'in progress' },
@@ -1376,6 +1393,9 @@ termBody.addEventListener('click', maybeFocus);
 /* ============================================================
    INIT
 ============================================================ */
+const headerCvBtn = document.querySelector('.header-cv');
+if (headerCvBtn && CFG.cv) headerCvBtn.href = CFG.cv;
+
 printWelcome();
 focusInput();
 

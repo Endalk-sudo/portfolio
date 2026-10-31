@@ -14,23 +14,24 @@ window.SITE = {
         cv: './Endalkachew_Yaregal_CV.pdf',
         cvLabel: 'Endalkachew_Yaregal_CV.pdf',
         location: 'Addis Ababa, Ethiopia',
+        tagline: 'I build production full-stack systems — background queues (BullMQ + Redis), AI integrations (Gemini), payment webhooks, and performant APIs.',
+        availability: 'Open to a 4-month software engineering internship starting February 2027 (onsite or hybrid)',
+        availabilityShort: 'Open to a 4-month internship · Feb 2027',
         education: {
             school: 'Woldia University',
             degree: 'BSc Software Engineering',
             period: 'in progress',
         },
-        availability: 'Open to a 4-month software engineering internship starting February 2027 (onsite or hybrid)',
         skills: {
             languages: 'TypeScript, JavaScript, Python, SQL',
             backend: 'Node.js, Express, REST APIs, WebSockets, BullMQ, Redis, Background Workers',
-            frontend: 'React, Next.js, Vite, TanStack Query, Zustand, Tailwind CSS',
             database: 'PostgreSQL, Prisma ORM, Supabase, Firestore, SQLite',
+            frontend: 'React, Next.js, Vite, TanStack Query, Zustand, Tailwind CSS',
             cloud_ops: 'Docker, Vercel, Render, Railway, Cloudflare, CI/CD',
             integrations: 'Gemini AI, Stripe, TeleBirr, CBE, S3, Resend/SMTP',
         },
     },
 
-    /* Curated featured projects */
     projects: [
         {
             slug: 'feedwise',
@@ -101,26 +102,4 @@ window.SITE = {
             ],
         },
     ],
-
-    /* Quick stack summary */
-    stackToml: `# ~/.config/stack.toml — core engineering stack
-[languages]
-primary = ["TypeScript", "JavaScript", "Python", "SQL"]
-
-[backend]
-runtime = "Node.js"
-frameworks = ["Express", "REST APIs", "WebSockets"]
-jobs = ["BullMQ", "Redis", "Cron Workers"]
-
-[frontend]
-frameworks = ["React", "Next.js", "Vite"]
-state = ["TanStack Query", "Zustand", "Tailwind CSS"]
-
-[data]
-primary = ["PostgreSQL", "Prisma ORM", "Redis"]
-other = ["Supabase", "Firestore", "SQLite"]
-
-[deploy & ops]
-platforms = ["Docker", "Vercel", "Render", "Railway", "Cloudflare"]
-practices = ["CI/CD", "Type Safety", "Schema Validation (Zod)"]`,
 };

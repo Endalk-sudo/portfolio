@@ -128,7 +128,7 @@ html, body {
     <p class="desc">
       The requested path does not exist on this dev box or has been moved.
     </p>
-    <a href="/" class="home-btn">← Return to Terminal</a>
+    <a href="./" class="home-btn">← Return to Terminal</a>
     <div class="redirect-hint">Redirecting automatically in <span id="timer">6</span>s…</div>
   </div>
 </div>
@@ -148,7 +148,7 @@ html, body {
     if (timerEl) timerEl.textContent = sec;
     if (sec <= 0) {
       clearInterval(interval);
-      window.location.href = '/';
+      window.location.href = './';
     }
   }, 1000);
 </script>

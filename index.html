@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Endalkachew Yaregal — Software Engineering Student</title>
-<meta name="description" content="Endalkachew Yaregal — Software engineering student at Woldia University. Full-stack & backend systems builder: BullMQ & Redis queues, Gemini AI, Stripe payments, performant APIs. Open to Feb 2027 internship.">
+<meta name="description" content="Endalkachew Yaregal — software engineering student and full-stack builder: BullMQ/Redis, Gemini AI, payment webhooks, fast APIs. Open to 2027 internship.">
 <meta name="author" content="Endalkachew Yaregal">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://portfolio.endalkachewyaregal747.workers.dev/">
@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://portfolio.endalkachewyaregal747.workers.dev/">
 <meta property="og:site_name" content="Endalkachew Yaregal Portfolio">
 <meta property="og:title" content="Endalkachew Yaregal — Software Engineering Student">
-<meta property="og:description" content="Full-stack systems builder: background queues (BullMQ + Redis), AI integrations (Gemini), payment webhooks, and performant APIs. Open to Feb 2027 internship.">
+<meta property="og:description" content="Software engineering student building full-stack systems with BullMQ/Redis, Gemini AI, payment webhooks, and fast APIs. Open to 2027 internship.">
 <meta property="og:image" content="https://portfolio.endalkachewyaregal747.workers.dev/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -25,7 +25,7 @@
 <meta name="twitter:url" content="https://portfolio.endalkachewyaregal747.workers.dev/">
 <meta name="twitter:image" content="https://portfolio.endalkachewyaregal747.workers.dev/og.png">
 <meta name="twitter:title" content="Endalkachew Yaregal — Software Engineering Student">
-<meta name="twitter:description" content="Full-stack systems builder: background queues (BullMQ + Redis), AI integrations (Gemini), payment webhooks, and performant APIs.">
+<meta name="twitter:description" content="Software engineering student building full-stack systems with BullMQ/Redis, Gemini AI, payment webhooks, and fast APIs.">
 
 <!-- Theme & Manifest -->
 <meta name="theme-color" content="#0a0c0a">
@@ -37,7 +37,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 
 <!-- Structured Data -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Endalkachew Yaregal","jobTitle":"Software Engineering Student","url":"https://portfolio.endalkachewyaregal747.workers.dev/","email":"mailto:endalkachewyaregal747@gmail.com","sameAs":["https://github.com/Endalk-sudo","https://www.linkedin.com/in/endalkachew-yaregal-swe"],"affiliation":{"@type":"CollegeOrUniversity","name":"Woldia University"},"knowsAbout":["TypeScript","JavaScript","Python","SQL","Node.js","Express","REST APIs","WebSockets","BullMQ","Redis","PostgreSQL","Prisma ORM","Supabase","Firestore","React","Next.js","Docker","Gemini AI","Stripe","Full-Stack Architecture"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Endalkachew Yaregal","jobTitle":"Software Engineering Student","url":"https://portfolio.endalkachewyaregal747.workers.dev/","image":"https://portfolio.endalkachewyaregal747.workers.dev/assets/me-pixel.png","email":"mailto:endalkachewyaregal747@gmail.com","sameAs":["https://github.com/Endalk-sudo","https://www.linkedin.com/in/endalkachew-yaregal-swe"],"affiliation":{"@type":"CollegeOrUniversity","name":"Woldia University"},"knowsAbout":["TypeScript","JavaScript","Python","SQL","Node.js","Express","REST APIs","WebSockets","BullMQ","Redis","PostgreSQL","Prisma ORM","Supabase","Firestore","React","Next.js","Docker","Gemini AI","Stripe","Full-Stack Architecture"]}</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,7 +65,7 @@
   --ink-bright: #f4f7f4;
   --ink:        #d8dfd8;
   --muted:      #94a494;
-  --faint:      #637363;
+  --faint:      #748674;
 
   /* Accent & semantics */
   --accent:      #ffc233;
@@ -95,6 +95,29 @@ input:focus-visible {
   outline-offset: 2px;
 }
 #term-input:focus-visible { outline: none; }
+
+/* Screen-reader-only live region used to announce command results */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.noscript-notice {
+  margin-top: 18px;
+  padding: 10px 12px;
+  font-family: var(--pixel);
+  font-size: 11px;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-brd);
+}
 
 html {
   font-size: 15px;
@@ -477,6 +500,11 @@ body {
   background: var(--blue-dim);
   border: 1px solid var(--blue-brd);
 }
+.proj-status.beta {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-brd);
+}
 
 .proj-outcome {
   font-size: 14px;
@@ -664,6 +692,28 @@ kbd {
   color: var(--muted);
   margin-right: 8px;
 }
+
+/* -------- About: pixel portrait + copy -------- */
+.about-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 760px;
+  margin: 4px 0;
+}
+.about-card .cmd-sub { margin-bottom: 0; }
+
+.about-portrait {
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+  object-fit: contain; /* show the whole photo, never crop it */
+  image-rendering: pixelated;
+  background: var(--card);
+  border: 2px solid var(--border-strong);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+.about-copy { min-width: 0; flex: 1; }
 
 /* -------- Spec list (shared by stack & contact) -------- */
 .spec-list {
@@ -880,6 +930,9 @@ kbd {
   .spec-row { gap: 12px; }
 
   .detail-card { padding: 14px 16px; }
+
+  .about-card { flex-direction: column; gap: 14px; }
+  .about-portrait { width: 140px; height: 140px; }
 }
 
 /* ============================================================
@@ -924,6 +977,8 @@ kbd {
 
   .detail-card { padding: 12px 14px; }
   .detail-name { font-size: 16px; }
+
+  .about-portrait { width: 120px; height: 120px; }
 }
 
 /* ============================================================
@@ -974,8 +1029,12 @@ kbd {
   }
 }
 </style>
+<!-- Hide controls that only work with JavaScript when JS is unavailable -->
+<noscript><style>.proj-link.details, .terminal-footer { display: none !important; }</style></noscript>
 </head>
 <body>
+
+<div id="term-announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
 <div class="terminal-window">
   <header class="terminal-header">
@@ -986,29 +1045,114 @@ kbd {
       <span class="terminal-title">endalk@dev-box: ~</span>
     </div>
     <div class="header-spacer"></div>
-    <a class="header-cv" href="./Endalkachew_Yaregal_CV.pdf" target="_blank" rel="noopener">↓ Download CV</a>
+    <a class="header-cv" href="./Endalkachew_Yaregal_CV.pdf" target="_blank" rel="noopener noreferrer">↓ Download CV</a>
   </header>
 
   <main class="terminal-body" id="term-body">
-    <div id="term-history"></div>
+    <!-- Static seed: crawlers and JS-disabled visitors see real content.
+         The script clears this on init and renders the interactive version. -->
+    <div id="term-history">
+      <section class="hero">
+        <div class="hero-eyebrow">// ADDIS ABABA · ETHIOPIA</div>
+        <h1 class="hero-name">Endalkachew Yaregal</h1>
+        <div class="hero-role">software engineering student · Woldia University</div>
+        <p class="hero-tagline">I design and ship full-stack systems: BullMQ/Redis workers, Gemini AI pipelines, payment webhooks, and APIs built to stay fast under load.</p>
+        <div class="hero-status">
+          <span class="status-dot"></span>
+          <span>Open to a 4-month internship · Feb 2027</span>
+        </div>
+      </section>
+
+      <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+
+      <div class="project-grid">
+        <article class="proj-card">
+          <div class="proj-head">
+            <h3 class="proj-name">FeedWise<span class="proj-year">2025</span></h3>
+            <span class="proj-status live">live</span>
+          </div>
+          <p class="proj-outcome">Turns QR-coded customer feedback into prioritized, AI-analyzed insights businesses can act on immediately.</p>
+          <div class="proj-stack">
+            <span class="stack-tag">TypeScript</span><span class="stack-tag">React</span><span class="stack-tag">Node.js</span><span class="stack-tag">Express</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Prisma</span>
+          </div>
+          <div class="proj-links">
+            <a class="proj-link live" href="https://feedwise-nine.vercel.app/" target="_blank" rel="noopener noreferrer">● Live Demo ↗</a>
+            <a class="proj-link repo" href="https://github.com/Endalk-sudo/Feedwise" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <button class="proj-link details" data-cmd="open feedwise">Details</button>
+          </div>
+        </article>
+
+        <article class="proj-card">
+          <div class="proj-head">
+            <h3 class="proj-name">Full Stack Time Capsule<span class="proj-year">2026</span></h3>
+            <span class="proj-status stable">stable</span>
+          </div>
+          <p class="proj-outcome">Encrypted message and file packages scheduled for automated future delivery via background job queues and S3 storage.</p>
+          <div class="proj-stack">
+            <span class="stack-tag">TypeScript</span><span class="stack-tag">React</span><span class="stack-tag">Node.js</span><span class="stack-tag">Express</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Redis</span>
+          </div>
+          <div class="proj-links">
+            <a class="proj-link repo" href="https://github.com/Endalk-sudo/full-time-capsule" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <button class="proj-link details" data-cmd="open full-time-capsule">Details</button>
+          </div>
+        </article>
+
+        <article class="proj-card">
+          <div class="proj-head">
+            <h3 class="proj-name">A-kiyon FCMS<span class="proj-year">2026</span></h3>
+            <span class="proj-status live">live</span>
+          </div>
+          <p class="proj-outcome">Lets gym owners track memberships, renewals, and multi-currency revenue with a localized Ethiopian calendar.</p>
+          <div class="proj-stack">
+            <span class="stack-tag">TypeScript</span><span class="stack-tag">Next.js</span><span class="stack-tag">Firestore</span><span class="stack-tag">Firebase Auth</span><span class="stack-tag">Zustand</span><span class="stack-tag">Tailwind CSS</span>
+          </div>
+          <div class="proj-links">
+            <a class="proj-link live" href="https://a-kiyon.vercel.app" target="_blank" rel="noopener noreferrer">● Live Demo ↗</a>
+            <a class="proj-link repo" href="https://github.com/Endalk-sudo/a-kiyon" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <button class="proj-link details" data-cmd="open a-kiyon">Details</button>
+          </div>
+        </article>
+
+        <article class="proj-card">
+          <div class="proj-head">
+            <h3 class="proj-name">LexiLearn<span class="proj-year">2026</span></h3>
+            <span class="proj-status stable">stable</span>
+          </div>
+          <p class="proj-outcome">Helps students retain TOEFL/IELTS vocabulary long term — 100% offline, private, and fast.</p>
+          <div class="proj-stack">
+            <span class="stack-tag">TypeScript</span><span class="stack-tag">Next.js</span><span class="stack-tag">React</span><span class="stack-tag">SQLite</span><span class="stack-tag">Prisma</span><span class="stack-tag">Tailwind CSS</span>
+          </div>
+          <div class="proj-links">
+            <a class="proj-link repo" href="https://github.com/Endalk-sudo/lexilearn" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <button class="proj-link details" data-cmd="open lexilearn">Details</button>
+          </div>
+        </article>
+      </div>
+
+      <noscript>
+        <p class="noscript-notice">JavaScript is off — showing a static preview. Enable it for the interactive terminal (help, open &lt;slug&gt;, and more).</p>
+      </noscript>
+    </div>
   </main>
 
   <footer class="terminal-footer">
     <div class="quick-actions">
       <span class="qa-label">QUICK:</span>
-      <button class="qa-btn" onclick="runCmd('projects')">projects</button>
-      <button class="qa-btn" onclick="runCmd('stack')">stack</button>
-      <button class="qa-btn" onclick="runCmd('about')">about</button>
-      <button class="qa-btn" onclick="runCmd('contact')">contact</button>
-      <button class="qa-btn" onclick="runCmd('help')">help</button>
-      <button class="qa-btn" onclick="runCmd('clear')">clear</button>
+      <button class="qa-btn" data-cmd="projects">projects</button>
+      <button class="qa-btn" data-cmd="stack">stack</button>
+      <button class="qa-btn" data-cmd="about">about</button>
+      <button class="qa-btn" data-cmd="contact">contact</button>
+      <button class="qa-btn" data-cmd="help">help</button>
+      <button class="qa-btn" data-cmd="clear">clear</button>
       <span class="qa-hint"><b>↑↓</b> history · <b>Tab</b> complete</span>
     </div>
     <div class="prompt-row">
       <span class="prompt-label">
         <span class="p-user">visitor</span><span class="p-host">@dev-box</span><span class="p-colon">:</span><span class="p-path">~</span><span class="p-char">$</span>
       </span>
-      <input id="term-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" aria-label="Terminal command input" autofocus>
+      <input id="term-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" aria-label="Terminal command input">
     </div>
   </footer>
 </div>
@@ -1037,9 +1181,10 @@ const CFG = (window.SITE && window.SITE.profile) || {
 };
 const PROJECTS = (window.SITE && window.SITE.projects) || [];
 
-const termHistory = document.getElementById('term-history');
-const termBody    = document.getElementById('term-body');
-const termInput   = document.getElementById('term-input');
+const termHistory   = document.getElementById('term-history');
+const termBody      = document.getElementById('term-body');
+const termInput     = document.getElementById('term-input');
+const termAnnouncer = document.getElementById('term-announcer');
 
 /* Detect touch / coarse pointer — used to skip auto-focus & click-to-focus
    on mobile so the on-screen keyboard doesn't pop up on scroll. */
@@ -1067,6 +1212,24 @@ function focusInput() {
   termInput.focus();
 }
 
+/* Announce concise results to screen readers without flooding the live region. */
+function announce(message) {
+  if (!termAnnouncer) return;
+  termAnnouncer.textContent = '';
+  termAnnouncer.textContent = message;
+}
+
+/* Only allow safe schemes in config-driven links. */
+function safeUrl(value) {
+  const url = String(value || '').trim();
+  return /^(https?:\/\/|mailto:|\.\/|\/|#)/i.test(url) ? url : '#';
+}
+
+/* Status is used as a CSS class — only allow known values. */
+function statusClass(status) {
+  return ['live', 'stable', 'beta'].includes(status) ? status : 'stable';
+}
+
 function scrollToBottom() {
   termBody.scrollTop = termBody.scrollHeight;
 }
@@ -1091,13 +1254,13 @@ function copyEmail(btn) {
    RENDERERS
 ============================================================ */
 function renderProjectCard(p) {
-  const st = p.status || 'stable';
+  const st = statusClass(p.status);
   const tags = (p.stack || []).slice(0, 6)
     .map(t => `<span class="stack-tag">${esc(t)}</span>`).join('');
   const actions = [];
-  if (p.url)  actions.push(`<a class="proj-link live" href="${esc(p.url)}" target="_blank" rel="noopener">● Live Demo ↗</a>`);
-  if (p.repo) actions.push(`<a class="proj-link repo" href="${esc(p.repo)}" target="_blank" rel="noopener">GitHub ↗</a>`);
-  actions.push(`<button class="proj-link details" onclick="runCmd('open ${esc(p.slug)}')">Details</button>`);
+  if (p.url)  actions.push(`<a class="proj-link live" href="${esc(safeUrl(p.url))}" target="_blank" rel="noopener noreferrer">● Live Demo ↗</a>`);
+  if (p.repo) actions.push(`<a class="proj-link repo" href="${esc(safeUrl(p.repo))}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>`);
+  actions.push(`<button class="proj-link details" data-cmd="open ${esc(p.slug || '')}">Details</button>`);
 
   return `
     <article class="proj-card">
@@ -1146,7 +1309,7 @@ function printWelcome() {
 
     <div class="section-header">
       <h2 class="section-title">Featured Projects</h2>
-      <button class="link-btn" onclick="runCmd('projects')">View all (${PROJECTS.length}) →</button>
+      <button class="link-btn" data-cmd="projects">View all (${PROJECTS.length}) →</button>
     </div>
 
     <div class="project-grid">${topPicks}</div>
@@ -1176,7 +1339,7 @@ function cmdHelp() {
   return `
     <div class="help-grid">
       ${items.map(([cmd, desc]) => `
-        <button class="help-cmd" onclick="runCmd('${cmd}')">${cmd}</button>
+        <button class="help-cmd" data-cmd="${cmd}">${cmd}</button>
         <span class="help-desc">${desc}</span>
       `).join('')}
     </div>
@@ -1185,21 +1348,29 @@ function cmdHelp() {
 }
 
 function cmdAbout() {
+  const portrait = CFG.portrait
+    ? `<img class="about-portrait" src="${esc(safeUrl(CFG.portrait))}" alt="${esc(CFG.portraitAlt || 'Pixel-art portrait')}" width="360" height="360">`
+    : '';
   return `
     <p class="cmd-lead">
       I am a <strong>${esc(CFG.role)}</strong> at
       <strong>${esc(CFG.education.school)}</strong>
       (${esc(CFG.education.degree)}), based in <strong>${esc(CFG.location)}</strong>.
     </p>
-    <p class="cmd-sub">
-      I focus on backend-leaning full-stack architecture: multi-tenant SaaS platforms,
-      payment and email pipelines, background worker queues with BullMQ and Redis,
-      and reliable relational databases.
-    </p>
-    <div class="info-panel">
-      <p><span class="info-label">Education</span>${esc(CFG.education.school)} — ${esc(CFG.education.degree)} (${esc(CFG.education.period)})</p>
-      <p><span class="info-label">Location</span>${esc(CFG.location)}</p>
-      <p><span class="info-label">Status</span><span style="color:var(--green)">${esc(CFG.availability)}</span></p>
+    <div class="about-card">
+      ${portrait}
+      <div class="about-copy">
+        <p class="cmd-sub">
+          I focus on backend-leaning full-stack architecture: multi-tenant SaaS platforms,
+          payment and email pipelines, background worker queues with BullMQ and Redis,
+          and reliable relational databases.
+        </p>
+        <div class="info-panel">
+          <p><span class="info-label">Education</span>${esc(CFG.education.school)} — ${esc(CFG.education.degree)} (${esc(CFG.education.period)})</p>
+          <p><span class="info-label">Location</span>${esc(CFG.location)}</p>
+          <p><span class="info-label">Status</span><span style="color:var(--green)">${esc(CFG.availability)}</span></p>
+        </div>
+      </div>
     </div>
   `;
 }
@@ -1213,18 +1384,17 @@ function cmdOpen(slug) {
   if (!slug) {
     return '<p style="color:var(--red);">Usage: open &lt;slug&gt; (e.g. <code>open feedwise</code>)</p>';
   }
-  const p = PROJECTS.find(x => x.slug.toLowerCase() === slug.toLowerCase());
+  const p = PROJECTS.find(x => x.slug && String(x.slug).toLowerCase() === String(slug).toLowerCase());
   if (!p) {
-    return `<p style="color:var(--red);">Project "${esc(slug)}" not found. Run <button class="help-cmd" onclick="runCmd('projects')">projects</button> for the list.</p>`;
+    return `<p style="color:var(--red);">Project "${esc(slug)}" not found. Run <button class="help-cmd" data-cmd="projects">projects</button> for the list.</p>`;
   }
 
-  const st = p.status || 'stable';
+  const st = statusClass(p.status);
   const tags = (p.stack || []).map(t => `<span class="stack-tag">${esc(t)}</span>`).join('');
   const highlights = (p.highlights || []).map(h => `<li>${esc(h)}</li>`).join('');
   const actions = [];
-  if (p.url)  actions.push(`<a class="proj-link live" href="${esc(p.url)}" target="_blank" rel="noopener">● Live Demo ↗</a>`);
-  if (p.repo) actions.push(`<a class="proj-link repo" href="${esc(p.repo)}" target="_blank" rel="noopener">GitHub ↗</a>`);
-
+  if (p.url)  actions.push(`<a class="proj-link live" href="${esc(safeUrl(p.url))}" target="_blank" rel="noopener noreferrer">● Live Demo ↗</a>`);
+  if (p.repo) actions.push(`<a class="proj-link repo" href="${esc(safeUrl(p.repo))}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>`);
   return `
     <div class="detail-card">
       <div class="detail-head">
@@ -1274,33 +1444,66 @@ function cmdContact() {
     <div class="spec-list">
       <div class="spec-row">
         <span class="spec-key">Email</span>
-        <span class="spec-val"><a class="contact-link primary" href="mailto:${esc(CFG.email)}">${esc(CFG.email)}</a></span>
-        <button class="copy-btn" onclick="copyEmail(this)">Copy</button>
+        <span class="spec-val"><a class="contact-link primary" href="${esc(safeUrl('mailto:' + CFG.email))}">${esc(CFG.email)}</a></span>
+        <button class="copy-btn" data-action="copy-email">Copy</button>
       </div>
       <div class="spec-row">
         <span class="spec-key">GitHub</span>
-        <span class="spec-val"><a class="contact-link" href="${esc(CFG.github)}" target="_blank" rel="noopener">${esc(CFG.githubLabel)}<span class="arr">↗</span></a></span>
+        <span class="spec-val"><a class="contact-link" href="${esc(safeUrl(CFG.github))}" target="_blank" rel="noopener noreferrer">${esc(CFG.githubLabel)}<span class="arr">↗</span></a></span>
       </div>
       <div class="spec-row">
         <span class="spec-key">LinkedIn</span>
-        <span class="spec-val"><a class="contact-link" href="${esc(CFG.linkedin)}" target="_blank" rel="noopener">${esc(CFG.linkedinLabel)}<span class="arr">↗</span></a></span>
+        <span class="spec-val"><a class="contact-link" href="${esc(safeUrl(CFG.linkedin))}" target="_blank" rel="noopener noreferrer">${esc(CFG.linkedinLabel)}<span class="arr">↗</span></a></span>
       </div>
       <div class="spec-row">
         <span class="spec-key">Resume</span>
-        <span class="spec-val"><a class="contact-link" href="${esc(CFG.cv)}" target="_blank" rel="noopener">${esc(CFG.cvLabel)}<span class="arr">↗</span></a></span>
+        <span class="spec-val"><a class="contact-link" href="${esc(safeUrl(CFG.cv))}" target="_blank" rel="noopener noreferrer">${esc(CFG.cvLabel)}<span class="arr">↗</span></a></span>
       </div>
     </div>
   `;
 }
 
 function cmdCv() {
-  try { window.open(CFG.cv, '_blank', 'noopener'); } catch (e) {}
-  return `<p class="cmd-intro">Opening CV (<a class="contact-link" href="${esc(CFG.cv)}" target="_blank" rel="noopener">${esc(CFG.cvLabel)}<span class="arr">↗</span></a>)…</p>`;
+  const cv = safeUrl(CFG.cv);
+  try { window.open(cv, '_blank', 'noopener,noreferrer'); } catch (e) {}
+  return `<p class="cmd-intro">Opening CV (<a class="contact-link" href="${esc(cv)}" target="_blank" rel="noopener noreferrer">${esc(CFG.cvLabel)}<span class="arr">↗</span></a>)…</p>`;
 }
 
 /* ============================================================
    DISPATCHER
 ============================================================ */
+function hashFor(cmd, arg) {
+  const map = {
+    about: 'about', whoami: 'about',
+    projects: 'projects', ls: 'projects',
+    stack: 'stack', skills: 'stack',
+    contact: 'contact', email: 'contact',
+    cv: 'cv',
+  };
+  if (cmd === 'open' || cmd === 'project' || cmd === 'cat') {
+    const slug = String(arg || '').trim().toLowerCase();
+    return slug ? 'open-' + slug : '';
+  }
+  return map[cmd] || '';
+}
+
+function announceFor(cmd, arg) {
+  if (cmd === 'open' || cmd === 'project' || cmd === 'cat') {
+    const p = PROJECTS.find(x => x.slug && String(x.slug).toLowerCase() === String(arg || '').trim().toLowerCase());
+    announce(p ? `Details for ${p.name}.` : 'Project not found.');
+    return;
+  }
+  const messages = {
+    help: 'Command list shown.',
+    about: 'About section shown.', whoami: 'About section shown.',
+    projects: `${PROJECTS.length} projects listed.`, ls: `${PROJECTS.length} projects listed.`,
+    stack: 'Technical stack shown.', skills: 'Technical stack shown.',
+    contact: 'Contact details shown.', email: 'Contact details shown.',
+    cv: 'Opening CV.',
+  };
+  announce(messages[cmd] || 'Command not found.');
+}
+
 function runCmd(raw) {
   const line = (raw || '').trim();
   if (!line) return;
@@ -1315,14 +1518,18 @@ function runCmd(raw) {
   if (cmd === 'clear') {
     termHistory.innerHTML = '';
     if (window.history && history.replaceState) {
-      history.replaceState(null, '', window.location.pathname);
+      history.replaceState(null, '', window.location.pathname + window.location.search);
     }
     termInput.value = '';
+    announce('Terminal cleared.');
+    focusInput();
     return;
   }
 
-  if (['about', 'projects', 'stack', 'contact'].includes(cmd) && window.history && history.replaceState) {
-    history.replaceState(null, '', '#' + cmd);
+  const hash = hashFor(cmd, arg);
+  if (window.history && history.replaceState) {
+    const base = window.location.pathname + window.location.search;
+    history.replaceState(null, '', hash ? base + '#' + hash : base);
   }
 
   let out;
@@ -1341,21 +1548,69 @@ function runCmd(raw) {
     case 'email':     out = cmdContact();  break;
     case 'cv':        out = cmdCv();       break;
     default:
-      out = `<p style="color:var(--red);">command not found: <code>${esc(cmd)}</code>. Type <button class="help-cmd" onclick="runCmd('help')">help</button> for available commands.</p>`;
+      out = `<p style="color:var(--red);">command not found: <code>${esc(cmd)}</code>. Type <button class="help-cmd" data-cmd="help">help</button> for available commands.</p>`;
   }
 
   printEntry(line, out);
+  announceFor(cmd, arg);
 }
 
 /* ============================================================
    INPUT EVENTS
 ============================================================ */
+let completion = null; // { base, matches, index } — supports cycling on repeated Tab
+
+function completeInput() {
+  /* Keep a trailing space so `open ` can complete to project slugs. */
+  const raw = termInput.value.replace(/^\s+/, '').toLowerCase();
+  const normalized = raw.trim();
+
+  if (completion && completion.base === normalized) {
+    completion.index = (completion.index + 1) % completion.matches.length;
+    termInput.value = completion.matches[completion.index];
+    return;
+  }
+
+  const commands = [
+    'help', 'about', 'whoami', 'projects', 'ls', 'stack', 'skills',
+    'contact', 'email', 'cv', 'clear', 'open', 'project', 'cat',
+  ];
+  let matches = [];
+  const openMatch = raw.match(/^(open|project|cat)\s+(.*)$/);
+  if (openMatch) {
+    const prefix = openMatch[2].trim();
+    matches = PROJECTS
+      .map(p => p.slug)
+      .filter(s => s && String(s).toLowerCase().startsWith(prefix))
+      .map(s => openMatch[1] + ' ' + s);
+  } else if (normalized) {
+    matches = commands.filter(c => c.startsWith(normalized));
+  }
+
+  if (!matches.length) { completion = null; return; }
+
+  termInput.value = matches[0];
+  /* Base is the applied value so a second Tab cycles instead of restarting. */
+  completion = { base: matches[0], matches, index: 0 };
+  if (matches.length > 1) announce(`${matches.length} completions: ${matches.join(', ')}`);
+}
+
 termInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Tab') {
+    e.preventDefault();
+    completeInput();
+    return;
+  }
   if (e.key === 'Enter') {
     const val = termInput.value;
     termInput.value = '';
+    completion = null;
     runCmd(val);
-  } else if (e.key === 'ArrowUp') {
+    return;
+  }
+
+  completion = null;
+  if (e.key === 'ArrowUp') {
     e.preventDefault();
     if (historyIndex > 0) {
       historyIndex--;
@@ -1370,21 +1625,15 @@ termInput.addEventListener('keydown', (e) => {
       historyIndex = cmdHistory.length;
       termInput.value = '';
     }
-  } else if (e.key === 'Tab') {
-    e.preventDefault();
-    const val = termInput.value.trim().toLowerCase();
-    const cmds = ['help', 'about', 'projects', 'stack', 'contact', 'cv', 'clear'];
-    const slugs = PROJECTS.map(p => p.slug);
-
-    if (val.startsWith('open ')) {
-      const prefix = val.slice(5).trim();
-      const match = slugs.find(s => s.startsWith(prefix));
-      if (match) termInput.value = 'open ' + match;
-    } else if (val) {
-      const match = cmds.find(c => c.startsWith(val));
-      if (match) termInput.value = match;
-    }
   }
+});
+
+/* Delegated actions — avoids inline handlers in generated markup */
+document.addEventListener('click', (e) => {
+  const cmdEl = e.target.closest && e.target.closest('[data-cmd]');
+  if (cmdEl) { runCmd(cmdEl.getAttribute('data-cmd')); return; }
+  const copyEl = e.target.closest && e.target.closest('[data-action="copy-email"]');
+  if (copyEl) copyEmail(copyEl);
 });
 
 /* Click-to-focus is disabled on touch — the tap-to-focus input handles it naturally */
@@ -1394,17 +1643,26 @@ termBody.addEventListener('click', maybeFocus);
    INIT
 ============================================================ */
 const headerCvBtn = document.querySelector('.header-cv');
-if (headerCvBtn && CFG.cv) headerCvBtn.href = CFG.cv;
+if (headerCvBtn && CFG.cv) headerCvBtn.href = safeUrl(CFG.cv);
 
+/* Replace the static crawler seed with the interactive welcome screen.
+   role="log" is added only now so screen readers don't re-announce the seed. */
+termHistory.innerHTML = '';
+termHistory.setAttribute('role', 'log');
+termHistory.setAttribute('aria-label', 'Terminal output');
 printWelcome();
 focusInput();
 
-/* Deep links: #about, #projects, #stack, #contact, #cv */
+/* Deep links: #about, #projects, #stack, #contact, #cv, #open-<slug> */
 if (typeof window !== 'undefined' && window.addEventListener) {
   const handleHash = () => {
-    const hash = (window.location.hash || '').replace('#', '').trim().toLowerCase();
-    if (hash && ['about', 'projects', 'stack', 'contact', 'cv'].includes(hash)) {
-      runCmd(hash);
+    let hash = '';
+    try { hash = decodeURIComponent((window.location.hash || '').slice(1)).trim().toLowerCase(); }
+    catch (e) { hash = (window.location.hash || '').slice(1).trim().toLowerCase(); }
+    if (!hash) return;
+    const command = hash.startsWith('open-') ? 'open ' + hash.slice(5) : hash;
+    if (hashFor(command.split(' ')[0], command.split(' ').slice(1).join(' '))) {
+      runCmd(command);
     }
   };
   window.addEventListener('DOMContentLoaded', handleHash);

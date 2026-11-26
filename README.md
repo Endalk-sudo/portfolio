@@ -7,7 +7,7 @@ A minimalist, responsive, retro-futuristic terminal portfolio for Endalkachew Ya
 
 ## ⚡ Features
 
-- **Interactive Terminal UI**: Fully functional command-line interface with history (`↑` / `↓`), tab autocompletion, and deep-link routing (`#about`, `#projects`, `#stack`, `#contact`, `#cv`).
+- **Interactive Terminal UI**: Fully functional command-line interface with history (`↑` / `↓`), cycling tab autocompletion (including aliases), and deep-link routing (`#about`, `#projects`, `#stack`, `#contact`, `#cv`, `#open-<slug>`).
 - **Zero Build Step**: Pure static files. No Webpack, Vite, or bundle pipeline required — ready to host anywhere instantly.
 - **Config-Driven Architecture**: All personal profile data, skills, and projects live in `config.js`.
 - **Responsive & Mobile Optimized**:
@@ -21,10 +21,13 @@ A minimalist, responsive, retro-futuristic terminal portfolio for Endalkachew Ya
   - Search engine crawlers ready (`robots.txt` and `sitemap.xml`).
   - Google Schema.org JSON-LD Person metadata.
   - Dedicated custom terminal-themed `404.html` error page with auto-redirect.
+- **Pixel-Art Portrait**: Your full, uncropped pixel-art photo shown in `about`, rendered with crisp `image-rendering: pixelated`.
+- **Crawler & No-JS Friendly**: Static hero and full project list are pre-rendered in the HTML; JavaScript replaces them with the interactive terminal on load.
 - **Accessibility & Performance**:
   - Full keyboard navigation with clear `:focus-visible` rings.
+  - Screen-reader announcements via a polite live region for every command result.
   - Respects `prefers-reduced-motion` globally.
-  - 100/100 Lighthouse-ready performance.
+  - Performance-minded: no runtime dependencies, tiny SVG/PNG assets, portrait loaded only when `about` runs.
 
 ---
 
@@ -41,7 +44,7 @@ A minimalist, responsive, retro-futuristic terminal portfolio for Endalkachew Ya
 | `cv` | — | Open resume (`Endalkachew_Yaregal_CV.pdf`) in a new tab |
 | `clear` | — | Clear terminal screen history |
 
-> **Pro Tip**: Use `Tab` for autocompletion (e.g. type `open f` + `Tab` to autocomplete `open feedwise`) and `↑` / `↓` to recall command history.
+> **Pro Tip**: Use `Tab` to autocomplete (aliases included) and press it again to cycle through ambiguous matches. Use `↑` / `↓` to recall command history. Project details are shareable at `#open-<slug>`, e.g. `#open-feedwise`.
 
 ---
 
@@ -65,12 +68,15 @@ Direct section deep links work out of the box:
 - `http://localhost:8000/#stack`
 - `http://localhost:8000/#contact`
 - `http://localhost:8000/#cv`
+- `http://localhost:8000/#open-feedwise`
 
 ---
 
 ## ⚙️ Content Configuration
 
-All site content is maintained in `config.js`:
+All site content is maintained in `config.js`. Note: for crawler/no-JS support,
+the hero and project list are also pre-rendered in `index.html` — when you change
+profile or project copy, update the matching static seed there too.
 
 ### 1. Personal Profile & Links
 ```javascript
@@ -82,8 +88,10 @@ window.SITE = {
     github: 'https://github.com/Endalk-sudo',
     linkedin: 'https://www.linkedin.com/in/endalkachew-yaregal-swe',
     cv: './Endalkachew_Yaregal_CV.pdf',
+    portrait: './assets/me-pixel.png',      // shown in the `about` command
+    portraitAlt: 'Pixel-art portrait of Endalkachew Yaregal',
     location: 'Addis Ababa, Ethiopia',
-    tagline: 'I build production full-stack systems — background queues (BullMQ + Redis), AI integrations (Gemini), payment webhooks, and performant APIs.',
+    tagline: 'I design and ship full-stack systems: BullMQ/Redis workers, Gemini AI pipelines, payment webhooks, and APIs built to stay fast under load.',
     availability: 'Open to a 4-month software engineering internship starting February 2027 (onsite or hybrid)',
     availabilityShort: 'Open to a 4-month internship · Feb 2027',
     education: {
@@ -137,6 +145,10 @@ Ensure all these files are pushed to your repository:
 ```
 ├── index.html                 # Main single-page application & terminal engine
 ├── config.js                  # Profile, skills, and projects data source
+├── assets/
+│   └── me-pixel.png           # Full pixel-art portrait used by `about`
+├── tools/source/my_image.png  # Original portrait source (for regeneration only)
+├── tools/generate_assets.py   # Dev-only asset generator (requires Pillow)
 ├── Endalkachew_Yaregal_CV.pdf # Resume PDF
 ├── 404.html                   # Custom terminal 404 page with auto-redirect
 ├── og.png                     # Open Graph 1200x630 social card
@@ -150,6 +162,10 @@ Ensure all these files are pushed to your repository:
 ├── sitemap.xml                # SEO sitemap with lastmod date
 └── .nojekyll                  # Prevents GitHub Pages from ignoring special files
 ```
+
+> Static hosts upload every file in the repository. `tools/source/my_image.png` is
+> only needed to regenerate the portrait; add an ignore rule in your host settings
+> if you want it excluded from the deployment.
 
 ### Hosting Options
 
@@ -185,7 +201,29 @@ Ensure all these files are pushed to your repository:
 
 ---
 
+## 🖼️ Regenerating Pixel Assets
+
+The site has no build step, but the pixel-art portrait can be regenerated locally with Pillow:
+
+```sh
+pip install pillow
+python3 tools/generate_assets.py
+```
+
+This resizes the full `tools/source/my_image.png` into `assets/me-pixel.png`
+without cropping. To use a different portrait, replace that source file.
+
+---
+
 ## 📝 Changelog
+
+### v1.5 — Visuals, Crawlability & Terminal Polish
+- Added your full pixel-art portrait to `about`.
+- Pre-rendered the hero and full project list in HTML for crawlers and JS-disabled visitors; JS swaps in the interactive terminal on load.
+- Added screen-reader announcements for command results and converted all inline handlers to delegated `data-cmd` actions with safe URL validation.
+- Added `#open-<slug>` deep links for project details, alias-aware/cycling Tab completion, and tighter qualitative copy.
+- Added `tools/generate_assets.py` for regenerating the pixel-art portrait.
+- Follow-up polish: removed mobile autofocus, improved low-contrast colors and AA compliance, hid JS-only controls when JS is off, added `beta` status styling, fixed `open ` completion, shortened metadata, and optimized the portrait to 120 KB.
 
 ### v1.4 — Production Polish & Full Responsiveness Pass
 - Comprehensive breakpoint optimization (Galaxy Fold 280px to 4K desktop).

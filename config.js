@@ -13,7 +13,7 @@ window.SITE = {
         linkedinLabel: 'linkedin.com/in/endalkachew-yaregal-swe',
         cv: './Endalkachew_Yaregal_CV.pdf',
         cvLabel: 'Endalkachew_Yaregal_CV.pdf',
-        portrait: './assets/me-pixel.png',
+        portrait: './assets/me-pixel.webp',
         portraitAlt: 'Pixel-art portrait of Endalkachew Yaregal',
         location: 'Addis Ababa, Ethiopia',
         tagline: 'I design and ship full-stack systems: BullMQ/Redis workers, Gemini AI pipelines, payment webhooks, and APIs built to stay fast under load.',

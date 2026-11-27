@@ -88,7 +88,7 @@ window.SITE = {
     github: 'https://github.com/Endalk-sudo',
     linkedin: 'https://www.linkedin.com/in/endalkachew-yaregal-swe',
     cv: './Endalkachew_Yaregal_CV.pdf',
-    portrait: './assets/me-pixel.png',      // shown in the `about` command
+    portrait: './assets/me-pixel.webp',      // shown in the `about` command
     portraitAlt: 'Pixel-art portrait of Endalkachew Yaregal',
     location: 'Addis Ababa, Ethiopia',
     tagline: 'I design and ship full-stack systems: BullMQ/Redis workers, Gemini AI pipelines, payment webhooks, and APIs built to stay fast under load.',
@@ -146,7 +146,7 @@ Ensure all these files are pushed to your repository:
 ├── index.html                 # Main single-page application & terminal engine
 ├── config.js                  # Profile, skills, and projects data source
 ├── assets/
-│   └── me-pixel.png           # Full pixel-art portrait used by `about`
+│   └── me-pixel.webp           # Full pixel-art portrait used by `about`
 ├── tools/source/my_image.png  # Original portrait source (for regeneration only)
 ├── tools/generate_assets.py   # Dev-only asset generator (requires Pillow)
 ├── Endalkachew_Yaregal_CV.pdf # Resume PDF
@@ -210,7 +210,7 @@ pip install pillow
 python3 tools/generate_assets.py
 ```
 
-This resizes the full `tools/source/my_image.png` into `assets/me-pixel.png`
+This resizes the full `tools/source/my_image.png` into `assets/me-pixel.webp`
 without cropping. To use a different portrait, replace that source file.
 
 ---

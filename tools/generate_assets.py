@@ -3,7 +3,7 @@
 
     python3 tools/generate_assets.py
 
-Reads tools/source/my_image.png and writes assets/me-pixel.png at a web-friendly
+Reads tools/source/my_image.png and writes assets/me-pixel.webp at a web-friendly
 size. The whole image is preserved — nothing is cropped — and nearest-neighbour
 scaling keeps the original pixel-art look crisp. The site itself has zero
 runtime dependencies; this script only builds a static asset once.
@@ -27,8 +27,9 @@ def main():
         portrait = source.convert("RGBA").resize(
             (SIZE, SIZE), Image.Resampling.NEAREST
         )
-        target = ASSETS / "me-pixel.png"
-        portrait.save(target, optimize=True)
+        target = ASSETS / "me-pixel.webp"
+        # Lossless WebP keeps pixel art crisp while cutting the payload ~4x vs PNG.
+        portrait.save(target, lossless=True, method=6)
     print(f"  {target.relative_to(ROOT)} ({target.stat().st_size // 1024} KB)")
 
 
